@@ -15,11 +15,11 @@ Covid-19 Tracker Application with React.js and Graphs.
 
 ### ESLint, Prettier and AirBnB Style
 
-Andrew Min: [Setup ESLint + Prettier + AirBnB Style with Create React App](https://www.andrewmin.info/blog/react-setup/)
-Anna Jimenez: [Set up React JS with ESLint, Prettier and Airbnb](https://medium.com/javascript-in-plain-english/set-up-react-js-with-eslint-prettier-and-airbnb-cc015363a7c7)
-Ross Whitehouse: [Setting up ESLint in React](https://medium.com/@RossWhitehouse/setting-up-eslint-in-react-c20015ef35f7)
-AirBnb JavaScript Style Guide: [GitHub](https://github.com/airbnb/javascript)
-ESLint: [Documentation](https://eslint.org/docs/user-guide/configuring)
+- Andrew Min: [Setup ESLint + Prettier + AirBnB Style with Create React App](https://www.andrewmin.info/blog/react-setup/)
+- Anna Jimenez: [Set up React JS with ESLint, Prettier and Airbnb](https://medium.com/javascript-in-plain-english/set-up-react-js-with-eslint-prettier-and-airbnb-cc015363a7c7)
+- Ross Whitehouse: [Setting up ESLint in React](https://medium.com/@RossWhitehouse/setting-up-eslint-in-react-c20015ef35f7)
+- AirBnb JavaScript Style Guide: [GitHub](https://github.com/airbnb/javascript)
+- ESLint: [Documentation](https://eslint.org/docs/user-guide/configuring)
 
 <br/>
 <br/>
