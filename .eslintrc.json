@@ -8,7 +8,7 @@
   "extends": [
     "plugin:react/recommended",
     "airbnb",
-    "plugin:prettier/recommended",
+    "prettier",
     "prettier/react",
     "plugin:jest/recommended"
   ],
@@ -25,9 +25,16 @@
   },
   "plugins": ["react", "prettier", "jest"],
   "rules": {
-    "prettier/prettier": "error",
+    "prettier/prettier": [
+      "error",
+      {
+        // Reference: https://stackoverflow.com/questions/53516594/why-do-i-keep-getting-delete-cr-prettier-prettier
+        "endOfLine": "auto"
+      }
+    ],
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "react/state-in-constructor": "off",
-    "react/react-in-jsx-scope": "off"
+    "react/react-in-jsx-scope": "off",
+    "no-console": "off"
   }
 }

@@ -11,6 +11,7 @@ Covid-19 Tracker Application with React.js and Graphs.
 - Animations.
 - Information about the novel coronavirus, including transmission, symptoms, preventions.
 
+<br />
 ## References
 
 ### ESLint, Prettier and AirBnB Style
@@ -20,6 +21,11 @@ Covid-19 Tracker Application with React.js and Graphs.
 - Ross Whitehouse: [Setting up ESLint in React](https://medium.com/@RossWhitehouse/setting-up-eslint-in-react-c20015ef35f7)
 - AirBnb JavaScript Style Guide: [GitHub](https://github.com/airbnb/javascript)
 - ESLint: [Documentation](https://eslint.org/docs/user-guide/configuring)
+
+### Best Practices for Organizing Folder Structure
+
+- Fillip Panoski: [Choosing the best folder structure for your React Application](https://medium.com/javascript-in-plain-english/choosing-the-best-folder-structure-for-your-react-application-cba4885b3a2)
+- Gabriel: [How do index.js files work in React component directories](https://stackoverflow.com/questions/44092341/how-do-index-js-files-work-in-react-component-directories/44092481)
 
 <br/>
 <br/>
