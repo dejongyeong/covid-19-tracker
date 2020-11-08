@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Circle 1 Snapshot 1`] = `
+.c0 {
+  height: 747px;
+  width: 747px;
+  position: absolute;
+  top: -300px;
+  right: -250px;
+  background-color: rgba(234,226,183,0.5);
+  -webkit-transform: rotate(-46.28deg);
+  -ms-transform: rotate(-46.28deg);
+  transform: rotate(-46.28deg);
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  z-index: -1;
+}
+
+@media (max-width:calc(480px - 0.02px)) {
+  .c0 {
+    height: 482.21px;
+    width: 482.21px;
+    -webkit-transform: rotate(-63.78deg);
+    -ms-transform: rotate(-63.78deg);
+    transform: rotate(-63.78deg);
+    top: -241.11px;
+    right: -241.11px;
+  }
+}
+
+<div
+  class="c0"
+/>
+`;
+
+exports[`Circle 2 Snapshot 1`] = `
+.c0 {
+  height: 297.56px;
+  width: 297.56px;
+  position: absolute;
+  bottom: -148.78px;
+  left: -100px;
+  background-color: rgba(234,226,183,0.5);
+  -webkit-transform: rotate(-28.59deg);
+  -ms-transform: rotate(-28.59deg);
+  transform: rotate(-28.59deg);
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  z-index: -1;
+}
+
+@media (max-width:calc(480px - 0.02px)) {
+  .c0 {
+    bottom: -130px;
+    left: -120px;
+  }
+}
+
+<div
+  class="c0"
+/>
+`;
