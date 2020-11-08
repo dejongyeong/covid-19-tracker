@@ -11,7 +11,6 @@ Covid-19 Tracker Application with React.js and Graphs.
 - Animations.
 - Information about the novel coronavirus, including transmission, symptoms, preventions.
 
-<br />
 ## References
 
 ### ESLint, Prettier and AirBnB Style
