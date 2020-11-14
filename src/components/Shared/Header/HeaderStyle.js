@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Header = styled.div`
+export const Container = styled.div`
   width: auto;
   height: 80px;
   background-color: transparent;

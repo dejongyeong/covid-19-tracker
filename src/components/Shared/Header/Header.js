@@ -1,23 +1,26 @@
 import React from "react";
+import { withRouter } from "react-router-dom";
 import Theme from "../../../theme/Theme";
-import { Header, Image, Nav, NavButton } from "./HeaderStyle";
+import { Container, Image, Nav, NavButton } from "./HeaderStyle";
 
 import Logo from "../../../assets/icons/logo.svg";
 
-function App() {
+const Header = () => {
   return (
     <Theme>
-      <Header>
+      <Container>
         <Image>
           <img src={Logo} alt="Logo" />
         </Image>
         <Nav>
-          <p>Home</p>
-          <NavButton>Information</NavButton>
+          <a href="/">Home</a>
+          <NavButton>
+            <a href="/info">Information</a>
+          </NavButton>
         </Nav>
-      </Header>
+      </Container>
     </Theme>
   );
-}
+};
 
-export default App;
+export default withRouter(Header);
