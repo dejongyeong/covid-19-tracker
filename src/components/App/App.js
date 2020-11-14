@@ -1,18 +1,18 @@
 import React from "react";
-
+import Theme from "../Shared/Theme/Theme";
 import { Wrapper } from "./AppStyle";
-
-/* eslint-disable */
 import { Circle1, Circle2 } from "../Shared/BackgroundCircle/BackgroundCircles";
 import { Header } from "../Shared/Header/Header";
 
 function App() {
   return (
-    <Wrapper>
-      <Circle1 />
-      <Circle2 />
-      <Header>Hello World</Header>
-    </Wrapper>
+    <Theme>
+      <Wrapper>
+        <Circle1 />
+        <Circle2 />
+        <Header>Hello World</Header>
+      </Wrapper>
+    </Theme>
   );
 }
 
