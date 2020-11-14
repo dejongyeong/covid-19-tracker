@@ -1,11 +1,11 @@
 import React from "react";
 import Theme from "../../theme/Theme";
-import { Wrapper } from "./AppStyle";
+import { Wrapper } from "./InfoStyle";
 import { Circle1, Circle2 } from "../Shared/BackgroundCircle/BackgroundCircles";
 
 import Header from "../Shared/Header";
 
-function App() {
+function Info() {
   return (
     <Theme>
       <Wrapper>
@@ -17,4 +17,4 @@ function App() {
   );
 }
 
-export default App;
+export default Info;
