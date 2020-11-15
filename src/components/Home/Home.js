@@ -1,10 +1,12 @@
 import React from "react";
 import Theme from "../../theme/Theme";
 
+import { Wrapper } from "./HomeStyle";
+
 function Home() {
   return (
     <Theme>
-      <div>sss</div>
+      <Wrapper>Home</Wrapper>
     </Theme>
   );
 }
