@@ -1,13 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Circle 1 Snapshot 1`] = `
+exports[`Circle Snapshots renders circle 1 correctly 1`] = `
 .c0 {
   height: 747px;
   width: 747px;
   position: absolute;
   top: -300px;
   right: -250px;
-  background-color: rgba(234,226,183,0.5);
+  background-color: #eae2b7;
+  opacity: 50%;
   -webkit-transform: rotate(-46.28deg);
   -ms-transform: rotate(-46.28deg);
   transform: rotate(-46.28deg);
@@ -30,18 +31,19 @@ exports[`Circle 1 Snapshot 1`] = `
 }
 
 <div
-  class="c0"
+  className="c0"
 />
 `;
 
-exports[`Circle 2 Snapshot 1`] = `
+exports[`Circle Snapshots renders circle 2 correctly 1`] = `
 .c0 {
   height: 297.56px;
   width: 297.56px;
   position: absolute;
   bottom: -148.78px;
   left: -100px;
-  background-color: rgba(234,226,183,0.5);
+  background-color: #eae2b7;
+  opacity: 50%;
   -webkit-transform: rotate(-28.59deg);
   -ms-transform: rotate(-28.59deg);
   transform: rotate(-28.59deg);
@@ -59,6 +61,6 @@ exports[`Circle 2 Snapshot 1`] = `
 }
 
 <div
-  class="c0"
+  className="c0"
 />
 `;

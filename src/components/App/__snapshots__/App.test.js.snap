@@ -1,0 +1,103 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Landing renders correctly 1`] = `
+<div
+  className="sc-bdfBwQ cotNIV"
+>
+  <div
+    className="sc-gsTCUz bSzSYA"
+  />
+  <div
+    className="sc-dlfnbm eHccMw"
+  />
+  <header
+    className="MuiPaper-root MuiAppBar-root WithStyles(ForwardRef(AppBar))-root-3 MuiAppBar-positionStatic MuiAppBar-colorPrimary MuiPaper-elevation4"
+  >
+    <div
+      className="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters"
+    >
+      <div
+        className="sc-hKgILt hYwCGT"
+      >
+        <img
+          alt="Logo"
+          src="logo.svg"
+        />
+      </div>
+      <div
+        className="sc-eCssSg iTNsyt"
+      >
+        <a
+          aria-current="page"
+          className="home-link active"
+          href="/"
+          onClick={[Function]}
+          style={
+            Object {
+              "color": "#d62828",
+            }
+          }
+        >
+          Home
+        </a>
+        <a
+          aria-current={null}
+          className="info-link"
+          href="/info"
+          onClick={[Function]}
+        >
+          <button
+            className="sc-jSgupP gxbXCN"
+          >
+            Information
+          </button>
+        </a>
+      </div>
+      <div
+        className="sc-gKsewC hAhubS"
+      >
+        <button
+          aria-label="menu"
+          className="MuiButtonBase-root MuiIconButton-root WithStyles(ForwardRef(IconButton))-root-4 MuiIconButton-edgeEnd"
+          disabled={false}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex={0}
+          type="button"
+        >
+          <span
+            className="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden={true}
+              className="MuiSvgIcon-root"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
+              />
+            </svg>
+          </span>
+        </button>
+      </div>
+    </div>
+  </header>
+  <div
+    className="sc-pFZIQ hQwGtT"
+    id="covid-data"
+  >
+    Home
+  </div>
+</div>
+`;
