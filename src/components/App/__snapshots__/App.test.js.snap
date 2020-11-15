@@ -25,7 +25,7 @@ exports[`Landing renders correctly 1`] = `
         />
       </div>
       <div
-        className="sc-eCssSg iTNsyt"
+        className="sc-eCssSg iMCbia"
       >
         <a
           aria-current="page"
@@ -47,7 +47,7 @@ exports[`Landing renders correctly 1`] = `
           onClick={[Function]}
         >
           <button
-            className="sc-jSgupP gxbXCN"
+            className="sc-jSgupP bFUndu"
           >
             Information
           </button>
