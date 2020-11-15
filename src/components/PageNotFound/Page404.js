@@ -1,11 +1,15 @@
 import React from "react";
 import Theme from "../../theme/Theme";
-import { Wrapper } from "./Page404Style";
+import { MainHeader, Wrapper } from "./Page404Style";
 
 function Page404() {
   return (
     <Theme>
-      <Wrapper id="page-404">Page 404</Wrapper>
+      <Wrapper id="page-404">
+        <MainHeader>
+          <h1>Oops...</h1>
+        </MainHeader>
+      </Wrapper>
     </Theme>
   );
 }

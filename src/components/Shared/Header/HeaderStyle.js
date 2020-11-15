@@ -8,7 +8,6 @@ export const CustomAppBar = withStyles(() => ({
     backgroundColor: "transparent",
     padding: "20x 10px 20px 40px",
     display: "flex",
-    border: "1px solid black",
     boxShadow: "none",
     justifyContent: "center",
   },
@@ -23,7 +22,7 @@ export const DesktopNav = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  font-family: "Rubik", sans-serif;
+  font-family: ${(props) => props.theme.font.heading};
   font-weight: 500;
   font-style: normal;
   font-size: 1rem;
@@ -49,7 +48,7 @@ export const NavButton = styled.button`
   background-color: ${(props) => props.theme.colors.primaryColor};
   border-radius: 20px;
   padding: 9px 20px;
-  font-family: Rubik, sans-serif;
+  font-family: ${(props) => props.theme.font.heading};
   margin-left: 32px;
   border: none;
   cursor: pointer;
@@ -97,7 +96,7 @@ export const ListWrapper = styled.div`
   svg,
   span {
     color: ${(props) => props.theme.colors.primaryColor};
-    font-family: "Rubik", sans-serif;
+    font-family: ${(props) => props.theme.font.heading};
     font-style: normal;
     font-weight: 500;
     line-height: 20px;

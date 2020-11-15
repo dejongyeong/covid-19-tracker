@@ -21,5 +21,9 @@ export const theme = {
     md: `(max-width:calc(${SIZE.md} - 0.02px))`,
     lg: `(max-width:calc(${SIZE.lg} - 0.02px))`,
     xl: `(min-width:${SIZE.xl})`,
+  },
+  font: {
+    heading: `Rubik, sans-serif`,
+    paragraph: `Roboto, sans-serif`
   }
 };
