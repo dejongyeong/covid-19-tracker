@@ -1,11 +1,13 @@
 import React from "react";
 import Theme from "../../theme/Theme";
 import { Wrapper } from "./InfoStyle";
+import Header from "../Shared/Header";
 
 function Info() {
   return (
     <Theme>
-      <Wrapper>Information</Wrapper>
+      <Header />
+      <Wrapper id="covid-info">Information</Wrapper>
     </Theme>
   );
 }

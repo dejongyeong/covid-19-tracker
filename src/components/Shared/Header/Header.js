@@ -74,6 +74,7 @@ function Header() {
         <ListWrapper>
           <List>
             <NavLink
+              className="home-link"
               exact
               to="/"
               activeClassName={classes.mobileActive}
@@ -91,6 +92,8 @@ function Header() {
           </List>
           <List>
             <NavLink
+              className="info-link"
+              exact
               to="/info"
               activeClassName={classes.mobileActive}
               isActive={(match) => {
@@ -119,6 +122,7 @@ function Header() {
           </Image>
           <DesktopNav>
             <NavLink
+              className="home-link"
               exact
               to="/"
               activeStyle={{
@@ -131,6 +135,7 @@ function Header() {
               Home
             </NavLink>
             <NavLink
+              className="info-link"
               exact
               to="/info"
               isActive={(match) => {
