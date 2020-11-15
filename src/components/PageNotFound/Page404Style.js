@@ -10,6 +10,15 @@ export const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   justify-content: center;
+
+  @media ${(props) => props.theme.breakpoints.sm} {
+    height: 100%;
+    margin: 40px auto;
+  }
+
+  @media only screen and (orientation: portrait) {
+    height: 85vh;
+  }
 `;
 
 //  Could use svgator but require webpack

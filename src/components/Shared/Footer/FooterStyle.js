@@ -15,8 +15,9 @@ export const Wrapper = styled.div`
   bottom: 0;
   line-height: 17px;
 
-  @media ${(props) => props.theme.breakpoints.sm} {
+  @media ${(props) => props.theme.breakpoints.sm} and (orientation: portrait) {
     height: 30px;
     padding: 0;
+    position: relative
   }
 `;

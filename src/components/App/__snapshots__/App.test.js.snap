@@ -2,7 +2,7 @@
 
 exports[`Landing renders correctly 1`] = `
 <div
-  className="sc-bdfBwQ cotNIV"
+  className="sc-bdfBwQ ePqbZm"
 >
   <div
     className="sc-gsTCUz bSzSYA"
@@ -94,13 +94,13 @@ exports[`Landing renders correctly 1`] = `
     </div>
   </header>
   <div
-    className="sc-pFZIQ hQwGtT"
+    className="sc-pFZIQ kXmBsN"
     id="covid-data"
   >
     Home
   </div>
   <div
-    className="sc-kstrdz bOvQoK"
+    className="sc-kstrdz hlNski"
     id="footer"
   >
     <p>
