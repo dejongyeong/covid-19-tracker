@@ -99,5 +99,13 @@ exports[`Landing renders correctly 1`] = `
   >
     Home
   </div>
+  <div
+    className="sc-kstrdz bOvQoK"
+    id="footer"
+  >
+    <p>
+      Design and Built by De Jong Yeong © 2020
+    </p>
+  </div>
 </div>
 `;

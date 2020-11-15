@@ -1,15 +1,15 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-  color: #000000;
   width: auto;
-  height: 100vh;
+  height: 85vh;
   padding: 0 58px 0 58px;
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  justify-content: center;
 `;
 
 //  Could use svgator but require webpack
@@ -19,6 +19,8 @@ export const MainHeader = styled.div`
   svg {
     -webkit-animation: upDown 1s infinite alternate;
     animation: upDown 1s infinite alternate;
+    width: 100%;
+    height: auto;
   }
   @keyframes upDown {
     0% {
@@ -41,11 +43,13 @@ export const MainHeader = styled.div`
 export const SubHeader = styled.div`
   text-transform: uppercase;
   font-family: ${(props) => props.theme.font.heading};
-  font-size: clamp(2rem, 3rem, 4rem);
+  font-size: clamp(1.5rem, 15vw, 4rem);
   font-weight: 600;
   color: ${(props) => props.theme.colors.primaryColor};
   letter-spacing: 0.1rem;
   margin: 30px auto 10px auto;
+  width: 100%;
+  height: auto;
 `;
 
 export const Content = styled.div`
@@ -57,6 +61,7 @@ export const Content = styled.div`
   text-align: center;
   line-height: 28px;
   margin-bottom: 25px;
+  color: ${(props) => props.theme.colors.primaryColor};
 `;
 
 export const PageNotFoundButton = styled.button`
@@ -82,4 +87,6 @@ export const PageNotFoundButton = styled.button`
   -webkit-transition: background 0.5s ease-in-out;
   -moz-transition: background 0.5s ease-in-out;
   text-transform: uppercase;
+  margin-left: 0;
+  margin-right: 0;
 `;
