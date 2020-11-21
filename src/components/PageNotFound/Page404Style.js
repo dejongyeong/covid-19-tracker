@@ -9,15 +9,15 @@ export const Wrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  justify-content: center;
+  margin: 40px auto;
 
-  @media ${(props) => props.theme.breakpoints.sm} {
-    height: 100%;
-    margin: 40px auto;
+  @media only screen and (orientation: portrait) and ${(props) =>
+      props.theme.breakpoints.sm} {
+    height: 100vh;
   }
 
-  @media only screen and (orientation: portrait) {
-    height: 80vh;
+  @media only screen and (orientation: portrait) and (min-width: 540px) and (max-width: 540px) {
+    height: 70vh;
   }
 `;
 
@@ -59,6 +59,7 @@ export const SubHeader = styled.div`
   margin: 30px auto 10px auto;
   width: 100%;
   height: auto;
+  text-align: center;
 `;
 
 export const Content = styled.div`

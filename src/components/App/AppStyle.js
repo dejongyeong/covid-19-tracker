@@ -8,7 +8,8 @@ export const Wrapper = styled.div`
   position: relative;
   overflow: hidden;
 
-  @media ${(props) => props.theme.breakpoints.sm} and (orientation: portrait) {
+  @media only screen and ${(props) => props.theme.breakpoints.sm} and (orientation: portrait) {
     height: 100%;
+    overflow: none
   }
 `;

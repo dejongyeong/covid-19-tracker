@@ -8,12 +8,8 @@ export const Wrapper = styled.div`
   padding: 0 58px 0 58px;
   border: 1px solid black;
 
-  @media ${(props) => props.theme.breakpoints.sm} {
-    height: 100%;
-    margin: 38px auto;
-  }
-
-  @media only screen and (orientation: portrait) {
-    height: 85vh;
+  @media only screen and (orientation: portrait) and ${(props) => props.theme.breakpoints.sm}  {
+    margin: 30px auto;
+    height: 100vh;
   }
 `;
