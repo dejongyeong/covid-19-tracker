@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Landing renders correctly 1`] = `
+exports[`Home renders correctly 1`] = `
 <div
-  className="sc-bdfBwQ cotNIV"
+  className="sc-bdfBwQ cLVzCn"
 >
   <div
     className="sc-gsTCUz bSzSYA"
@@ -25,7 +25,7 @@ exports[`Landing renders correctly 1`] = `
         />
       </div>
       <div
-        className="sc-eCssSg iTNsyt"
+        className="sc-eCssSg ezlAZN"
       >
         <a
           aria-current="page"
@@ -47,7 +47,7 @@ exports[`Landing renders correctly 1`] = `
           onClick={[Function]}
         >
           <button
-            className="sc-jSgupP gxbXCN"
+            className="sc-jSgupP bFUndu"
           >
             Information
           </button>
@@ -94,10 +94,18 @@ exports[`Landing renders correctly 1`] = `
     </div>
   </header>
   <div
-    className="sc-pFZIQ hQwGtT"
+    className="sc-pFZIQ gfJuUW"
     id="covid-data"
   >
     Home
+  </div>
+  <div
+    className="sc-kstrdz hlNski"
+    id="footer"
+  >
+    <p>
+      Design and Built by De Jong Yeong © 2020
+    </p>
   </div>
 </div>
 `;
