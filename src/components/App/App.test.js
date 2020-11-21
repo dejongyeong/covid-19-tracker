@@ -2,12 +2,12 @@ import React from "react";
 import renderer from "react-test-renderer";
 import { MemoryRouter } from "react-router-dom";
 import { render, act } from "@testing-library/react";
+
 import App from "./App";
-// import userEvent from '@testing-library/user-event'
 
 // Tutorial 1: https://reactrouter.com/web/guides/testing
 // Tutorial 2: https://testing-library.com/docs/example-react-router/
-test("Landing renders correctly", () => {
+test("Home renders correctly", () => {
   const tree = renderer
     .create(
       <MemoryRouter>
