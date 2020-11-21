@@ -17,7 +17,7 @@ export const Wrapper = styled.div`
   }
 
   @media only screen and (orientation: portrait) {
-    height: 85vh;
+    height: 80vh;
   }
 `;
 
@@ -78,7 +78,6 @@ export const PageNotFoundButton = styled.button`
   border-radius: 20px;
   padding: 9px 20px;
   font-family: ${(props) => props.theme.font.heading};
-  margin-left: 32px;
   border: none;
   cursor: pointer;
   color: #f2f2fb;
@@ -98,4 +97,5 @@ export const PageNotFoundButton = styled.button`
   text-transform: uppercase;
   margin-left: 0;
   margin-right: 0;
+  margin-top: 12px;
 `;

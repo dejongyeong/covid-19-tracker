@@ -27,7 +27,7 @@ export const DesktopNav = styled.div`
   font-style: normal;
   font-size: 1rem;
   height: auto;
-  padding-right: 30px;
+  padding-right: 0px;
 
   a {
     text-decoration: none;
