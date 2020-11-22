@@ -7,6 +7,10 @@ export const Wrapper = styled.div`
   padding: 15px 45px;
   margin: 0 auto;
 
+  @media only screen and (min-width: 1920.02px) {
+    height: 100vh;
+  }
+
   @media only screen and (orientation: portrait) and (min-height: 1024.98px) {
     height: 89.4vh;
   }
@@ -66,7 +70,9 @@ export const InfoWrapper = styled.div`
   padding: 10px 0 10px 10px;
   display: flex;
   flex-direction: row;
-  margin: 20px 0 10px 0;
+  margin: 40px 0 10px 0;
+  justify-content: center;
+  align-items: center;
 
   .card:nth-child(2) {
     margin: 0 60px;
@@ -81,8 +87,6 @@ export const InfoWrapper = styled.div`
 
   @media only screen and (max-width: 807.98px) {
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
     .card:nth-child(2) {
       margin: 20px auto;
     }
