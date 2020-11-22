@@ -29,7 +29,7 @@ export const Header = styled.div`
   font-weight: 600;
   width: 100%;
   text-transform: uppercase;
-  font-size: clamp(2rem, 20vw, 5rem);
+  font-size: clamp(3rem, 20vw, 5rem);
   margin-top: 5px;
 `;
 
