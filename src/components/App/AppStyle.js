@@ -4,12 +4,11 @@ import styled from "styled-components";
 export const Wrapper = styled.div`
   color: #ffffff;
   width: auto;
-  height: 100vh;
+  height: 100%;
   position: relative;
   overflow: hidden;
 
-  @media only screen and ${(props) => props.theme.breakpoints.sm} and (orientation: portrait) {
-    height: 100%;
+  @media only screen and ${(props) => props.theme.breakpoints.lg} and (orientation: portrait) {
     overflow: none
   }
 `;

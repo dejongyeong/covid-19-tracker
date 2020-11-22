@@ -2,7 +2,7 @@
 
 exports[`Home renders correctly 1`] = `
 <div
-  className="sc-bdfBwQ cLVzCn"
+  className="sc-bdfBwQ fDlVuy"
 >
   <div
     className="sc-gsTCUz bSzSYA"
@@ -100,7 +100,7 @@ exports[`Home renders correctly 1`] = `
     Home
   </div>
   <div
-    className="sc-kstrdz hlNski"
+    className="sc-dIUggk bDRVUy"
     id="footer"
   >
     <p>

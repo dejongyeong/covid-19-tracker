@@ -2,22 +2,18 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
   width: auto;
-  height: 85vh;
-  padding: 0 58px 0 58px;
+  height: calc(95.3vh - 100px);
+  padding: 0 58px;
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 40px auto;
+  margin: 30px auto 20px auto;
 
   @media only screen and (orientation: portrait) and ${(props) =>
       props.theme.breakpoints.sm} {
     height: 100vh;
-  }
-
-  @media only screen and (orientation: portrait) and (min-width: 540px) and (max-width: 540px) {
-    height: 70vh;
   }
 `;
 

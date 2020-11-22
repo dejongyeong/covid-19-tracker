@@ -1,0 +1,95 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<InfoCard> test 1`] = `
+.c0 {
+  background-color: #003049;
+  font-family: Rubik,sans-serif;
+  color: #eae2b7;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 100%;
+  max-width: 430px;
+  height: 463px;
+  max-height: 463px;
+  border-radius: 15px;
+  padding: 40px 20px 30px 20px;
+}
+
+@media only screen and (min-width:1200px) {
+  .c0 {
+    -webkit-transition: -webkit-transform 0.3s ease-out;
+    -webkit-transition: transform 0.3s ease-out;
+    transition: transform 0.3s ease-out;
+  }
+
+  .c0:hover {
+    -webkit-transform: translate(0,-10px);
+    -ms-transform: translate(0,-10px);
+    transform: translate(0,-10px);
+    -webkit-transform: translate(0,-10px);
+  }
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`<InfoWrapper> test 1`] = `
+.c0 {
+  width: 100%;
+  height: auto;
+  padding: 10px 0 10px 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  margin: 40px 0 10px 0;
+}
+
+.c0 .card:nth-child(2) {
+  margin: 0 60px;
+}
+
+@media only screen and (max-width:calc(992px - 0.02px)) {
+  .c0 .card:nth-child(2) {
+    margin: 0 20px;
+  }
+}
+
+@media only screen and (max-width:807.98px) {
+  .c0 {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+
+  .c0 .card:nth-child(2) {
+    margin: 20px auto;
+  }
+}
+
+<div
+  className="c0"
+/>
+`;

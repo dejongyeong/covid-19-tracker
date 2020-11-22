@@ -11,6 +11,10 @@ Covid-19 Tracker Application with React.js and Graphs.
 - Animations.
 - Information about the novel coronavirus, including transmission, symptoms, preventions.
 
+**Changes** made from initial design:
+
+- Initial design for responsive Info Cards uses _Carousel_ feature, but have implemented to show all cards in column-direction. Thinking is it necessary? Would it be better just to show all cards in column format instead of carousel? **Will have to revise in future!!**
+
 ## References
 
 ### ESLint, Prettier and AirBnB Style
