@@ -67,13 +67,10 @@ export const Content = styled.div`
 export const InfoWrapper = styled.div`
   width: 100%;
   height: auto;
-  padding: 10px 0 10px 10px;
+  padding: 10px 0 10px 0;
   display: flex;
   flex-direction: row;
   margin: 40px 0 10px 0;
-  justify-content: center;
-  align-items: center;
-
   .card:nth-child(2) {
     margin: 0 60px;
   }
@@ -87,6 +84,8 @@ export const InfoWrapper = styled.div`
 
   @media only screen and (max-width: 807.98px) {
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     .card:nth-child(2) {
       margin: 20px auto;
     }
@@ -106,11 +105,13 @@ export const InfoCard = styled.div`
   max-height: 463px;
   border-radius: 15px;
   padding: 40px 20px 30px 20px;
-  transition: transform 0.3s ease-out;
 
-  :hover {
-    transform: translate(0, -10px);
-    -webkit-transform: translate(0, -10px);
+  @media only screen and ${(props) => props.theme.breakpoints.xl} {
+    transition: transform 0.3s ease-out;
+    :hover {
+      transform: translate(0, -10px);
+      -webkit-transform: translate(0, -10px);
+    }
   }
 `;
 
