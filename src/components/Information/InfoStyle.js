@@ -2,15 +2,20 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
   color: #000000;
-  width: 95%;
-  height: 100vh;
-  padding: 15px 58px 0 0;
+  width: 100%;
+  height: 100%;
+  padding: 15px 45px;
   margin: 0 auto;
 
+  @media only screen and (orientation: portrait) and (min-height: 1024.98px) {
+    height: 89.4vh;
+  }
+
   @media only screen and (orientation: portrait) and ${(props) =>
-      props.theme.breakpoints.sm} {
+      props.theme.breakpoints.md} {
     height: 100%;
     margin: 30px auto;
+    padding: 15px 20px;
   }
 `;
 
@@ -48,6 +53,11 @@ export const Content = styled.div`
       text-decoration: underline;
     }
   }
+
+  /* ts-ignore */
+  @media only screen and ${(props) => props.theme.breakpoints.lg} {
+    width: 100%;
+  }
 `;
 
 export const InfoWrapper = styled.div`
@@ -56,17 +66,25 @@ export const InfoWrapper = styled.div`
   padding: 10px 0 10px 10px;
   display: flex;
   flex-direction: row;
-  margin: 20px 0;
+  margin: 20px 0 10px 0;
 
   .card:nth-child(2) {
     margin: 0 60px;
   }
 
-  @media only screen and (orientation: portrait) and ${(props) =>
-      props.theme.breakpoints.sm} {
-    flex-direction: column;
+  /* ts-ignore */
+  @media only screen and ${(props) => props.theme.breakpoints.lg} {
     .card:nth-child(2) {
-      margin: 0;
+      margin: 0 20px;
+    }
+  }
+
+  @media only screen and (max-width: 807.98px) {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .card:nth-child(2) {
+      margin: 20px auto;
     }
   }
 `;
@@ -79,11 +97,11 @@ export const InfoCard = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  max-width: 403px;
-  height: auto;
+  max-width: 430px;
+  height: 463px;
   max-height: 463px;
   border-radius: 15px;
-  padding: 35px 20px;
+  padding: 40px 20px 30px 20px;
   transition: transform 0.3s ease-out;
 
   :hover {

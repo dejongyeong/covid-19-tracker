@@ -21,7 +21,7 @@ test("<Wrapper> height", () => {
   // medium to large
   expect(
     window.getComputedStyle(document.getElementById("page-404")).height
-  ).toEqual("85vh");
+  ).toEqual("calc(95.3vh - 100px)");
 });
 
 test("<Wrapper> in smaller devices", () => {
@@ -29,7 +29,7 @@ test("<Wrapper> in smaller devices", () => {
   expect(tree).toHaveStyleRule("height", "100vh", {
     media: `only screen and (orientation: portrait) and (max-width:calc(480px - 0.02px))`,
   });
-  expect(tree).toHaveStyleRule("height", "70vh", {
+  expect(tree).not.toHaveStyleRule("height", "70vh", {
     media: `only screen and (orientation: portrait) and (min-width: 540px) and (max-width: 540px)`,
   });
 });
