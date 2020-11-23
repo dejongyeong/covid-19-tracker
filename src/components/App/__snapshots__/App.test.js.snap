@@ -94,13 +94,120 @@ exports[`Home renders correctly 1`] = `
     </div>
   </header>
   <div
-    className="sc-pFZIQ gfJuUW"
+    className="sc-pFZIQ hSHtud"
     id="covid-data"
   >
-    Home
+    <div
+      className="sc-jrAGrp cNtYEa"
+    >
+      <h3
+        id="country-name"
+      >
+        Congo, the Democratic Republic of the
+      </h3>
+      <p
+        id="last-updated"
+      >
+        Last updated: 20th October 2020
+      </p>
+    </div>
+    <div
+      className="sc-kEjbxe eCIXVC"
+    >
+      <div
+        className="sc-iqHYGH dVqasS"
+      >
+        <div
+          className="sc-crrsfI eKRhuC"
+        >
+          Search
+        </div>
+        <div
+          className="sc-dQppl iLgSum"
+        >
+          <div
+            className="sc-bqyKva frEmtB data-box"
+            id="infected"
+          >
+            <p>
+              Infected
+            </p>
+            <h3
+              id="infected-num"
+            >
+              40,975,608
+            </h3>
+            <h4>
+              + 
+              <span
+                id="today-infected"
+              >
+                16,753
+              </span>
+            </h4>
+            <p>
+              Total active and closed cases
+            </p>
+          </div>
+          <div
+            className="sc-bqyKva frEmtB data-box"
+            id="recovered"
+          >
+            <p>
+              Recovered
+            </p>
+            <h3
+              id="recovered-num"
+            >
+              40,975,608
+            </h3>
+            <h4>
+              + 
+              <span
+                id="today-recovered"
+              >
+                16,753
+              </span>
+            </h4>
+            <p>
+              Total recoveries from Covid
+            </p>
+          </div>
+          <div
+            className="sc-bqyKva frEmtB data-box"
+            id="deaths"
+          >
+            <p>
+              Deaths
+            </p>
+            <h3
+              id="deaths-num"
+            >
+              40,975,608
+            </h3>
+            <h4>
+              + 
+              <span
+                id="today-deaths"
+              >
+                16,753
+              </span>
+            </h4>
+            <p>
+              Total death caused by Covid
+            </p>
+          </div>
+        </div>
+      </div>
+      <div
+        className="sc-kstrdz dQsEAz"
+      >
+        Graph
+      </div>
+    </div>
   </div>
   <div
-    className="sc-dIUggk bDRVUy"
+    className="sc-cxFLnm dsEONv"
     id="footer"
   >
     <p>

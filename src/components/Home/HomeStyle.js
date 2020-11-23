@@ -135,6 +135,7 @@ export const CountBox = styled.div`
 
 export const GraphWrapper = styled.div`
   width: 100%;
+  height: 1000px;
   border: 1px solid black;
   margin-left: 3%;
 `;
