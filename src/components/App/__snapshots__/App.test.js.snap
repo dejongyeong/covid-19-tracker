@@ -112,21 +112,21 @@ exports[`Home renders correctly 1`] = `
       </p>
     </div>
     <div
-      className="sc-kEjbxe eCIXVC"
+      className="sc-kEjbxe eNeiRW"
     >
       <div
         className="sc-iqHYGH dVqasS"
       >
         <div
-          className="sc-crrsfI eKRhuC"
+          className="sc-crrsfI hXOvds"
         >
           Search
         </div>
         <div
-          className="sc-dQppl iLgSum"
+          className="sc-dQppl iuPSxI"
         >
           <div
-            className="sc-bqyKva frEmtB data-box"
+            className="sc-kstrdz hwZhUL data-box"
             id="infected"
           >
             <p>
@@ -150,7 +150,7 @@ exports[`Home renders correctly 1`] = `
             </p>
           </div>
           <div
-            className="sc-bqyKva frEmtB data-box"
+            className="sc-kstrdz hwZhUL data-box"
             id="recovered"
           >
             <p>
@@ -174,7 +174,7 @@ exports[`Home renders correctly 1`] = `
             </p>
           </div>
           <div
-            className="sc-bqyKva frEmtB data-box"
+            className="sc-kstrdz hwZhUL data-box"
             id="deaths"
           >
             <p>
@@ -198,16 +198,21 @@ exports[`Home renders correctly 1`] = `
             </p>
           </div>
         </div>
+        <div
+          className="sc-bqyKva dtiVih"
+        >
+          Hello
+        </div>
       </div>
       <div
-        className="sc-kstrdz dQsEAz"
+        className="sc-hBEYos bczUgU"
       >
         Graph
       </div>
     </div>
   </div>
   <div
-    className="sc-cxFLnm dsEONv"
+    className="sc-lmoMRL jkNBsw"
     id="footer"
   >
     <p>

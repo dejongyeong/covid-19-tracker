@@ -8,6 +8,7 @@ import {
   DataWrapper,
   GraphWrapper,
   HeaderWrapper,
+  MobileCountBoxWrapper,
   SearchBar,
   Wrapper,
 } from "./HomeStyle";
@@ -51,6 +52,7 @@ function Home() {
                 <p>Total death caused by Covid</p>
               </CountBox>
             </CountBoxWrapper>
+            <MobileCountBoxWrapper>Hello</MobileCountBoxWrapper>
           </CountWrapper>
           <GraphWrapper>Graph</GraphWrapper>
         </DataWrapper>

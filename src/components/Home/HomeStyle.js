@@ -50,6 +50,12 @@ export const DataWrapper = styled.div`
   flex-direction: row;
   margin-top: 3%;
   padding: 10px;
+
+  @media only screen and ${(props) => props.theme.breakpoints.lg} {
+    flex-direction: column;
+    margin-top: 4%;
+    padding: 5px;
+  }
 `;
 
 export const CountWrapper = styled.div`
@@ -62,7 +68,7 @@ export const CountWrapper = styled.div`
 export const SearchBar = styled.div`
   width: 100%;
   height: auto;
-  margin: 0 auto 40px auto;
+  margin: 0 auto 35px auto;
   color: ${(props) => props.theme.colors.primaryColor};
   border: 1px solid black;
 `;
@@ -72,17 +78,6 @@ export const CountBoxWrapper = styled.div`
   height: auto;
   display: flex;
   flex-direction: column;
-
-  h3 {
-    margin: 20px 0 10px 0;
-    font-size: clamp(2rem, 36px, 4rem);
-    line-height: 43px;
-  }
-  h4 {
-    margin-bottom: 25px;
-    font-size: clamp(1.5rem, 24px, 2rem);
-    line-height: 28px;
-  }
 
   .data-box:nth-child(1) {
     box-shadow: inset 0px 5px 0px
@@ -112,6 +107,30 @@ export const CountBoxWrapper = styled.div`
     font-style: normal;
     font-weight: 500;
   }
+
+  @media only screen and ${(props) => props.theme.breakpoints.lg} {
+    flex-direction: row;
+    .data-box:nth-child(2) {
+      margin: 0 auto;
+    }
+  }
+
+  @media only screen and (max-width: 937.98px) {
+    display: none;
+  }
+`;
+
+// Mobile Count Box Wrapper - hide data
+export const MobileCountBoxWrapper = styled.div`
+  width: 100%;
+  height: auto;
+  display: none;
+  color: black;
+  border: 1px solid black;
+
+  @media only screen and (max-width: 937.98px) {
+    display: inline-block;
+  }
 `;
 
 export const CountBox = styled.div`
@@ -127,9 +146,28 @@ export const CountBox = styled.div`
   justify-content: center;
   align-items: flex-start;
   padding: 15px 0 15px 29px;
+  h3 {
+    margin: 20px 0 10px 0;
+    font-size: clamp(1.6rem, 30px, 4rem);
+    line-height: 43px;
+  }
+  h4 {
+    margin-bottom: 25px;
+    font-size: clamp(1.2rem, 20px, 2rem);
+    line-height: 28px;
+  }
   p {
     color: #7e7e7e;
     font-family: ${(props) => props.theme.font.paragraph};
+    font-size: clamp(0.8rem, 16px, 1rem);
+  }
+
+  @media only screen and (max-height: 949.98px) and (min-height: 812px) {
+    max-width: 230px;
+    width: 100%;
+    min-height: 220px;
+    max-height: 220px;
+    padding: 15px 29px;
   }
 `;
 
@@ -138,4 +176,8 @@ export const GraphWrapper = styled.div`
   height: 1000px;
   border: 1px solid black;
   margin-left: 3%;
+
+  @media only screen and ${(props) => props.theme.breakpoints.lg} {
+    margin: 4% auto -2% auto;
+  }
 `;
