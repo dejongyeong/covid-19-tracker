@@ -17,8 +17,8 @@ export const Wrapper = styled.div`
   @media only screen and (orientation: portrait) and ${(props) =>
       props.theme.breakpoints.md} {
     height: 100%;
-    margin: 30px auto;
-    padding: 15px 20px;
+    margin: 2% auto;
+    padding: 15px 18px;
   }
 `;
 
@@ -30,17 +30,26 @@ export const HeaderWrapper = styled.div`
     font-family: ${(props) => props.theme.font.heading};
     font-style: normal;
     font-weight: 500;
-    line-height: 43px;
-    font-size: clamp(36px, 3rem, 4rem);
+    line-height: 50px;
+    font-size: 3rem;
+
+    @media only screen and ${(props) => props.theme.breakpoints.sm} {
+      font-size: 2.6rem;
+      line-height: 44px;
+    }
   }
   p {
     margin-top: 1.5rem;
     font-family: ${(props) => props.theme.font.paragraph};
     font-style: normal;
     font-weight: normal;
-    font-size: clamp(16px, 1rem, 1.1rem);
+    font-size: 1rem;
     line-height: 15px;
     padding-left: 5px;
+
+    @media only screen and ${(props) => props.theme.breakpoints.sm} {
+      font-size: 0.95rem;
+    }
   }
 `;
 
@@ -53,8 +62,12 @@ export const DataWrapper = styled.div`
 
   @media only screen and ${(props) => props.theme.breakpoints.lg} {
     flex-direction: column;
-    margin-top: 4%;
+    margin-top: 5%;
     padding: 5px;
+  }
+
+  @media only screen and ${(props) => props.theme.breakpoints.sm} {
+    margin-top: 8%;
   }
 `;
 
@@ -68,9 +81,13 @@ export const CountWrapper = styled.div`
 export const SearchBar = styled.div`
   width: 100%;
   height: auto;
-  margin: 0 auto 35px auto;
+  margin: 0 auto 25px auto;
   color: ${(props) => props.theme.colors.primaryColor};
   border: 1px solid black;
+
+  @media only screen and (max-width: 937.98px) {
+    margin: 15px auto 25px auto;
+  }
 `;
 
 export const CountBoxWrapper = styled.div`
@@ -125,11 +142,24 @@ export const MobileCountBoxWrapper = styled.div`
   width: 100%;
   height: auto;
   display: none;
-  color: black;
-  border: 1px solid black;
+  margin-top: 13px;
 
   @media only screen and (max-width: 937.98px) {
-    display: inline-block;
+    display: unset;
+    .data-box {
+      width: 100%;
+      min-width: unset;
+      max-width: unset;
+      height: auto;
+      min-height: unset;
+      max-height: unset;
+      margin-bottom: 1em;
+      padding: unset;
+      justify-content: flex-start;
+      p:nth-child(1) {
+        display: none;
+      }
+    }
   }
 `;
 
@@ -138,7 +168,7 @@ export const CountBox = styled.div`
   max-width: 275px;
   min-height: 213px;
   max-height: 213px;
-  background: #ffffff;
+  background: transparent;
   box-sizing: border-box;
   border-radius: 10px;
   display: flex;
@@ -147,13 +177,13 @@ export const CountBox = styled.div`
   align-items: flex-start;
   padding: 15px 0 15px 29px;
   h3 {
-    margin: 20px 0 10px 0;
-    font-size: clamp(1.6rem, 30px, 4rem);
+    margin: 20px 0 5px 0;
+    font-size: clamp(1.6rem, 32px, 4rem);
     line-height: 43px;
   }
   h4 {
     margin-bottom: 25px;
-    font-size: clamp(1.2rem, 20px, 2rem);
+    font-size: clamp(1.2rem, 22px, 2rem);
     line-height: 28px;
   }
   p {
@@ -173,7 +203,7 @@ export const CountBox = styled.div`
 
 export const GraphWrapper = styled.div`
   width: 100%;
-  height: 1000px;
+  height: 800px;
   border: 1px solid black;
   margin-left: 3%;
 

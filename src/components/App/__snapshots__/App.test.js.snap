@@ -94,11 +94,11 @@ exports[`Home renders correctly 1`] = `
     </div>
   </header>
   <div
-    className="sc-pFZIQ hSHtud"
+    className="sc-pFZIQ ebRCQS"
     id="covid-data"
   >
     <div
-      className="sc-jrAGrp cNtYEa"
+      className="sc-jrAGrp hknpes"
     >
       <h3
         id="country-name"
@@ -112,13 +112,13 @@ exports[`Home renders correctly 1`] = `
       </p>
     </div>
     <div
-      className="sc-kEjbxe eNeiRW"
+      className="sc-kEjbxe djvUHM"
     >
       <div
         className="sc-iqHYGH dVqasS"
       >
         <div
-          className="sc-crrsfI hXOvds"
+          className="sc-crrsfI byYUpa"
         >
           Search
         </div>
@@ -126,7 +126,7 @@ exports[`Home renders correctly 1`] = `
           className="sc-dQppl iuPSxI"
         >
           <div
-            className="sc-kstrdz hwZhUL data-box"
+            className="sc-kstrdz kHZvYe data-box"
             id="infected"
           >
             <p>
@@ -150,7 +150,7 @@ exports[`Home renders correctly 1`] = `
             </p>
           </div>
           <div
-            className="sc-kstrdz hwZhUL data-box"
+            className="sc-kstrdz kHZvYe data-box"
             id="recovered"
           >
             <p>
@@ -174,7 +174,7 @@ exports[`Home renders correctly 1`] = `
             </p>
           </div>
           <div
-            className="sc-kstrdz hwZhUL data-box"
+            className="sc-kstrdz kHZvYe data-box"
             id="deaths"
           >
             <p>
@@ -199,13 +199,189 @@ exports[`Home renders correctly 1`] = `
           </div>
         </div>
         <div
-          className="sc-bqyKva dtiVih"
+          className="sc-bqyKva jFDehD"
         >
-          Hello
+          <div
+            className="makeStyles-root-5"
+          >
+            <header
+              className="MuiPaper-root MuiAppBar-root WithStyles(ForwardRef(AppBar))-root-7 MuiAppBar-positionStatic MuiAppBar-colorPrimary MuiPaper-elevation4"
+            >
+              <div
+                className="MuiTabs-root"
+              >
+                <div
+                  className="MuiTabs-scroller MuiTabs-fixed"
+                  onScroll={[Function]}
+                  style={
+                    Object {
+                      "marginBottom": null,
+                      "overflow": "hidden",
+                    }
+                  }
+                >
+                  <div
+                    aria-label="full width tabs example"
+                    className="MuiTabs-flexContainer"
+                    onKeyDown={[Function]}
+                    role="tablist"
+                  >
+                    <button
+                      aria-controls="full-width-tabpanel-0"
+                      aria-selected={true}
+                      className="MuiButtonBase-root MuiTab-root WithStyles(ForwardRef(Tab))-root-8 MuiTab-textColorInherit infected-tab Mui-selected MuiTab-fullWidth MuiTab-wrapped"
+                      disabled={false}
+                      id="full-width-tab-0"
+                      onBlur={[Function]}
+                      onClick={[Function]}
+                      onDragLeave={[Function]}
+                      onFocus={[Function]}
+                      onKeyDown={[Function]}
+                      onKeyUp={[Function]}
+                      onMouseDown={[Function]}
+                      onMouseLeave={[Function]}
+                      onMouseUp={[Function]}
+                      onTouchEnd={[Function]}
+                      onTouchMove={[Function]}
+                      onTouchStart={[Function]}
+                      role="tab"
+                      tabIndex={0}
+                      type="button"
+                    >
+                      <span
+                        className="MuiTab-wrapper"
+                      >
+                        Infected
+                      </span>
+                      <span
+                        className="PrivateTabIndicator-root-9 PrivateTabIndicator-colorSecondary-11 MuiTabs-indicator"
+                        style={
+                          Object {
+                            "background": "none",
+                          }
+                        }
+                      />
+                    </button>
+                    <button
+                      aria-controls="full-width-tabpanel-1"
+                      aria-selected={false}
+                      className="MuiButtonBase-root MuiTab-root WithStyles(ForwardRef(Tab))-root-8 MuiTab-textColorInherit makeStyles-default-6 MuiTab-fullWidth MuiTab-wrapped"
+                      disabled={false}
+                      id="full-width-tab-1"
+                      onBlur={[Function]}
+                      onClick={[Function]}
+                      onDragLeave={[Function]}
+                      onFocus={[Function]}
+                      onKeyDown={[Function]}
+                      onKeyUp={[Function]}
+                      onMouseDown={[Function]}
+                      onMouseLeave={[Function]}
+                      onMouseUp={[Function]}
+                      onTouchEnd={[Function]}
+                      onTouchMove={[Function]}
+                      onTouchStart={[Function]}
+                      role="tab"
+                      tabIndex={-1}
+                      type="button"
+                    >
+                      <span
+                        className="MuiTab-wrapper"
+                      >
+                        Recovered
+                      </span>
+                    </button>
+                    <button
+                      aria-controls="full-width-tabpanel-2"
+                      aria-selected={false}
+                      className="MuiButtonBase-root MuiTab-root WithStyles(ForwardRef(Tab))-root-8 MuiTab-textColorInherit makeStyles-default-6 MuiTab-fullWidth MuiTab-wrapped"
+                      disabled={false}
+                      id="full-width-tab-2"
+                      onBlur={[Function]}
+                      onClick={[Function]}
+                      onDragLeave={[Function]}
+                      onFocus={[Function]}
+                      onKeyDown={[Function]}
+                      onKeyUp={[Function]}
+                      onMouseDown={[Function]}
+                      onMouseLeave={[Function]}
+                      onMouseUp={[Function]}
+                      onTouchEnd={[Function]}
+                      onTouchMove={[Function]}
+                      onTouchStart={[Function]}
+                      role="tab"
+                      tabIndex={-1}
+                      type="button"
+                    >
+                      <span
+                        className="MuiTab-wrapper"
+                      >
+                        Deaths
+                      </span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </header>
+            <div
+              aria-labelledby="full-width-tab-0"
+              className="infected-panel"
+              hidden={false}
+              id="full-width-tabpanel-0"
+              role="tabpanel"
+            >
+              <div
+                className="MuiBox-root MuiBox-root-13"
+                style={
+                  Object {
+                    "padding": "1% 4%",
+                  }
+                }
+              >
+                <div
+                  className="sc-kstrdz kHZvYe data-box"
+                  id="infected"
+                >
+                  <p>
+                    Infected
+                  </p>
+                  <h3
+                    id="infected-num"
+                  >
+                    40,975,608
+                  </h3>
+                  <h4>
+                    + 
+                    <span
+                      id="today-infected"
+                    >
+                      16,753
+                    </span>
+                  </h4>
+                  <p>
+                    Total active and closed cases
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div
+              aria-labelledby="full-width-tab-1"
+              className=""
+              hidden={true}
+              id="full-width-tabpanel-1"
+              role="tabpanel"
+            />
+            <div
+              aria-labelledby="full-width-tab-2"
+              className=""
+              hidden={true}
+              id="full-width-tabpanel-2"
+              role="tabpanel"
+            />
+          </div>
         </div>
       </div>
       <div
-        className="sc-hBEYos bczUgU"
+        className="sc-hBEYos bVJSmp"
       >
         Graph
       </div>

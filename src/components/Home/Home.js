@@ -1,6 +1,6 @@
 import React from "react";
 import Theme from "../../theme/Theme";
-
+import HomeMobileTab from "./HomeMobileTab";
 import {
   CountBox,
   CountBoxWrapper,
@@ -12,6 +12,49 @@ import {
   SearchBar,
   Wrapper,
 } from "./HomeStyle";
+
+const Infection = () => (
+  <CountBox id="infected" className="data-box">
+    <p>Infected</p>
+    <h3 id="infected-num">40,975,608</h3>
+    <h4>
+      + <span id="today-infected">16,753</span>
+    </h4>
+    <p>Total active and closed cases</p>
+  </CountBox>
+);
+
+const Recovered = () => (
+  <CountBox id="recovered" className="data-box">
+    <p>Recovered</p>
+    <h3 id="recovered-num">40,975,608</h3>
+    <h4>
+      + <span id="today-recovered">16,753</span>
+    </h4>
+    <p>Total recoveries from Covid</p>
+  </CountBox>
+);
+
+const Death = () => (
+  <CountBox id="deaths" className="data-box">
+    <p>Deaths</p>
+    <h3 id="deaths-num">40,975,608</h3>
+    <h4>
+      + <span id="today-deaths">16,753</span>
+    </h4>
+    <p>Total death caused by Covid</p>
+  </CountBox>
+);
+
+function MobileCountTab() {
+  return (
+    <HomeMobileTab
+      infected={<Infection />}
+      recovered={<Recovered />}
+      death={<Death />}
+    />
+  );
+}
 
 function Home() {
   return (
@@ -25,34 +68,13 @@ function Home() {
           <CountWrapper>
             <SearchBar>Search</SearchBar>
             <CountBoxWrapper>
-              <CountBox id="infected" className="data-box">
-                <p>Infected</p>
-                <h3 id="infected-num">40,975,608</h3>
-                <h4>
-                  + <span id="today-infected">16,753</span>
-                </h4>
-                <p>Total active and closed cases</p>
-              </CountBox>
-
-              <CountBox id="recovered" className="data-box">
-                <p>Recovered</p>
-                <h3 id="recovered-num">40,975,608</h3>
-                <h4>
-                  + <span id="today-recovered">16,753</span>
-                </h4>
-                <p>Total recoveries from Covid</p>
-              </CountBox>
-
-              <CountBox id="deaths" className="data-box">
-                <p>Deaths</p>
-                <h3 id="deaths-num">40,975,608</h3>
-                <h4>
-                  + <span id="today-deaths">16,753</span>
-                </h4>
-                <p>Total death caused by Covid</p>
-              </CountBox>
+              <Infection />
+              <Recovered />
+              <Death />
             </CountBoxWrapper>
-            <MobileCountBoxWrapper>Hello</MobileCountBoxWrapper>
+            <MobileCountBoxWrapper>
+              <MobileCountTab />
+            </MobileCountBoxWrapper>
           </CountWrapper>
           <GraphWrapper>Graph</GraphWrapper>
         </DataWrapper>
