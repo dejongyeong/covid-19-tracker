@@ -1,15 +1,10 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable react/forbid-prop-types */
-/* eslint-disable react/require-default-props */
 /* eslint-disable react/jsx-props-no-spreading */
 import React from "react";
 import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
 import { AppBar, Tabs, Tab, Box, withStyles } from "@material-ui/core";
 
-function TabPanel(props) {
-  const { children, value, index, ...other } = props;
-
+function TabPanel({ children, value, index, ...other }) {
   return (
     <div
       role="tabpanel"
@@ -24,9 +19,9 @@ function TabPanel(props) {
 }
 
 TabPanel.propTypes = {
-  children: PropTypes.node,
-  index: PropTypes.any.isRequired,
-  value: PropTypes.any.isRequired,
+  children: PropTypes.node.isRequired,
+  index: PropTypes.number.isRequired,
+  value: PropTypes.number.isRequired,
 };
 
 const useStyles = makeStyles(() => ({
@@ -87,7 +82,7 @@ const CustomAppBar = withStyles(() => ({
 const CustomTab = withStyles((theme) => ({
   root: {
     fontFamily: "Rubik, sans-serif",
-    fontWeight: "bold",
+    fontWeight: "600",
     fontSize: "0.85rem",
     [theme.breakpoints.down("299.98")]: {
       fontSize: "0.73rem",
@@ -156,6 +151,13 @@ const HomeMobileTab = ({ infected, recovered, death }) => {
       </TabPanel>
     </div>
   );
+};
+
+/* eslint-disable react/forbid-prop-types */
+HomeMobileTab.propTypes = {
+  infected: PropTypes.object.isRequired,
+  recovered: PropTypes.object.isRequired,
+  death: PropTypes.object.isRequired,
 };
 
 export default HomeMobileTab;
