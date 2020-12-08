@@ -98,12 +98,12 @@ exports[`Home renders correctly 1`] = `
     id="covid-data"
   >
     <div
-      className="sc-jrAGrp hknpes"
+      className="sc-jrAGrp dUaagY"
     >
       <h3
         id="country-name"
       >
-        Congo, the Democratic Republic of the
+        Worldwide
       </h3>
       <p
         id="last-updated"
@@ -120,13 +120,26 @@ exports[`Home renders correctly 1`] = `
         <div
           className="sc-crrsfI byYUpa"
         >
-          Search
+          <select
+            onChange={[Function]}
+            style={
+              Object {
+                "width": "100%",
+              }
+            }
+          >
+            <option
+              value="Worldwide"
+            >
+              Worldwide
+            </option>
+          </select>
         </div>
         <div
           className="sc-dQppl iuPSxI"
         >
           <div
-            className="sc-kstrdz kHZvYe data-box"
+            className="sc-kstrdz bvNVsj data-box"
             id="infected"
           >
             <p>
@@ -146,11 +159,11 @@ exports[`Home renders correctly 1`] = `
               </span>
             </h4>
             <p>
-              Total active and closed cases
+              Total active and closed cases.
             </p>
           </div>
           <div
-            className="sc-kstrdz kHZvYe data-box"
+            className="sc-kstrdz bvNVsj data-box"
             id="recovered"
           >
             <p>
@@ -170,11 +183,11 @@ exports[`Home renders correctly 1`] = `
               </span>
             </h4>
             <p>
-              Total recoveries from Covid
+              Total recoveries from Covid.
             </p>
           </div>
           <div
-            className="sc-kstrdz kHZvYe data-box"
+            className="sc-kstrdz bvNVsj data-box"
             id="deaths"
           >
             <p>
@@ -194,7 +207,7 @@ exports[`Home renders correctly 1`] = `
               </span>
             </h4>
             <p>
-              Total death caused by Covid
+              Total death caused by Covid.
             </p>
           </div>
         </div>
@@ -338,7 +351,7 @@ exports[`Home renders correctly 1`] = `
                 }
               >
                 <div
-                  className="sc-kstrdz kHZvYe data-box"
+                  className="sc-kstrdz bvNVsj data-box"
                   id="infected"
                 >
                   <p>
@@ -358,7 +371,7 @@ exports[`Home renders correctly 1`] = `
                     </span>
                   </h4>
                   <p>
-                    Total active and closed cases
+                    Total active and closed cases.
                   </p>
                 </div>
               </div>

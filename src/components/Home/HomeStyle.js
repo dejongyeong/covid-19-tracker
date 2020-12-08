@@ -29,9 +29,9 @@ export const HeaderWrapper = styled.div`
   h3 {
     font-family: ${(props) => props.theme.font.heading};
     font-style: normal;
-    font-weight: 500;
+    font-weight: 600;
     line-height: 50px;
-    font-size: 3rem;
+    font-size: 3.5rem;
 
     @media only screen and ${(props) => props.theme.breakpoints.sm} {
       font-size: 2.6rem;
@@ -166,8 +166,8 @@ export const MobileCountBoxWrapper = styled.div`
 export const CountBox = styled.div`
   min-width: 275px;
   max-width: 275px;
-  min-height: 213px;
-  max-height: 213px;
+  min-height: 220px;
+  max-height: 220px;
   background: transparent;
   box-sizing: border-box;
   border-radius: 10px;
@@ -189,7 +189,8 @@ export const CountBox = styled.div`
   p {
     color: #7e7e7e;
     font-family: ${(props) => props.theme.font.paragraph};
-    font-size: clamp(0.8rem, 16px, 1rem);
+    font-size: 0.99rem;
+    line-height: 1.3em;
   }
 
   @media only screen and (max-height: 949.98px) and (min-height: 812px) {

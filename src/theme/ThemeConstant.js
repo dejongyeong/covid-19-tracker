@@ -27,3 +27,6 @@ export const theme = {
     paragraph: `Roboto, sans-serif`
   }
 };
+
+export const COVID_URL = 'https://covid19.mathdro.id/api'
+export const COUNTRIES_URL = 'https://restcountries.eu/rest/v2/'
