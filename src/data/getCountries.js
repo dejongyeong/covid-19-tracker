@@ -1,7 +1,9 @@
 import React, { useEffect } from "react";
 import axios from "axios";
 
-import { COUNTRIES_URL } from "../theme/ThemeConstant";
+import { COVID_URL } from "../theme/ThemeConstant";
+
+const COUNTRIES_URL = `${COVID_URL}/countries`;
 
 // Tutorial: https://www.robinwieruch.de/react-hooks-fetch-data
 // Tutorial: https://reactjs.org/docs/hooks-custom.html
@@ -14,7 +16,7 @@ const getCountries = () => {
       setIsError(false);
       try {
         const result = await axios(`${COUNTRIES_URL}`);
-        setCountries(result.data);
+        setCountries(result.data.countries);
       } catch (error) {
         setIsError(true);
       }
@@ -30,14 +32,16 @@ const getCountries = () => {
       value: "ww",
       flag: "",
       text: "Worldwide",
+      indexes: 0,
     },
   ];
-  countries.map((country) =>
+  countries.map((country, index) =>
     countriesDropdown.push({
-      key: country.alpha2Code.toLowerCase(),
-      value: country.alpha2Code.toLowerCase(),
-      flag: country.alpha2Code.toLowerCase(),
+      key: "iso2" in country ? country.iso2.toLowerCase() : country.name,
+      value: "iso2" in country ? country.iso2.toLowerCase() : country.name,
+      flag: "iso2" in country ? country.iso2.toLowerCase() : "",
       text: country.name,
+      indexes: index + 1,
     })
   );
 
