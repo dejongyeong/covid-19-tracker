@@ -1,39 +1,63 @@
 import React, { useEffect } from "react";
-import axios from "axios";
 import PropTypes from "prop-types";
+import axios from "axios";
 
-const COVID_URL = "https://covid19.mathdro.id/api";
+import { URL } from "../theme/ThemeConstant";
 
-// Tutorial: https://www.robinwieruch.de/react-hooks-fetch-data
+// Tutorial: https://www.robinwieruch.de/react-hooks-fetch-covidCasea
 // Tutorial: https://reactjs.org/docs/hooks-custom.html
+// Tutorial: https://www.carlrippon.com/drop-down-data-binding-with-react-hooks/
 const getCases = (countryName) => {
   const [covidCases, setCovidCases] = React.useState(null);
   const [isError, setIsError] = React.useState(false);
 
-  let url = COVID_URL;
+  let url = URL;
   if (countryName.trim().toLowerCase() !== "worldwide") {
-    url = `${COVID_URL}/countries/${countryName}`;
+    const country = countryName.replaceAll(" ", "%20").trim();
+    console.log(country);
+    url = `${URL}/countries/${country}`;
   }
 
-  console.log(countryName);
-  console.log(url);
-
+  let unmounted = false; // resolve unmounted
   useEffect(() => {
-    const fetchCovidCases = async () => {
-      setIsError(false);
-      try {
-        const result = await axios.get(url);
-
-        setCovidCases(result.data);
-      } catch (error) {
-        setIsError(true);
-      }
+    const fetchCases = async () => {
+      axios({
+        method: "GET",
+        url,
+      })
+        .then((response) => {
+          if (!unmounted) {
+            setCovidCases(response.data);
+          }
+        })
+        .catch(() => {
+          setIsError(true);
+        });
     };
 
-    fetchCovidCases();
-  }, []);
+    fetchCases();
+    return () => {
+      unmounted = true;
+    };
+  }, [url]);
 
-  console.log(covidCases);
+  // another method
+  // const fetchData = React.useCallback(() => {
+  //   axios({
+  //     method: "GET",
+  //     url,
+  //   })
+  //     .then((response) => {
+  //       setCovidCases(response.data);
+  //     })
+  //     .catch(() => {
+  //       setIsError(true);
+  //     });
+  // });
+
+  // React.useEffect(() => {
+  //   fetchData();
+  // }, [url]);
 
   return [covidCases, isError];
 };

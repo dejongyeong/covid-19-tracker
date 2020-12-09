@@ -28,4 +28,4 @@ export const theme = {
   }
 };
 
-export const COVID_URL = "https://covid19.mathdro.id/api";
+export const URL = "https://covid19.mathdro.id/api";

@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import axios from "axios";
 
-import { COVID_URL } from "../theme/ThemeConstant";
+import { URL } from "../theme/ThemeConstant";
 
-const COUNTRIES_URL = `${COVID_URL}/countries`;
+const COUNTRIES_URL = `${URL}/countries`;
 
 // Tutorial: https://www.robinwieruch.de/react-hooks-fetch-data
 // Tutorial: https://reactjs.org/docs/hooks-custom.html
@@ -11,18 +11,23 @@ const getCountries = () => {
   const [countries, setCountries] = React.useState([]);
   const [isError, setIsError] = React.useState(false);
 
+  let unmounted = false; // resolve unmount of component
   useEffect(() => {
     const fetchCountries = async () => {
-      setIsError(false);
       try {
         const result = await axios(`${COUNTRIES_URL}`);
-        setCountries(result.data.countries);
+        if (!unmounted) {
+          setCountries(result.data.countries);
+        }
       } catch (error) {
         setIsError(true);
       }
     };
 
     fetchCountries();
+    return () => {
+      unmounted = true;
+    };
   }, []);
 
   // initialize

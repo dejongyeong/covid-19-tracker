@@ -108,7 +108,8 @@ exports[`Home renders correctly 1`] = `
       <p
         id="last-updated"
       >
-        Last updated: ss
+        Last updated: 
+        0
       </p>
     </div>
     <div

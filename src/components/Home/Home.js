@@ -16,7 +16,7 @@ import {
 
 // custom hooks
 import getCountries from "../../data/getCountries";
-// import getCases from "../../data/getCases";
+import getCases from "../../data/getCases";
 
 // Infection Card
 const Infection = ({ infected }) => (
@@ -97,8 +97,16 @@ CountriesDropdown.propTypes = {
 function Home() {
   const [countriesDropdown, isError] = getCountries();
   const [select, setSelected] = React.useState(0);
+  const selectedCountry = countriesDropdown[select].text;
   // eslint-disable-next-line no-unused-vars
-  // const [covidCases, isCasesError] = getCases(select);
+  const [cases, error] = getCases(selectedCountry);
+
+  let infected = 0;
+  if (!cases) {
+    console.log("loading");
+  } else {
+    infected = cases.confirmed.value;
+  }
 
   function handleChildChange(selected) {
     setSelected(selected);
@@ -116,14 +124,12 @@ function Home() {
   //   return number.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
   // }
 
-  const selectedCountry = countriesDropdown[select].text;
-
   return (
     <Theme>
       <Wrapper id="covid-data">
         <HeaderWrapper>
           <h3 id="country-name">{selectedCountry}</h3>
-          <p id="last-updated">Last updated: ss</p>
+          <p id="last-updated">Last updated: {infected}</p>
         </HeaderWrapper>
         <DataWrapper>
           <CountWrapper>
