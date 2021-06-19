@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import axios from "axios";
 
-import { URL } from "../theme/ThemeConstant";
+import { URL } from "../api/ApiConstant";
 
 // Tutorial: https://www.robinwieruch.de/react-hooks-fetch-covidCasea
 // Tutorial: https://reactjs.org/docs/hooks-custom.html

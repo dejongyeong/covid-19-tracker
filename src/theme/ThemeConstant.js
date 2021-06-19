@@ -27,5 +27,3 @@ export const theme = {
     paragraph: `Roboto, sans-serif`
   }
 };
-
-export const URL = "https://covid19.mathdro.id/api";

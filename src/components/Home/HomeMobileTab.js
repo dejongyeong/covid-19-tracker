@@ -61,7 +61,7 @@ const useStyles = makeStyles(() => ({
   default: {
     backgroundColor: "transparent",
     color: "#003049",
-    borderBottom: "1px solid #c0c0c0",
+    borderBottom: "1px solid #f0f0f0",
   },
 }));
 
@@ -98,8 +98,19 @@ const HomeMobileTab = ({ infected, recovered, death }) => {
     setValue(newValue);
   };
 
+  const renderBorderStyle = (param) => {
+    switch (param) {
+      case 1:
+        return "2px solid #026a41";
+      case 2:
+        return "2px solid #3e3e3e";
+      default:
+        return "2px solid #d62828";
+    }
+  };
+
   return (
-    <div className={classes.root}>
+    <div className={classes.root} style={{ border: renderBorderStyle(value) }}>
       <CustomAppBar position="static">
         <Tabs
           value={value}

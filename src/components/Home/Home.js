@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Theme from "../../theme/Theme";
-// import HomeMobileTab from "./HomeMobileTab";
+import HomeMobileTab from "./HomeMobileTab";
 import {
   CountBox,
   CountBoxWrapper,
@@ -47,7 +47,7 @@ const Recovered = ({ recovered }) => (
 );
 
 Recovered.propTypes = {
-  recovered: PropTypes.number.isRequired,
+  recovered: PropTypes.string.isRequired,
 };
 
 // Death Card
@@ -63,7 +63,7 @@ const Death = ({ deaths }) => (
 );
 
 Death.propTypes = {
-  deaths: PropTypes.number.isRequired,
+  deaths: PropTypes.string.isRequired,
 };
 
 // Tutorial: https://dev.to/spukas/moving-arguments-from-child-to-parent-component-in-react-25lp
@@ -120,9 +120,9 @@ function Home() {
   // const date = new Date(lastUpdated).toISOString().split("T")[0];
   // const time = new Date(lastUpdated).toISOString().split("T")[1].slice(0, -5);
 
-  // function formatNumber(number) {
-  //   return number.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
-  // }
+  function formatNumber(number) {
+    return number.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
+  }
 
   return (
     <Theme>
@@ -141,16 +141,16 @@ function Home() {
               />
             </SearchBar>
             <CountBoxWrapper>
-              {/* <Infection infected={formatNumber(infected)} />
-              <Recovered recovered={formatNumber(recovered)} />
-              <Death deaths={formatNumber(deaths)} /> */}
+              <Infection infected={formatNumber(123456)} />
+              <Recovered recovered={formatNumber(123456)} />
+              <Death deaths={formatNumber(123456)} />
             </CountBoxWrapper>
             <MobileCountBoxWrapper>
-              {/* <HomeMobileTab
-                infected={<Infection infected={formatNumber(infected)} />}
-                recovered={<Recovered recovered={formatNumber(recovered)} />}
-                death={<Death deaths={formatNumber(deaths)} />}
-              /> */}
+              <HomeMobileTab
+                infected={<Infection infected={formatNumber(123456)} />}
+                recovered={<Recovered recovered={formatNumber(123456)} />}
+                death={<Death deaths={formatNumber(123456)} />}
+              />
             </MobileCountBoxWrapper>
           </CountWrapper>
           <GraphWrapper>Graph</GraphWrapper>

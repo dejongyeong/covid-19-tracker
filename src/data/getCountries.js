@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import axios from "axios";
 
-import { URL } from "../theme/ThemeConstant";
+import { URL } from "../api/ApiConstant";
 
 const COUNTRIES_URL = `${URL}/countries`;
 
