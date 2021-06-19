@@ -83,10 +83,29 @@ export const SearchBar = styled.div`
   height: auto;
   margin: 0 auto 25px auto;
   color: ${(props) => props.theme.colors.primaryColor};
-  border: 1px solid black;
+  position: relative;
 
   @media only screen and (max-width: 937.98px) {
     margin: 15px auto 25px auto;
+  }
+
+  select {
+    height: 2.7em;
+    padding-left: 9px;
+    cursor: pointer;
+    font-family: Rubik, sans-serif;
+    color: #003049;
+    border-radius: 0.7em;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  ::after {
+    content: "▼";
+    font-size: 0.8rem;
+    top: 9px;
+    right: 12px;
+    position: absolute;
   }
 `;
 
