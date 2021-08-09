@@ -98,61 +98,21 @@ exports[`Home renders correctly 1`] = `
     id="covid-data"
   >
     <div
-      className="sc-jrAGrp dUaagY"
+      className="sc-fodVxV heOWZp"
     >
-      <h3
-        id="country-name"
+      <h1
+        style={
+          Object {
+            "color": "black",
+          }
+        }
       >
-        Worldwide
-      </h3>
-      <p
-        id="last-updated"
-      >
-        Last updated: 
-        0
-      </p>
-    </div>
-    <div
-      className="sc-kEjbxe djvUHM"
-    >
-      <div
-        className="sc-iqHYGH dVqasS"
-      >
-        <div
-          className="sc-crrsfI byYUpa"
-        >
-          <select
-            disabled={false}
-            onChange={[Function]}
-            style={
-              Object {
-                "width": "100%",
-              }
-            }
-          >
-            <option
-              value="Worldwide"
-            >
-              Worldwide
-            </option>
-          </select>
-        </div>
-        <div
-          className="sc-dQppl iuPSxI"
-        />
-        <div
-          className="sc-bqyKva jFDehD"
-        />
-      </div>
-      <div
-        className="sc-hBEYos bVJSmp"
-      >
-        Graph
-      </div>
+        Loading
+      </h1>
     </div>
   </div>
   <div
-    className="sc-lmoMRL jkNBsw"
+    className="sc-giIncl dcKFyL"
     id="footer"
   >
     <p>

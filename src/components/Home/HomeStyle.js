@@ -165,6 +165,7 @@ export const MobileCountBoxWrapper = styled.div`
 
   @media only screen and (max-width: 937.98px) {
     display: unset;
+    margin-top: 0;
     .data-box {
       width: 100%;
       min-width: unset;
@@ -223,11 +224,26 @@ export const CountBox = styled.div`
 
 export const GraphWrapper = styled.div`
   width: 100%;
-  height: 800px;
+  height: 850px;
   border: 1px solid black;
   margin-left: 3%;
 
   @media only screen and ${(props) => props.theme.breakpoints.lg} {
     margin: 4% auto -2% auto;
   }
+`;
+
+export const LoadingDiv = styled.div`
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const ApiErrorDiv = styled.div`
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: red;
 `;

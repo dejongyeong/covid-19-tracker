@@ -7,38 +7,41 @@ import { URL } from "../api/ApiConstant";
 // Tutorial: https://www.robinwieruch.de/react-hooks-fetch-covidCasea
 // Tutorial: https://reactjs.org/docs/hooks-custom.html
 // Tutorial: https://www.carlrippon.com/drop-down-data-binding-with-react-hooks/
-const getCases = (countryName) => {
+const getCases = (countryName, loadingCallback) => {
   const [covidCases, setCovidCases] = React.useState(null);
   const [isError, setIsError] = React.useState(false);
 
   let url = URL;
   if (countryName.trim().toLowerCase() !== "worldwide") {
     const country = countryName.replaceAll(" ", "%20").trim();
-    console.log(country);
     url = `${URL}/countries/${country}`;
   }
 
   let unmounted = false; // resolve unmounted
   useEffect(() => {
-    const fetchCases = async () => {
-      axios({
-        method: "GET",
-        url,
-      })
-        .then((response) => {
-          if (!unmounted) {
-            setCovidCases(response.data);
-          }
+    const timer = setTimeout(() => {
+      const fetchCases = async () => {
+        axios({
+          method: "GET",
+          url,
         })
-        .catch(() => {
-          setIsError(true);
-        });
-    };
+          .then((response) => {
+            if (!unmounted) {
+              setCovidCases(response.data);
+              loadingCallback(false);
+            }
+          })
+          .catch(() => {
+            setIsError(true);
+          });
+      };
 
-    fetchCases();
-    return () => {
-      unmounted = true;
-    };
+      fetchCases();
+      return () => {
+        unmounted = true;
+        clearTimeout(timer);
+      };
+    }, 1000);
   }, [url]);
 
   // another method
@@ -64,6 +67,7 @@ const getCases = (countryName) => {
 
 getCases.propTypes = {
   countryName: PropTypes.number.isRequired,
+  loadingCallback: PropTypes.func.isRequired,
 };
 
 export default getCases;

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import PropTypes from "prop-types";
 import Theme from "../../theme/Theme";
 import HomeMobileTab from "./HomeMobileTab";
@@ -12,6 +12,8 @@ import {
   MobileCountBoxWrapper,
   SearchBar,
   Wrapper,
+  LoadingDiv,
+  ApiErrorDiv,
 } from "./HomeStyle";
 
 // custom hooks
@@ -94,70 +96,145 @@ CountriesDropdown.propTypes = {
   onChildChange: PropTypes.func.isRequired,
 };
 
-function Home() {
-  const [countriesDropdown, isError] = getCountries();
-  const [select, setSelected] = React.useState(0);
-  const selectedCountry = countriesDropdown[select].text;
-  // eslint-disable-next-line no-unused-vars
-  const [cases, error] = getCases(selectedCountry);
+const Loading = () => {
+  return (
+    <LoadingDiv>
+      <h1 style={{ color: "black" }}>Loading</h1>
+    </LoadingDiv>
+  );
+};
 
-  let infected = 0;
-  if (!cases) {
-    console.log("loading");
-  } else {
-    infected = cases.confirmed.value;
-  }
+const ApiError = () => {
+  return (
+    <ApiErrorDiv>
+      <h1>API Error</h1>
+    </ApiErrorDiv>
+  );
+};
 
-  function handleChildChange(selected) {
-    setSelected(selected);
-  }
+const Dashboard = ({ countries, country, error, setSelected, cases }) => {
+  const date = new Date(cases.lastUpdate).toISOString().split("T")[0];
+  const time = new Date(cases.lastUpdate)
+    .toISOString()
+    .split("T")[1]
+    .slice(0, -5);
 
-  // const infected = covidCases.confirmed.value;
-  // const recovered = covidCases.recovered.value;
-  // const deaths = covidCases.deaths.value;
-  // const lastUpdated = covidCases.lastUpdate;
-
-  // const date = new Date(lastUpdated).toISOString().split("T")[0];
-  // const time = new Date(lastUpdated).toISOString().split("T")[1].slice(0, -5);
-
-  function formatNumber(number) {
+  const formatNumber = (number) => {
     return number.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
+  };
+
+  const handleChildChange = (select) => {
+    setSelected(select);
+  };
+
+  const infected = cases.confirmed.value;
+  const recovered = cases.recovered.value;
+  const deaths = cases.deaths.value;
+
+  const InfectedDom = <Infection infected={formatNumber(infected)} />;
+  const RecoveredDom = (
+    <Recovered recovered={recovered === 0 ? "-" : formatNumber(recovered)} />
+  );
+  const DeathDom = <Death deaths={formatNumber(deaths)} />;
+
+  return (
+    <>
+      <HeaderWrapper>
+        <h3 id="country-name">{country}</h3>
+        <p id="last-updated">Last updated: {`${date} ${time}`}</p>
+      </HeaderWrapper>
+      <DataWrapper>
+        <CountWrapper>
+          <SearchBar>
+            <CountriesDropdown
+              countriesDropdown={countries}
+              isError={error}
+              onChildChange={handleChildChange}
+            />
+          </SearchBar>
+          <CountBoxWrapper>
+            {InfectedDom}
+            {RecoveredDom}
+            {DeathDom}
+          </CountBoxWrapper>
+          <MobileCountBoxWrapper>
+            <HomeMobileTab
+              infected={InfectedDom}
+              recovered={RecoveredDom}
+              death={DeathDom}
+            />
+          </MobileCountBoxWrapper>
+        </CountWrapper>
+        <GraphWrapper>Graph</GraphWrapper>
+      </DataWrapper>
+    </>
+  );
+};
+
+Dashboard.propTypes = {
+  countries: PropTypes.array.isRequired,
+  country: PropTypes.string.isRequired,
+  error: PropTypes.bool.isRequired,
+  setSelected: PropTypes.func.isRequired,
+  cases: PropTypes.object.isRequired,
+};
+
+function Home() {
+  const [countries, countryError] = getCountries(); // retrieve all countries
+  const [selected, setSelected] = React.useState(0);
+  const [loading, setLoading] = React.useState(true);
+
+  const gatedSetLoading = useCallback(() => {
+    setLoading(false);
+  }, []);
+
+  const gatedSetSelected = useCallback((value) => {
+    setSelected(value);
+  }, []);
+
+  const country = countries[selected].text;
+
+  const [cases, caseError] = getCases(country, gatedSetLoading);
+
+  let dom;
+  if (countryError && caseError) {
+    dom = <ApiError />;
+  } else if (!loading) {
+    dom = (
+      <Dashboard
+        countries={countries}
+        country={country}
+        error={countryError}
+        setLoading={gatedSetLoading}
+        setSelected={gatedSetSelected}
+        cases={cases}
+      />
+    );
   }
 
   return (
     <Theme>
-      <Wrapper id="covid-data">
-        <HeaderWrapper>
-          <h3 id="country-name">{selectedCountry}</h3>
-          <p id="last-updated">Last updated: {infected}</p>
-        </HeaderWrapper>
-        <DataWrapper>
-          <CountWrapper>
-            <SearchBar>
-              <CountriesDropdown
-                countriesDropdown={countriesDropdown}
-                isError={isError}
-                onChildChange={handleChildChange}
-              />
-            </SearchBar>
-            <CountBoxWrapper>
-              <Infection infected={formatNumber(123456)} />
-              <Recovered recovered={formatNumber(123456)} />
-              <Death deaths={formatNumber(123456)} />
-            </CountBoxWrapper>
-            <MobileCountBoxWrapper>
-              <HomeMobileTab
-                infected={<Infection infected={formatNumber(123456)} />}
-                recovered={<Recovered recovered={formatNumber(123456)} />}
-                death={<Death deaths={formatNumber(123456)} />}
-              />
-            </MobileCountBoxWrapper>
-          </CountWrapper>
-          <GraphWrapper>Graph</GraphWrapper>
-        </DataWrapper>
-      </Wrapper>
+      <Wrapper id="covid-data">{loading ? <Loading /> : dom}</Wrapper>
     </Theme>
   );
+
+  // // eslint-disable-next-line no-unused-vars
+  // const [cases, error] = getCases(selectedCountry);
+
+  // let infected = 0;
+  // if (!cases) {
+  //   console.log("loading");
+  // } else {
+  //   infected = cases.confirmed.value;
+  // }
+
+  // // const infected = covidCases.confirmed.value;
+  // // const recovered = covidCases.recovered.value;
+  // // const deaths = covidCases.deaths.value;
+  // // const lastUpdated = covidCases.lastUpdate;
+
+  // // const date = new Date(lastUpdated).toISOString().split("T")[0];
+  // // const time = new Date(lastUpdated).toISOString().split("T")[1].slice(0, -5);
 }
 
 export default Home;
