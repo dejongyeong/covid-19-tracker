@@ -1,5 +1,6 @@
 import React, { useCallback } from "react";
 import PropTypes from "prop-types";
+import CountUp from "react-countup";
 import Theme from "../../theme/Theme";
 import HomeMobileTab from "./HomeMobileTab";
 import {
@@ -24,7 +25,9 @@ import getCases from "../../data/getCases";
 const Infection = ({ infected }) => (
   <CountBox id="infected" className="data-box">
     <p>Infected</p>
-    <h3 id="infected-num">{infected}</h3>
+    <h3 id="infected-num">
+      <CountUp end={infected} duration={3} separator="," useEasing />
+    </h3>
     <h4>
       + <span id="today-infected">16,753</span>
     </h4>
@@ -40,9 +43,11 @@ Infection.propTypes = {
 const Recovered = ({ recovered }) => (
   <CountBox id="recovered" className="data-box">
     <p>Recovered</p>
-    <h3 id="recovered-num">{recovered}</h3>
+    <h3 id="recovered-num">
+      <CountUp end={recovered} duration={3.5} separator="," useEasing />
+    </h3>
     <h4>
-      + <span id="today-recovered">16,753</span>
+      + <span id="today-recovered">{recovered}</span>
     </h4>
     <p>Total recoveries from Covid.</p>
   </CountBox>
@@ -56,7 +61,9 @@ Recovered.propTypes = {
 const Death = ({ deaths }) => (
   <CountBox id="deaths" className="data-box">
     <p>Deaths</p>
-    <h3 id="deaths-num">{deaths}</h3>
+    <h3 id="deaths-num">
+      <CountUp end={deaths} duration={3} separator="," useEasing />
+    </h3>
     <h4>
       + <span id="today-deaths">16,753</span>
     </h4>
@@ -119,10 +126,6 @@ const Dashboard = ({ countries, country, error, setSelected, cases }) => {
     .split("T")[1]
     .slice(0, -5);
 
-  const formatNumber = (number) => {
-    return number.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
-  };
-
   const handleChildChange = (select) => {
     setSelected(select);
   };
@@ -131,11 +134,9 @@ const Dashboard = ({ countries, country, error, setSelected, cases }) => {
   const recovered = cases.recovered.value;
   const deaths = cases.deaths.value;
 
-  const InfectedDom = <Infection infected={formatNumber(infected)} />;
-  const RecoveredDom = (
-    <Recovered recovered={recovered === 0 ? "-" : formatNumber(recovered)} />
-  );
-  const DeathDom = <Death deaths={formatNumber(deaths)} />;
+  const InfectedDom = <Infection infected={infected} />;
+  const RecoveredDom = <Recovered recovered={recovered} />;
+  const DeathDom = <Death deaths={deaths} />;
 
   return (
     <>
