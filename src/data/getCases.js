@@ -19,29 +19,26 @@ const getCases = (countryName, loadingCallback) => {
 
   let unmounted = false; // resolve unmounted
   useEffect(() => {
-    const timer = setTimeout(() => {
-      const fetchCases = async () => {
-        axios({
-          method: "GET",
-          url,
+    const fetchCases = async () => {
+      axios({
+        method: "GET",
+        url,
+      })
+        .then((response) => {
+          if (!unmounted) {
+            setCovidCases(response.data);
+            loadingCallback(false);
+          }
         })
-          .then((response) => {
-            if (!unmounted) {
-              setCovidCases(response.data);
-              loadingCallback(false);
-            }
-          })
-          .catch(() => {
-            setIsError(true);
-          });
-      };
+        .catch(() => {
+          setIsError(true);
+        });
+    };
 
-      fetchCases();
-      return () => {
-        unmounted = true;
-        clearTimeout(timer);
-      };
-    }, 1000);
+    fetchCases();
+    return () => {
+      unmounted = true;
+    };
   }, [url]);
 
   // another method
