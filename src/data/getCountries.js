@@ -41,7 +41,7 @@ const getCountries = () => {
     countriesDropdown.push({
       key: "iso2" in country ? country.iso2.toLowerCase() : country.name,
       value: "iso2" in country ? country.iso2.toLowerCase() : country.name,
-      text: country.name,
+      text: country.name === "Taiwan*" ? "Taiwan" : country.name,
       indexes: index + 1,
     })
   );
