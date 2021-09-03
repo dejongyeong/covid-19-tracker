@@ -1,9 +1,7 @@
 import React, { useEffect } from "react";
 import axios from "axios";
 
-import { URL } from "../api/ApiConstant";
-
-const COUNTRIES_URL = `${URL}/countries`;
+import { COUNTRIES } from "../api/ApiConstant";
 
 // Tutorial: https://www.robinwieruch.de/react-hooks-fetch-data
 // Tutorial: https://reactjs.org/docs/hooks-custom.html
@@ -15,7 +13,7 @@ const getCountries = () => {
   useEffect(() => {
     const fetchCountries = async () => {
       try {
-        const result = await axios(`${COUNTRIES_URL}`);
+        const result = await axios(`${COUNTRIES}`);
         if (!unmounted) {
           setCountries(result.data.countries);
         }
@@ -35,7 +33,6 @@ const getCountries = () => {
     {
       key: "ww",
       value: "ww",
-      flag: "",
       text: "Worldwide",
       indexes: 0,
     },
@@ -44,7 +41,6 @@ const getCountries = () => {
     countriesDropdown.push({
       key: "iso2" in country ? country.iso2.toLowerCase() : country.name,
       value: "iso2" in country ? country.iso2.toLowerCase() : country.name,
-      flag: "iso2" in country ? country.iso2.toLowerCase() : "",
       text: country.name,
       indexes: index + 1,
     })

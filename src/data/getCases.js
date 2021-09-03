@@ -11,7 +11,7 @@ const getCases = (countryName, loadingCallback) => {
   const [covidCases, setCovidCases] = React.useState(null);
   const [isError, setIsError] = React.useState(false);
 
-  let url = URL;
+  let url = `${URL}/all`;
   if (countryName.trim().toLowerCase() !== "worldwide") {
     const country = countryName.replaceAll(" ", "%20").trim();
     url = `${URL}/countries/${country}`;

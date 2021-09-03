@@ -22,57 +22,69 @@ import getCountries from "../../data/getCountries";
 import getCases from "../../data/getCases";
 
 // Infection Card
-const Infection = ({ infected }) => (
+const Infection = ({ infected, todayCases }) => (
   <CountBox id="infected" className="data-box">
     <p>Infected</p>
     <h3 id="infected-num">
       <CountUp end={infected} duration={3} separator="," useEasing />
     </h3>
     <h4>
-      + <span id="today-infected">16,753</span>
+      +{" "}
+      <span id="today-infected">
+        <CountUp start={todayCases} end={todayCases} separator="," />
+      </span>
     </h4>
-    <p>Total active and closed cases.</p>
+    <p>Total confirmed cases.</p>
   </CountBox>
 );
 
 Infection.propTypes = {
-  infected: PropTypes.string.isRequired,
+  infected: PropTypes.number.isRequired,
+  todayCases: PropTypes.number.isRequired,
 };
 
 // Recovered Card
-const Recovered = ({ recovered }) => (
+const Recovered = ({ recovered, todayCases }) => (
   <CountBox id="recovered" className="data-box">
-    <p>Recovered</p>
+    <p>Recovered {recovered === 0 ? "(Not Reported)" : null}</p>
     <h3 id="recovered-num">
       <CountUp end={recovered} duration={3.5} separator="," useEasing />
     </h3>
     <h4>
-      + <span id="today-recovered">{recovered}</span>
+      +{" "}
+      <span id="today-recovered">
+        <CountUp start={todayCases} end={todayCases} separator="," />
+      </span>{" "}
     </h4>
     <p>Total recoveries from Covid.</p>
   </CountBox>
 );
 
 Recovered.propTypes = {
-  recovered: PropTypes.string.isRequired,
+  recovered: PropTypes.number.isRequired,
+  todayCases: PropTypes.number.isRequired,
 };
 
 // Death Card
-const Death = ({ deaths }) => (
+const Death = ({ deaths, todayCases }) => (
   <CountBox id="deaths" className="data-box">
     <p>Deaths</p>
     <h3 id="deaths-num">
       <CountUp end={deaths} duration={3} separator="," useEasing />
     </h3>
     <h4>
-      + <span id="today-deaths">16,753</span>
+      +{" "}
+      <span id="today-deaths">
+        <CountUp start={todayCases} end={todayCases} separator="," />
+      </span>
     </h4>
     <p>Total death caused by Covid.</p>
   </CountBox>
 );
 
 Death.propTypes = {
-  deaths: PropTypes.string.isRequired,
+  deaths: PropTypes.number.isRequired,
+  todayCases: PropTypes.number.isRequired,
 };
 
 // Tutorial: https://dev.to/spukas/moving-arguments-from-child-to-parent-component-in-react-25lp
@@ -120,23 +132,25 @@ const ApiError = () => {
 };
 
 const Dashboard = ({ countries, country, error, setSelected, cases }) => {
-  const date = new Date(cases.lastUpdate).toISOString().split("T")[0];
-  const time = new Date(cases.lastUpdate)
-    .toISOString()
-    .split("T")[1]
-    .slice(0, -5);
+  const date = new Date(cases.updated).toISOString().split("T")[0];
+  const time = new Date(cases.updated).toISOString().split("T")[1].slice(0, -5);
 
   const handleChildChange = (select) => {
     setSelected(select);
   };
 
-  const infected = cases.confirmed.value;
-  const recovered = cases.recovered.value;
-  const deaths = cases.deaths.value;
+  // accumulated cases - API returned value might mismatch due to browser cache
+  const infect = cases.cases;
+  const recover = cases.recovered;
+  const death = cases.deaths;
 
-  const InfectedDom = <Infection infected={infected} />;
-  const RecoveredDom = <Recovered recovered={recovered} />;
-  const DeathDom = <Death deaths={deaths} />;
+  const InfectedDom = (
+    <Infection infected={infect} todayCases={cases.todayCases} />
+  );
+  const RecoveredDom = (
+    <Recovered recovered={recover} todayCases={cases.todayRecovered} />
+  );
+  const DeathDom = <Death deaths={death} todayCases={cases.todayDeaths} />;
 
   return (
     <>
