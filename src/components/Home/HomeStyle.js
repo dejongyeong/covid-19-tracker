@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+/** Main Wrapper */
 export const Wrapper = styled.div`
   width: auto;
   height: 100%;
@@ -57,8 +58,8 @@ export const DataWrapper = styled.div`
   width: 100%;
   display: flex;
   flex-direction: row;
-  margin-top: 3%;
-  padding: 10px;
+  margin-top: 2%;
+  padding: 10px 0px;
 
   @media only screen and ${(props) => props.theme.breakpoints.lg} {
     flex-direction: column;
@@ -224,26 +225,12 @@ export const CountBox = styled.div`
 
 export const GraphWrapper = styled.div`
   width: 100%;
-  height: 850px;
+  height: 800px;
   border: 1px solid black;
-  margin-left: 3%;
+  margin-left: 2.5%;
+  color: black;
 
   @media only screen and ${(props) => props.theme.breakpoints.lg} {
     margin: 4% auto -2% auto;
   }
-`;
-
-export const LoadingDiv = styled.div`
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-export const ApiErrorDiv = styled.div`
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: red;
 `;

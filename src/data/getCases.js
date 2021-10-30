@@ -41,24 +41,6 @@ const getCases = (countryName, loadingCallback) => {
     };
   }, [url]);
 
-  // another method
-  // const fetchData = React.useCallback(() => {
-  //   axios({
-  //     method: "GET",
-  //     url,
-  //   })
-  //     .then((response) => {
-  //       setCovidCases(response.data);
-  //     })
-  //     .catch(() => {
-  //       setIsError(true);
-  //     });
-  // });
-
-  // React.useEffect(() => {
-  //   fetchData();
-  // }, [url]);
-
   return [covidCases, isError];
 };
 

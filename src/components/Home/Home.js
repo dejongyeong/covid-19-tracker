@@ -2,24 +2,26 @@ import React, { useCallback } from "react";
 import PropTypes from "prop-types";
 import CountUp from "react-countup";
 import Theme from "../../theme/Theme";
-import HomeMobileTab from "./HomeMobileTab";
+// import HomeMobileTab from "./HomeMobileTab";
 import {
   CountBox,
-  CountBoxWrapper,
-  CountWrapper,
-  DataWrapper,
-  GraphWrapper,
-  HeaderWrapper,
-  MobileCountBoxWrapper,
-  SearchBar,
+  // CountBoxWrapper,
+  // CountWrapper,
+  // DataWrapper,
+  // GraphWrapper,
+  // HeaderWrapper,
+  // MobileCountBoxWrapper,
+  // SearchBar,
   Wrapper,
-  LoadingDiv,
-  ApiErrorDiv,
 } from "./HomeStyle";
+import ApiError from "../Shared/ApiError";
+import Banner from "../Banner";
+import Loading from "../Shared/Loading";
 
 // custom hooks
-import getCountries from "../../data/getCountries";
-import getCases from "../../data/getCases";
+// import getCountries from "../../data/getCountries";
+// import getCases from "../../data/getCases";
+import getWorldCases from "../../data/getWorldCases";
 
 // Infection Card
 const Infection = ({ infected, todayCases }) => (
@@ -34,7 +36,7 @@ const Infection = ({ infected, todayCases }) => (
         <CountUp start={todayCases} end={todayCases} separator="," />
       </span>
     </h4>
-    <p>Total confirmed cases.</p>
+    <p>Total cases.</p>
   </CountBox>
 );
 
@@ -56,7 +58,7 @@ const Recovered = ({ recovered, todayCases }) => (
         <CountUp start={todayCases} end={todayCases} separator="," />
       </span>{" "}
     </h4>
-    <p>Total recoveries from Covid.</p>
+    <p>Total recoveries.</p>
   </CountBox>
 );
 
@@ -78,7 +80,7 @@ const Death = ({ deaths, todayCases }) => (
         <CountUp start={todayCases} end={todayCases} separator="," />
       </span>
     </h4>
-    <p>Total death caused by Covid.</p>
+    <p>Total deaths.</p>
   </CountBox>
 );
 
@@ -115,115 +117,121 @@ CountriesDropdown.propTypes = {
   onChildChange: PropTypes.func.isRequired,
 };
 
-const Loading = () => {
-  return (
-    <LoadingDiv>
-      <h1 style={{ color: "black" }}>Loading</h1>
-    </LoadingDiv>
-  );
-};
+// const Dashboard = ({ countries, country, error, setSelected, cases }) => {
+//   const date = new Date(cases.updated).toISOString().split("T")[0];
+//   const time = new Date(cases.updated).toISOString().split("T")[1].slice(0, -5);
 
-const ApiError = () => {
-  return (
-    <ApiErrorDiv>
-      <h1>API Error</h1>
-    </ApiErrorDiv>
-  );
-};
+//   const handleChildChange = (select) => {
+//     setSelected(select);
+//   };
 
-const Dashboard = ({ countries, country, error, setSelected, cases }) => {
-  const date = new Date(cases.updated).toISOString().split("T")[0];
-  const time = new Date(cases.updated).toISOString().split("T")[1].slice(0, -5);
+//   // accumulated cases - API returned value might mismatch due to browser cache
+//   const infect = cases.cases;
+//   const recover = cases.recovered;
+//   const death = cases.deaths;
 
-  const handleChildChange = (select) => {
-    setSelected(select);
-  };
+//   const InfectedDom = (
+//     <Infection infected={infect} todayCases={cases.todayCases} />
+//   );
+//   const RecoveredDom = (
+//     <Recovered recovered={recover} todayCases={cases.todayRecovered} />
+//   );
+//   const DeathDom = <Death deaths={death} todayCases={cases.todayDeaths} />;
 
-  // accumulated cases - API returned value might mismatch due to browser cache
-  const infect = cases.cases;
-  const recover = cases.recovered;
-  const death = cases.deaths;
+//   return (
+//     <>
+//       <Banner />
+//       <HeaderWrapper>
+//         <h3 id="country-name">{country}</h3>
+//         <p id="last-updated">Last updated: {`${date} ${time}`}</p>
+//       </HeaderWrapper>
+//       <DataWrapper>
+//         <CountWrapper>
+//           <SearchBar>
+//             <CountriesDropdown
+//               countriesDropdown={countries}
+//               isError={error}
+//               onChildChange={handleChildChange}
+//             />
+//           </SearchBar>
+//           <CountBoxWrapper>
+//             {InfectedDom}
+//             {RecoveredDom}
+//             {DeathDom}
+//           </CountBoxWrapper>
+//           <MobileCountBoxWrapper>
+//             <HomeMobileTab
+//               infected={InfectedDom}
+//               recovered={RecoveredDom}
+//               death={DeathDom}
+//             />
+//           </MobileCountBoxWrapper>
+//         </CountWrapper>
+//         <GraphWrapper>Graph</GraphWrapper>
+//       </DataWrapper>
+//     </>
+//   );
+// };
 
-  const InfectedDom = (
-    <Infection infected={infect} todayCases={cases.todayCases} />
-  );
-  const RecoveredDom = (
-    <Recovered recovered={recover} todayCases={cases.todayRecovered} />
-  );
-  const DeathDom = <Death deaths={death} todayCases={cases.todayDeaths} />;
+// Dashboard.propTypes = {
+//   countries: PropTypes.array.isRequired,
+//   country: PropTypes.string.isRequired,
+//   error: PropTypes.bool.isRequired,
+//   setSelected: PropTypes.func.isRequired,
+//   cases: PropTypes.object.isRequired,
+// };
 
+const Dashboard = ({ worldCases }) => {
+  console.log(worldCases);
   return (
     <>
-      <HeaderWrapper>
-        <h3 id="country-name">{country}</h3>
-        <p id="last-updated">Last updated: {`${date} ${time}`}</p>
-      </HeaderWrapper>
-      <DataWrapper>
-        <CountWrapper>
-          <SearchBar>
-            <CountriesDropdown
-              countriesDropdown={countries}
-              isError={error}
-              onChildChange={handleChildChange}
-            />
-          </SearchBar>
-          <CountBoxWrapper>
-            {InfectedDom}
-            {RecoveredDom}
-            {DeathDom}
-          </CountBoxWrapper>
-          <MobileCountBoxWrapper>
-            <HomeMobileTab
-              infected={InfectedDom}
-              recovered={RecoveredDom}
-              death={DeathDom}
-            />
-          </MobileCountBoxWrapper>
-        </CountWrapper>
-        <GraphWrapper>Graph</GraphWrapper>
-      </DataWrapper>
+      <Banner worldCases={worldCases} />
     </>
   );
 };
 
 Dashboard.propTypes = {
-  countries: PropTypes.array.isRequired,
-  country: PropTypes.string.isRequired,
-  error: PropTypes.bool.isRequired,
-  setSelected: PropTypes.func.isRequired,
-  cases: PropTypes.object.isRequired,
+  worldCases: PropTypes.object.isRequired,
 };
 
 function Home() {
-  const [countries, countryError] = getCountries(); // retrieve all countries
-  const [selected, setSelected] = React.useState(0);
   const [loading, setLoading] = React.useState(true);
-
+  const [error, setError] = React.useState(false);
   const gatedSetLoading = useCallback(() => {
     setLoading(false);
   }, []);
-
-  const gatedSetSelected = useCallback((value) => {
-    setSelected(value);
+  const gatedSetError = useCallback(() => {
+    setError(true);
   }, []);
 
-  const country = countries[selected].text;
+  // world data
+  const world = getWorldCases(gatedSetLoading, gatedSetError);
 
-  const [cases, caseError] = getCases(country, gatedSetLoading);
+  // const [countries, countryError] = getCountries(); // retrieve all countries
+  // const [selected, setSelected] = React.useState(0);
+
+  // const gatedSetSelected = useCallback((value) => {
+  //   setSelected(value);
+  // }, []);
+
+  // const country = countries[selected].text;
+  // const [cases, caseError] = getCases(country, gatedSetLoading);
 
   let dom;
-  if (countryError && caseError) {
+  if (error) {
     dom = <ApiError />;
   } else if (!loading) {
     dom = (
-      <Dashboard
-        countries={countries}
-        country={country}
-        error={countryError}
-        setLoading={gatedSetLoading}
-        setSelected={gatedSetSelected}
-        cases={cases}
-      />
+      <Dashboard worldCases={world} />
+      // <Dashboard
+      //   countries={countries}
+      //   country={country}
+      //   error={countryError}
+      //   setLoading={gatedSetLoading}
+      //   setError={gatedSetError}
+      //   setSelected={gatedSetSelected}
+      //   cases={cases}
+      // />
     );
   }
 
@@ -232,24 +240,6 @@ function Home() {
       <Wrapper id="covid-data">{loading ? <Loading /> : dom}</Wrapper>
     </Theme>
   );
-
-  // // eslint-disable-next-line no-unused-vars
-  // const [cases, error] = getCases(selectedCountry);
-
-  // let infected = 0;
-  // if (!cases) {
-  //   console.log("loading");
-  // } else {
-  //   infected = cases.confirmed.value;
-  // }
-
-  // // const infected = covidCases.confirmed.value;
-  // // const recovered = covidCases.recovered.value;
-  // // const deaths = covidCases.deaths.value;
-  // // const lastUpdated = covidCases.lastUpdate;
-
-  // // const date = new Date(lastUpdated).toISOString().split("T")[0];
-  // // const time = new Date(lastUpdated).toISOString().split("T")[1].slice(0, -5);
 }
 
 export default Home;

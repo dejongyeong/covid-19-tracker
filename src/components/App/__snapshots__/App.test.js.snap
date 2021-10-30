@@ -2,13 +2,13 @@
 
 exports[`Home renders correctly 1`] = `
 <div
-  className="sc-bdfBwQ fDlVuy"
+  className="sc-bdfBQB dTMZCS"
 >
   <div
-    className="sc-gsTCUz bSzSYA"
+    className="sc-gsTEea hTdwKE"
   />
   <div
-    className="sc-dlfnbm eHccMw"
+    className="sc-dlfnuX dyaMfP"
   />
   <header
     className="MuiPaper-root MuiAppBar-root WithStyles(ForwardRef(AppBar))-root-3 MuiAppBar-positionStatic MuiAppBar-colorPrimary MuiPaper-elevation4"
@@ -17,7 +17,7 @@ exports[`Home renders correctly 1`] = `
       className="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters"
     >
       <div
-        className="sc-hKgILt hYwCGT"
+        className="sc-hKgJUU kwxznJ"
       >
         <img
           alt="Logo"
@@ -25,7 +25,7 @@ exports[`Home renders correctly 1`] = `
         />
       </div>
       <div
-        className="sc-eCssSg ezlAZN"
+        className="sc-eCstlR iBxqtt"
       >
         <a
           aria-current="page"
@@ -47,14 +47,14 @@ exports[`Home renders correctly 1`] = `
           onClick={[Function]}
         >
           <button
-            className="sc-jSgupP bFUndu"
+            className="sc-jSgvzq jFQHsr"
           >
             Information
           </button>
         </a>
       </div>
       <div
-        className="sc-gKsewC hAhubS"
+        className="sc-gKseQn cgYsYc"
       >
         <button
           aria-label="menu"
@@ -94,25 +94,20 @@ exports[`Home renders correctly 1`] = `
     </div>
   </header>
   <div
-    className="sc-pFZIQ ebRCQS"
+    className="sc-pGacB buytyM"
     id="covid-data"
   >
     <div
-      className="sc-fodVxV heOWZp"
+      className="sc-dIUeWJ gwiQks"
+      id="api-error"
     >
-      <h1
-        style={
-          Object {
-            "color": "black",
-          }
-        }
-      >
+      <h1>
         Loading
       </h1>
     </div>
   </div>
   <div
-    className="sc-giIncl dcKFyL"
+    className="sc-kLgnNl jvGrvk"
     id="footer"
   >
     <p>

@@ -2,19 +2,14 @@
 
 exports[`Home renders correctly 1`] = `
 <div
-  className="sc-bdfBwQ YZDHG"
+  className="sc-bdfBQB UaCa"
   id="covid-data"
 >
   <div
-    className="sc-pFZIQ ewkBXg"
+    className="sc-crrszt dfvxau"
+    id="api-error"
   >
-    <h1
-      style={
-        Object {
-          "color": "black",
-        }
-      }
-    >
+    <h1>
       Loading
     </h1>
   </div>

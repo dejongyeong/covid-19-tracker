@@ -2,7 +2,7 @@ import React from "react";
 import Theme from "../../../theme/Theme";
 import { Wrapper } from "./FooterStyle";
 
-function Info() {
+function Footer() {
   return (
     <Theme>
       <Wrapper id="footer">
@@ -12,4 +12,4 @@ function Info() {
   );
 }
 
-export default Info;
+export default Footer;
