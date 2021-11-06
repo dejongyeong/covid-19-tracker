@@ -1,10 +1,8 @@
 import React, { useCallback } from "react";
 import PropTypes from "prop-types";
-import CountUp from "react-countup";
 import Theme from "../../theme/Theme";
 // import HomeMobileTab from "./HomeMobileTab";
 import {
-  CountBox,
   // CountBoxWrapper,
   // CountWrapper,
   // DataWrapper,
@@ -22,72 +20,6 @@ import Loading from "../Shared/Loading";
 // import getCountries from "../../data/getCountries";
 // import getCases from "../../data/getCases";
 import getWorldCases from "../../data/getWorldCases";
-
-// Infection Card
-const Infection = ({ infected, todayCases }) => (
-  <CountBox id="infected" className="data-box">
-    <p>Infected</p>
-    <h3 id="infected-num">
-      <CountUp end={infected} duration={3} separator="," useEasing />
-    </h3>
-    <h4>
-      +{" "}
-      <span id="today-infected">
-        <CountUp start={todayCases} end={todayCases} separator="," />
-      </span>
-    </h4>
-    <p>Total cases.</p>
-  </CountBox>
-);
-
-Infection.propTypes = {
-  infected: PropTypes.number.isRequired,
-  todayCases: PropTypes.number.isRequired,
-};
-
-// Recovered Card
-const Recovered = ({ recovered, todayCases }) => (
-  <CountBox id="recovered" className="data-box">
-    <p>Recovered {recovered === 0 ? "(Not Reported)" : null}</p>
-    <h3 id="recovered-num">
-      <CountUp end={recovered} duration={3.5} separator="," useEasing />
-    </h3>
-    <h4>
-      +{" "}
-      <span id="today-recovered">
-        <CountUp start={todayCases} end={todayCases} separator="," />
-      </span>{" "}
-    </h4>
-    <p>Total recoveries.</p>
-  </CountBox>
-);
-
-Recovered.propTypes = {
-  recovered: PropTypes.number.isRequired,
-  todayCases: PropTypes.number.isRequired,
-};
-
-// Death Card
-const Death = ({ deaths, todayCases }) => (
-  <CountBox id="deaths" className="data-box">
-    <p>Deaths</p>
-    <h3 id="deaths-num">
-      <CountUp end={deaths} duration={3} separator="," useEasing />
-    </h3>
-    <h4>
-      +{" "}
-      <span id="today-deaths">
-        <CountUp start={todayCases} end={todayCases} separator="," />
-      </span>
-    </h4>
-    <p>Total deaths.</p>
-  </CountBox>
-);
-
-Death.propTypes = {
-  deaths: PropTypes.number.isRequired,
-  todayCases: PropTypes.number.isRequired,
-};
 
 // Tutorial: https://dev.to/spukas/moving-arguments-from-child-to-parent-component-in-react-25lp
 function CountriesDropdown({ countriesDropdown, isError, onChildChange }) {
@@ -182,7 +114,6 @@ CountriesDropdown.propTypes = {
 // };
 
 const Dashboard = ({ worldCases }) => {
-  console.log(worldCases);
   return (
     <>
       <Banner worldCases={worldCases} />

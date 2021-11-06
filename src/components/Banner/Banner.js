@@ -1,6 +1,14 @@
 import React from "react";
 import PropTypes, { number } from "prop-types";
-import { Wrapper, BannerWrapper, Card } from "./BannerStyle";
+import { Wrapper, BannerWrapper } from "./BannerStyle";
+
+import {
+  TotalConfirm,
+  TotalDeaths,
+  TotalRecovered,
+  TotalTested,
+} from "./WorldStats";
+import { calIncreasePercentage, calPositivityRate } from "../../helpers";
 
 function Banner({ worldCases }) {
   const date = new Date(worldCases.updated).toISOString().split("T")[0];
@@ -9,24 +17,43 @@ function Banner({ worldCases }) {
     .split("T")[1]
     .slice(0, -5);
 
-  console.log(worldCases);
+  const confirmPercentage = calIncreasePercentage(
+    worldCases.cases,
+    worldCases.todayCases
+  );
+  const recoveredPercentage = calIncreasePercentage(
+    worldCases.recovered,
+    worldCases.todayRecovered
+  );
+  const deathsPercentage = calIncreasePercentage(
+    worldCases.deaths,
+    worldCases.todayDeaths
+  );
+  const positivityRate = calPositivityRate(worldCases.cases, worldCases.tests);
 
   return (
     <Wrapper>
-      <p className="time">Last Updated: {date + time}</p>
+      <p className="time">Last Updated: {`${date} ${time}`}</p>
       <BannerWrapper>
-        <Card className="banner-one">
-          <h5>Total Confirmed</h5>
-        </Card>
-        <Card className="banner-two">
-          <h5>Total Recovered</h5>
-        </Card>
-        <Card className="banner-three">
-          <h5>Total Deaths</h5>
-        </Card>
-        <Card className="banner-four">
-          <h5>Total Tested</h5>
-        </Card>
+        <TotalConfirm
+          cases={worldCases.cases}
+          todayCases={worldCases.todayCases}
+          confirmPercentage={confirmPercentage}
+        />
+        <TotalRecovered
+          recovered={worldCases.recovered}
+          todayRecovered={worldCases.todayRecovered}
+          recoveredPercentage={recoveredPercentage}
+        />
+        <TotalDeaths
+          deaths={worldCases.deaths}
+          todayDeaths={worldCases.todayDeaths}
+          deathsPercentage={deathsPercentage}
+        />
+        <TotalTested
+          tested={worldCases.tests}
+          positivityRate={positivityRate}
+        />
       </BannerWrapper>
     </Wrapper>
   );

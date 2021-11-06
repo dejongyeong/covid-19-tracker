@@ -2,9 +2,23 @@ import React from "react";
 import renderer from "react-test-renderer";
 import Theme from "../theme/Theme";
 
-/* eslint-disable */
 // Theme test helpers
 // Tutorial: Tutorial 1: https://medium.com/styled-components/effective-testing-for-styled-components-67982eb7d42b (2017)
 export function renderWithTheme(component) {
   return renderer.create(<Theme>{component}</Theme>);
+}
+
+export function calIncreasePercentage(latest, increaseValue) {
+  const previous = latest - increaseValue;
+  const percent = ((latest - previous) / previous) * 100;
+  return percent;
+}
+
+export function getIcon(percent) {
+  return percent > 0 ? "▲" : "▼";
+}
+
+export function calPositivityRate(totalConfirm, totalTested) {
+  const pr = (totalConfirm / totalTested) * 100;
+  return pr;
 }
