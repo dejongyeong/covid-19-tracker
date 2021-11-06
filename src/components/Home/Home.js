@@ -1,117 +1,14 @@
 import React, { useCallback } from "react";
-import PropTypes from "prop-types";
+import PropTypes, { number } from "prop-types";
 import Theme from "../../theme/Theme";
 // import HomeMobileTab from "./HomeMobileTab";
-import {
-  // CountBoxWrapper,
-  // CountWrapper,
-  // DataWrapper,
-  // GraphWrapper,
-  // HeaderWrapper,
-  // MobileCountBoxWrapper,
-  // SearchBar,
-  Wrapper,
-} from "./HomeStyle";
+import { Wrapper } from "./HomeStyle";
 import ApiError from "../Shared/ApiError";
 import Banner from "../Banner";
 import Loading from "../Shared/Loading";
 
 // custom hooks
-// import getCountries from "../../data/getCountries";
-// import getCases from "../../data/getCases";
-import getWorldCases from "../../data/getWorldCases";
-
-// Tutorial: https://dev.to/spukas/moving-arguments-from-child-to-parent-component-in-react-25lp
-function CountriesDropdown({ countriesDropdown, isError, onChildChange }) {
-  function handleChanging(event) {
-    onChildChange(event.target.selectedIndex);
-  }
-
-  return (
-    <select
-      onChange={handleChanging}
-      style={{ width: "100%" }}
-      disabled={!!isError}
-    >
-      {countriesDropdown.map(({ text }) => (
-        <option key={text} value={text}>
-          {text}
-        </option>
-      ))}
-    </select>
-  );
-}
-
-/* eslint-disable react/forbid-prop-types */
-CountriesDropdown.propTypes = {
-  countriesDropdown: PropTypes.array.isRequired,
-  isError: PropTypes.bool.isRequired,
-  onChildChange: PropTypes.func.isRequired,
-};
-
-// const Dashboard = ({ countries, country, error, setSelected, cases }) => {
-//   const date = new Date(cases.updated).toISOString().split("T")[0];
-//   const time = new Date(cases.updated).toISOString().split("T")[1].slice(0, -5);
-
-//   const handleChildChange = (select) => {
-//     setSelected(select);
-//   };
-
-//   // accumulated cases - API returned value might mismatch due to browser cache
-//   const infect = cases.cases;
-//   const recover = cases.recovered;
-//   const death = cases.deaths;
-
-//   const InfectedDom = (
-//     <Infection infected={infect} todayCases={cases.todayCases} />
-//   );
-//   const RecoveredDom = (
-//     <Recovered recovered={recover} todayCases={cases.todayRecovered} />
-//   );
-//   const DeathDom = <Death deaths={death} todayCases={cases.todayDeaths} />;
-
-//   return (
-//     <>
-//       <Banner />
-//       <HeaderWrapper>
-//         <h3 id="country-name">{country}</h3>
-//         <p id="last-updated">Last updated: {`${date} ${time}`}</p>
-//       </HeaderWrapper>
-//       <DataWrapper>
-//         <CountWrapper>
-//           <SearchBar>
-//             <CountriesDropdown
-//               countriesDropdown={countries}
-//               isError={error}
-//               onChildChange={handleChildChange}
-//             />
-//           </SearchBar>
-//           <CountBoxWrapper>
-//             {InfectedDom}
-//             {RecoveredDom}
-//             {DeathDom}
-//           </CountBoxWrapper>
-//           <MobileCountBoxWrapper>
-//             <HomeMobileTab
-//               infected={InfectedDom}
-//               recovered={RecoveredDom}
-//               death={DeathDom}
-//             />
-//           </MobileCountBoxWrapper>
-//         </CountWrapper>
-//         <GraphWrapper>Graph</GraphWrapper>
-//       </DataWrapper>
-//     </>
-//   );
-// };
-
-// Dashboard.propTypes = {
-//   countries: PropTypes.array.isRequired,
-//   country: PropTypes.string.isRequired,
-//   error: PropTypes.bool.isRequired,
-//   setSelected: PropTypes.func.isRequired,
-//   cases: PropTypes.object.isRequired,
-// };
+import { getWorldCases } from "../../api/ApiCalls";
 
 const Dashboard = ({ worldCases }) => {
   return (
@@ -122,7 +19,26 @@ const Dashboard = ({ worldCases }) => {
 };
 
 Dashboard.propTypes = {
-  worldCases: PropTypes.object.isRequired,
+  worldCases: PropTypes.shape({
+    active: number,
+    activePerOneMillion: number,
+    affectedCountries: number,
+    cases: number,
+    casesPerOneMillion: number,
+    critical: number,
+    criticalPerOneMillion: number,
+    deaths: number,
+    deathsPerOneMillion: number,
+    population: number,
+    recovered: number,
+    recoveredPerOneMillion: number,
+    tests: number,
+    testsPerOneMillion: number,
+    todayCases: number,
+    todayDeaths: number,
+    todayRecovered: number,
+    updated: number,
+  }).isRequired,
 };
 
 function Home() {
@@ -174,3 +90,79 @@ function Home() {
 }
 
 export default Home;
+
+// Tutorial: https://dev.to/spukas/moving-arguments-from-child-to-parent-component-in-react-25lp
+// function CountriesDropdown({ countriesDropdown, isError, onChildChange }) {
+//   function handleChanging(event) {
+//     onChildChange(event.target.selectedIndex);
+//   }
+
+//   return (
+//     <select
+//       onChange={handleChanging}
+//       style={{ width: "100%" }}
+//       disabled={!!isError}
+//     >
+//       {countriesDropdown.map(({ text }) => (
+//         <option key={text} value={text}>
+//           {text}
+//         </option>
+//       ))}
+//     </select>
+//   );
+// }
+
+/* eslint-disable react/forbid-prop-types */
+// CountriesDropdown.propTypes = {
+//   countriesDropdown: PropTypes.array.isRequired,
+//   isError: PropTypes.bool.isRequired,
+//   onChildChange: PropTypes.func.isRequired,
+// };
+
+// const Dashboard = ({ countries, country, error, setSelected, cases }) => {
+//   const handleChildChange = (select) => {
+//     setSelected(select);
+//   };
+
+//   return (
+//     <>
+//       <Banner />
+//       <HeaderWrapper>
+//         <h3 id="country-name">{country}</h3>
+//         <p id="last-updated">Last updated: {`${date} ${time}`}</p>
+//       </HeaderWrapper>
+//       <DataWrapper>
+//         <CountWrapper>
+//           <SearchBar>
+//             <CountriesDropdown
+//               countriesDropdown={countries}
+//               isError={error}
+//               onChildChange={handleChildChange}
+//             />
+//           </SearchBar>
+//           <CountBoxWrapper>
+//             {InfectedDom}
+//             {RecoveredDom}
+//             {DeathDom}
+//           </CountBoxWrapper>
+//           <MobileCountBoxWrapper>
+//             <HomeMobileTab
+//               infected={InfectedDom}
+//               recovered={RecoveredDom}
+//               death={DeathDom}
+//             />
+//           </MobileCountBoxWrapper>
+//         </CountWrapper>
+//         <GraphWrapper>Graph</GraphWrapper>
+//       </DataWrapper>
+//     </>
+//   );
+// };
+
+// Dashboard.propTypes = {
+//   countries: PropTypes.array.isRequired,
+//   country: PropTypes.string.isRequired,
+//   error: PropTypes.bool.isRequired,
+//   setSelected: PropTypes.func.isRequired,
+//   cases: PropTypes.object.isRequired,
+// };

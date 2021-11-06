@@ -36,7 +36,7 @@ export const Card = styled.div`
     font-size: 2rem;
   }
   p {
-    padding-top: 11px;
+    padding-top: 9px;
     color: ${(props) => props.theme.colors.primaryColor};
     font-size: 0.8rem;
     font-family: ${(props) => props.theme.font.paragraph};
