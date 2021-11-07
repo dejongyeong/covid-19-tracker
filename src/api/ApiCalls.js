@@ -23,7 +23,10 @@ export const getWorldCases = (loadingCallback, errorCallback) => {
         errorCallback(true);
       }
     };
-    fetchCases();
+    const timer = setTimeout(() => {
+      fetchCases();
+    }, 2500);
+    return () => clearTimeout(timer);
   }, []);
 
   return worldCases;
