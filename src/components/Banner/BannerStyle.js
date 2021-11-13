@@ -5,10 +5,10 @@ export const Wrapper = styled.div`
   color: black;
   .time {
     font-family: ${(props) => props.theme.font.paragraph};
-    color: ${(props) => props.theme.colors.primaryColor};
-    margin-bottom: 1rem;
-    font-size: 0.8rem;
-    font-weight: bold;
+    color: #3c3c3c;
+    margin-bottom: 0.95rem;
+    font-size: 0.72rem;
+    font-weight: normal;
   }
   @media screen and (max-width: 620px) {
     .time {
@@ -18,9 +18,9 @@ export const Wrapper = styled.div`
 `;
 
 export const Card = styled.div`
-  height: 147px;
+  height: 155px;
   text-align: center;
-  padding: 15px 1% 0.6% 1%;
+  padding: 18px 1% 0.6% 1%;
   box-shadow: 0 4px 8px 0 rgba(234, 226, 183, 0.2);
   border-radius: 5px;
   border: 1px solid rgba(234, 226, 183, 1);
@@ -33,7 +33,7 @@ export const Card = styled.div`
     color: ${(props) => props.theme.colors.primaryColor};
   }
   h2 {
-    font-size: 2rem;
+    font-size: 1.91rem;
   }
   p {
     padding-top: 9px;

@@ -12,7 +12,7 @@ function Loading() {
           <FaSpinner icon="spinner" className="spinner" />
         </Loader>
         <Marquee>
-          <h1>Fetching Data... Please Wait...</h1>
+          <h1>Fetching Data...</h1>
         </Marquee>
       </Wrapper>
     </Theme>

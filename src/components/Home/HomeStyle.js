@@ -23,6 +23,27 @@ export const Wrapper = styled.div`
   }
 `;
 
+export const Container = styled.div`
+  width: auto;
+  height: 100vh;
+  margin: 1rem auto 0 auto;
+  display: grid;
+  grid-template-columns: 1.5fr 2fr;
+  grid-gap: 0.5rem;
+
+  .country-list {
+    border: 3px solid black;
+  }
+
+  .graph-section {
+    border: 3px solid pink;
+  }
+
+  @media only screen and (max-width: 1024px) {
+    grid-template-columns: 1fr;
+  }
+`;
+
 export const HeaderWrapper = styled.div`
   width: 100%;
   margin-top: 15px;

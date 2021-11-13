@@ -6,7 +6,10 @@ function Footer() {
   return (
     <Theme>
       <Wrapper id="footer">
-        <p>Design and Built by De Jong Yeong &#169; 2020</p>
+        <p>
+          Design and Built by De Jong Yeong &#169; {new Date().getFullYear()} |
+          Data Source: <a href="https://disease.sh/">Open Disease Data API</a>
+        </p>
       </Wrapper>
     </Theme>
   );

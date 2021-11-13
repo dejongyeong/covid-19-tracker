@@ -1,47 +1,16 @@
 import React, { useCallback } from "react";
-import PropTypes, { number } from "prop-types";
 import Theme from "../../theme/Theme";
-// import HomeMobileTab from "./HomeMobileTab";
-import { Wrapper } from "./HomeStyle";
 import ApiError from "../Shared/ApiError";
 import Banner from "../Banner";
+import Countries from "../CountryList/Countries";
 import Loading from "../Shared/Loading";
+import { Container, Wrapper } from "./HomeStyle";
 
 // custom hooks
-import { getWorldCases } from "../../api/ApiCalls";
-
-const Dashboard = ({ worldCases }) => {
-  return (
-    <>
-      <Banner worldCases={worldCases} />
-    </>
-  );
-};
-
-Dashboard.propTypes = {
-  worldCases: PropTypes.shape({
-    active: number,
-    activePerOneMillion: number,
-    affectedCountries: number,
-    cases: number,
-    casesPerOneMillion: number,
-    critical: number,
-    criticalPerOneMillion: number,
-    deaths: number,
-    deathsPerOneMillion: number,
-    population: number,
-    recovered: number,
-    recoveredPerOneMillion: number,
-    tests: number,
-    testsPerOneMillion: number,
-    todayCases: number,
-    todayDeaths: number,
-    todayRecovered: number,
-    updated: number,
-  }).isRequired,
-};
+import { getCountriesCases, getWorldCases } from "../../api/ApiCalls";
 
 function Home() {
+  // eslint-disable-next-line no-unused-vars
   const [loading, setLoading] = React.useState(true);
   const [error, setError] = React.useState(false);
   const gatedSetLoading = useCallback(() => {
@@ -51,10 +20,10 @@ function Home() {
     setError(true);
   }, []);
 
-  // world data
-  const world = getWorldCases(gatedSetLoading, gatedSetError);
+  // get data
+  const worldCases = getWorldCases(gatedSetLoading, gatedSetError);
+  const countryCases = getCountriesCases(gatedSetError);
 
-  // const [countries, countryError] = getCountries(); // retrieve all countries
   // const [selected, setSelected] = React.useState(0);
 
   // const gatedSetSelected = useCallback((value) => {
@@ -69,7 +38,16 @@ function Home() {
     dom = <ApiError />;
   } else if (!loading) {
     dom = (
-      <Dashboard worldCases={world} />
+      <>
+        <Banner worldCases={worldCases} />
+        <Container>
+          <div className="country-list">
+            <Countries countryCases={countryCases} />
+          </div>
+          <div className="graph-section">xxx</div>
+        </Container>
+      </>
+
       // <Dashboard
       //   countries={countries}
       //   country={country}

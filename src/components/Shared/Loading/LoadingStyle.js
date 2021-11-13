@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 /* eslint-disable */
 export const Wrapper = styled.div`
-  height: 79.21vh;
+  height: 82.1vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -40,7 +40,7 @@ export const Marquee = styled.div`
   h1 {
     display: inline-block;
     padding-left: 100%;
-    animation: marquee 10s linear infinite;
+    animation: marquee 3.5s linear infinite;
     font-size: 1.7rem;
     color: #3e3e3e;
   }

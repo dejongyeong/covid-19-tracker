@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import axios from "axios";
 
-import { COUNTRIES, WORLD_CASES_API } from "./ApiConstant";
+import { COUNTRIES, COUNTRIES_CASES_API, WORLD_CASES_API } from "./ApiConstant";
 
 /**
  * Function that returns worldwide covid cases
@@ -34,6 +34,28 @@ export const getWorldCases = (loadingCallback, errorCallback) => {
 
 getWorldCases.propTypes = {
   loadingCallback: PropTypes.func.isRequired,
+  errorCallback: PropTypes.func.isRequired,
+};
+
+export const getCountriesCases = (errorCallback) => {
+  const [countriesCases, setCountriesCases] = React.useState(null);
+
+  useEffect(() => {
+    const fetchCountries = async () => {
+      try {
+        const result = await axios(`${COUNTRIES_CASES_API}`);
+        setCountriesCases(result.data);
+      } catch (error) {
+        errorCallback(true);
+      }
+    };
+    fetchCountries();
+  }, []);
+
+  return countriesCases;
+};
+
+getCountriesCases.PropTypes = {
   errorCallback: PropTypes.func.isRequired,
 };
 

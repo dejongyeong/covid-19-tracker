@@ -94,15 +94,15 @@ exports[`Home renders correctly 1`] = `
     </div>
   </header>
   <div
-    className="sc-pGacB buytyM"
+    className="sc-kstqJO kxTkuP"
     id="covid-data"
   >
     <div
-      className="sc-dIUeWJ jYYfZe"
+      className="sc-crrszt jrKGoa"
       id="api-error"
     >
       <div
-        className="sc-hHfuMS jFWTFW"
+        className="sc-dQoVA iczIim"
       >
         <svg
           className="spinner"
@@ -126,20 +126,27 @@ exports[`Home renders correctly 1`] = `
         </svg>
       </div>
       <div
-        className="sc-dmlqKv iGBMES"
+        className="sc-bqyKOL kaXzQo"
       >
         <h1>
-          Fetching Data... Please Wait...
+          Fetching Data...
         </h1>
       </div>
     </div>
   </div>
   <div
-    className="sc-jJEKmz biVdHq"
+    className="sc-hiSbEG diJUGN"
     id="footer"
   >
     <p>
-      Design and Built by De Jong Yeong © 2020
+      Design and Built by De Jong Yeong © 
+      2021
+       | Data Source: 
+      <a
+        href="https://disease.sh/"
+      >
+        Open Disease Data API
+      </a>
     </p>
   </div>
 </div>

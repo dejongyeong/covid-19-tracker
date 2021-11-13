@@ -69,7 +69,7 @@ export const InfoWrapper = styled.div`
   padding: 10px 0 10px 0;
   display: flex;
   flex-direction: row;
-  margin: 40px 0 10px 0;
+  margin: 40px 0 20px 0;
   .card:nth-child(2) {
     margin: 0 60px;
   }

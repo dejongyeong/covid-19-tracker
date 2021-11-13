@@ -56,7 +56,7 @@ exports[`<InfoWrapper> test 1`] = `
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
-  margin: 40px 0 10px 0;
+  margin: 40px 0 20px 0;
 }
 
 .c0 .card:nth-child(2) {
