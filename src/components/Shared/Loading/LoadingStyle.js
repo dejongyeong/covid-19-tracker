@@ -36,7 +36,6 @@ export const Marquee = styled.div`
   line-height: 50px;
   overflow: hidden;
   box-sizing: border-box;
-
   h1 {
     display: inline-block;
     padding-left: 100%;
@@ -50,8 +49,7 @@ export const Marquee = styled.div`
   }
 
   @media screen and (max-width: 992px) {
-    width: 40%;
-
+    width: 50%;
     h1 {
       font-size: 1.4rem;
     }

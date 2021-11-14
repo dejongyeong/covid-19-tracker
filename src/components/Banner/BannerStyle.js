@@ -8,11 +8,11 @@ export const Wrapper = styled.div`
     color: #3c3c3c;
     margin-bottom: 0.95rem;
     font-size: 0.72rem;
-    font-weight: normal;
+    font-weight: bold;
   }
   @media screen and (max-width: 620px) {
     .time {
-      margin-bottom: 4%;
+      margin-bottom: 2.5%;
     }
   }
 `;
@@ -92,6 +92,9 @@ export const BannerWrapper = styled.div`
       flex: 100% !important;
       :nth-child(n + 2) {
         margin-top: 1.2%;
+      }
+      :nth-child(odd) {
+        margin-right: unset;
       }
     }
   }

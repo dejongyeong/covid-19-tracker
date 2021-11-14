@@ -1,5 +1,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
+import { number } from "prop-types";
 import Theme from "../theme/Theme";
 
 // Theme test helpers
@@ -22,3 +23,10 @@ export function calPositivityRate(totalConfirm, totalTested) {
   const pr = (totalConfirm / totalTested) * 100;
   return pr;
 }
+
+export function numberWithCommas(num) {
+  return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+numberWithCommas.propTypes = {
+  num: number,
+};

@@ -47,16 +47,6 @@ function Home() {
           <div className="graph-section">xxx</div>
         </Container>
       </>
-
-      // <Dashboard
-      //   countries={countries}
-      //   country={country}
-      //   error={countryError}
-      //   setLoading={gatedSetLoading}
-      //   setError={gatedSetError}
-      //   setSelected={gatedSetSelected}
-      //   cases={cases}
-      // />
     );
   }
 

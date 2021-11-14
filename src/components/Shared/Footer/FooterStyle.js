@@ -8,10 +8,10 @@ export const Wrapper = styled.div`
   font-size: 0.75rem;
   width: 100%;
   height: 35px;
-  padding: 10px 0 20px 0;
+  padding: 10px 15px 20px 15px;
   text-align: center;
   line-height: 17px;
-
+  
   a {
     text-decoration: none;
     color: ${(props) => props.theme.colors.secondaryColor};

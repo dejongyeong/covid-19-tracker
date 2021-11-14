@@ -1,12 +1,47 @@
 import React from "react";
 import PropTypes, { number, string } from "prop-types";
 
+import { Wrapper } from "./CountriesStyle";
+import { numberWithCommas } from "../../helpers";
+
+/** Design Idea: https://www.worldometers.info/coronavirus */
 function Countries({ countryCases }) {
   console.log(countryCases);
   return (
-    <div>
-      <div>xxx</div>
-    </div>
+    <Wrapper>
+      <table>
+        <thead>
+          <tr>
+            <th>Country</th>
+            <th>Confirmed</th>
+            <th>New Cases</th>
+            <th>Deaths</th>
+            <th>New Deaths</th>
+            <th>Recovered</th>
+            <th>New Recovered</th>
+          </tr>
+        </thead>
+        <tbody>
+          {countryCases.map((countryCase) => (
+            <tr key={`${countryCase.country}_${countryCase.countryInfo.iso3}`}>
+              <td>{countryCase.country}</td>
+              <td>{numberWithCommas(countryCase.cases)}</td>
+              <td className="todayCases">
+                + {numberWithCommas(countryCase.todayCases)}
+              </td>
+              <td>{numberWithCommas(countryCase.deaths)}</td>
+              <td className="todayDeaths">
+                + {numberWithCommas(countryCase.todayDeaths)}
+              </td>
+              <td>{numberWithCommas(countryCase.recovered)}</td>
+              <td className="todayRecover">
+                + {numberWithCommas(countryCase.todayRecovered)}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </Wrapper>
   );
 }
 
