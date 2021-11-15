@@ -1,6 +1,8 @@
 import React from "react";
 import renderer from "react-test-renderer";
 import { number } from "prop-types";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowUp, faArrowDown } from "@fortawesome/free-solid-svg-icons";
 import Theme from "../theme/Theme";
 
 // Theme test helpers
@@ -16,7 +18,11 @@ export function calIncreasePercentage(latest, increaseValue) {
 }
 
 export function getIcon(percent) {
-  return percent > 0 ? "▲" : "▼";
+  return percent > 0 ? (
+    <FontAwesomeIcon icon={faArrowUp} />
+  ) : (
+    <FontAwesomeIcon icon={faArrowDown} />
+  );
 }
 
 export function calPositivityRate(totalConfirm, totalTested) {

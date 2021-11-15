@@ -25,6 +25,7 @@ export const Wrapper = styled.div`
 export const Container = styled.div`
   width: auto;
   height: 100vh;
+  max-height: 100vh;
   margin: 1rem auto 0 auto;
   display: grid;
   grid-template-columns: 1.5fr 1.8fr;

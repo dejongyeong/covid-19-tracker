@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes, { number } from "prop-types";
 import { Wrapper, BannerWrapper } from "./BannerStyle";
-
 import {
   TotalConfirm,
   TotalDeaths,
