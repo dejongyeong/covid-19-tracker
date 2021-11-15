@@ -35,7 +35,7 @@ export const Wrapper = styled.div`
           color: #026a41;
           font-weight: bold;
         }
-        :nth-child(odd) {
+        :nth-child(even) {
           background-color: #ebecf0;
         }
       }
@@ -46,6 +46,7 @@ export const Wrapper = styled.div`
   }
 `;
 
+/** Remove below */
 export const Container = styled.div`
   width: auto;
   height: 100vh;
