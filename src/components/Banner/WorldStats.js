@@ -21,7 +21,7 @@ export function TotalConfirm({ cases, todayCases, confirmPercentage }) {
       </h2>
       <p>
         {getIcon(confirmPercentage)} <CountUp end={todayCases} separator="," />{" "}
-        / {confirmPercentage.toFixed(3)}%
+        / {confirmPercentage.toFixed(2)}%
       </p>
     </Card>
   );
@@ -54,7 +54,7 @@ export function TotalRecovered({
       <p>
         {getIcon(recoveredPercentage)}{" "}
         <CountUp end={todayRecovered} separator="," /> /{" "}
-        {recoveredPercentage.toFixed(3)}%
+        {recoveredPercentage.toFixed(2)}%
       </p>
     </Card>
   );
@@ -82,7 +82,7 @@ export function TotalDeaths({ deaths, todayDeaths, deathsPercentage }) {
       </h2>
       <p>
         {getIcon(deathsPercentage)} <CountUp end={todayDeaths} separator="," />{" "}
-        / {deathsPercentage.toFixed(3)}%
+        / {deathsPercentage.toFixed(2)}%
       </p>
     </Card>
   );
@@ -107,7 +107,7 @@ export function TotalTested({ tested, positivityRate }) {
       <h2>
         <CountUp end={tested} duration={3} separator="," useEasing />
       </h2>
-      <p>Positivity Rate: {positivityRate.toFixed(3)}%</p>
+      <p>Positivity Rate: {positivityRate.toFixed(2)}%</p>
     </Card>
   );
 }

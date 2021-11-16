@@ -16,9 +16,11 @@ import {
   faAngleDoubleRight,
   faSearch,
 } from "@fortawesome/free-solid-svg-icons";
+import ReactTooltip from "react-tooltip";
 import { Wrapper } from "./CountriesStyle";
+import { calculateRate } from "../../helpers";
 
-// eslint-disable-next-line no-unused-vars
+// Reference: https://codepen.io/huange/pen/rbqsD
 function CountrySearch({ globalFilter, setGlobalFilter }) {
   const [value, setValue] = React.useState(globalFilter);
   const onChange = useAsyncDebounce((term) => {
@@ -27,7 +29,11 @@ function CountrySearch({ globalFilter, setGlobalFilter }) {
 
   return (
     <div className="search-bar">
+      <div className="searchIcon">
+        <FontAwesomeIcon icon={faSearch} size="sm" />
+      </div>
       <input
+        type="search"
         value={value || ""}
         onChange={(e) => {
           setValue(e.target.value);
@@ -39,13 +45,18 @@ function CountrySearch({ globalFilter, setGlobalFilter }) {
           border: "0",
         }}
       />
-      <div className="searchIcon">
-        <FontAwesomeIcon icon={faSearch} size="sm" />
-      </div>
       );
     </div>
   );
 }
+CountrySearch.defaultProps = {
+  globalFilter: undefined,
+};
+CountrySearch.propTypes = {
+  globalFilter: string,
+  setGlobalFilter: func.isRequired,
+};
+
 function Table({ columns, data }) {
   const {
     getTableProps,
@@ -72,6 +83,10 @@ function Table({ columns, data }) {
     usePagination
   );
 
+  // <ReactTooltip type="info" effect="float">
+  //
+  //                     </ReactTooltip>
+
   return (
     <>
       <CountrySearch
@@ -84,9 +99,28 @@ function Table({ columns, data }) {
             const { key } = headerGroup.getHeaderGroupProps();
             return (
               <tr key={key}>
-                {headerGroup.headers.map((column) => (
-                  <th {...column.getHeaderProps()}>
+                {headerGroup.headers.map((column, index) => (
+                  <th
+                    {...column.getHeaderProps()}
+                    data-for={
+                      headerGroup.headers[index].tooltip ? "data-tooltip" : null
+                    }
+                    data-tip={
+                      headerGroup.headers[index].tooltip
+                        ? `${headerGroup.headers[index].tooltip}`
+                        : null
+                    }
+                  >
                     {column.render("Header")}
+                    {headerGroup.headers[index].tooltip && (
+                      <ReactTooltip
+                        id="data-tooltip"
+                        type="info"
+                        effect="float"
+                        className="custom-tooltip"
+                        arrowColor="#33596d"
+                      />
+                    )}
                   </th>
                 ))}
               </tr>
@@ -191,7 +225,7 @@ Table.propTypes = {
         tests: number,
         testsPerOneMillion: number,
         population: number,
-        continent: number,
+        continent: string,
         oneCasePerPeople: number,
         oneDeathPerPeople: number,
         oneTestPerPeople: number,
@@ -206,7 +240,26 @@ Table.propTypes = {
 /** Design Idea: https://www.worldometers.info/coronavirus */
 function Countries({ countryCases }) {
   const columns = useMemo(() => [
-    { Header: "Country", accessor: "country" },
+    {
+      Header: "Country",
+      accessor: "country",
+      Cell: ({ row }) => {
+        const data = row.original;
+        return (
+          <div className="country-info">
+            <div className="country-img">
+              <img
+                src={data.countryInfo.flag}
+                alt={data.country}
+                width="31.25"
+                height="18.75"
+              />
+            </div>
+            <p>{data.country}</p>
+          </div>
+        );
+      },
+    },
     {
       Header: "Confirmed",
       accessor: "cases",
@@ -219,6 +272,31 @@ function Countries({ countryCases }) {
         return `+ ${data.value.toLocaleString()}`;
       },
       className: "todayCases",
+    },
+    {
+      Header: "Recovered",
+      accessor: "recovered",
+      Cell: (data) => data.value.toLocaleString(),
+    },
+    {
+      Header: "New Recovered",
+      accessor: "todayRecovered",
+      Cell: (data) => {
+        return `+ ${data.value.toLocaleString()}`;
+      },
+      className: "todayRecover",
+    },
+    {
+      Header: "Recovery Rate (%)",
+      Cell: ({ row }) => {
+        const data = row.original;
+        const rate = calculateRate(data.recovered, data.cases);
+        if (!Number.isFinite(rate)) {
+          return "-";
+        }
+        return `${rate.toFixed(2)}`;
+      },
+      tooltip: "(Recovered / Total Cases) x 100%",
     },
     {
       Header: "Deaths",
@@ -234,55 +312,53 @@ function Countries({ countryCases }) {
       className: "todayDeaths",
     },
     {
-      Header: "Recovered",
-      accessor: "recovered",
-      Cell: (data) => data.value.toLocaleString(),
+      Header: "Death Rate (%)",
+      Cell: ({ row }) => {
+        const data = row.original;
+        const rate = calculateRate(data.deaths, data.cases);
+        if (!Number.isFinite(rate)) {
+          return "-";
+        }
+        return `${rate.toFixed(2)}`;
+      },
+      tooltip: "(Deaths / Total Cases) * 100%",
     },
     {
-      Header: "New Recovered",
-      accessor: "todayRecovered",
-      Cell: (data) => {
-        return `+ ${data.value.toLocaleString()}`;
+      Header: "Active Cases",
+      accessor: "active",
+      Cell: (data) => data.value.toLocaleString(),
+      className: "active-case",
+    },
+    {
+      Header: "Critical Cases",
+      accessor: "critical",
+      Cell: (data) => data.value.toLocaleString(),
+      className: "critical-case",
+    },
+    {
+      id: "positivityRate",
+      Header: "Pos. Rate (%)",
+      accessor: "tests",
+      Cell: ({ row }) => {
+        const data = row.original;
+        const rate = calculateRate(data.cases, data.tests);
+        if (!Number.isFinite(rate)) {
+          return "-";
+        }
+        return `${rate.toFixed(2)}`;
       },
-      className: "todayRecover",
+      tooltip: "(Confirmed Cases / Total Tests) * 100",
+    },
+    {
+      Header: "Populations",
+      accessor: "population",
+      Cell: (data) => data.value.toLocaleString(),
     },
   ]);
 
   return (
     <Wrapper>
       <Table columns={columns} data={countryCases} />
-      {/* <table>
-        <thead>
-          <tr>
-            <th>Country</th>
-            <th>Confirmed</th>
-            <th>New Cases</th>
-            <th>Deaths</th>
-            <th>New Deaths</th>
-            <th>Recovered</th>
-            <th>New Recovered</th>
-          </tr>
-        </thead>
-        <tbody>
-          {countryCases.map((countryCase) => (
-            <tr key={`${countryCase.country}_${countryCase.countryInfo.iso3}`}>
-              <td>{countryCase.country}</td>
-              <td>{numberWithCommas(countryCase.cases)}</td>
-              <td className="todayCases">
-                + {numberWithCommas(countryCase.todayCases)}
-              </td>
-              <td>{numberWithCommas(countryCase.deaths)}</td>
-              <td className="todayDeaths">
-                + {numberWithCommas(countryCase.todayDeaths)}
-              </td>
-              <td>{numberWithCommas(countryCase.recovered)}</td>
-              <td className="todayRecover">
-                + {numberWithCommas(countryCase.todayRecovered)}
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table> */}
     </Wrapper>
   );
 }
@@ -314,7 +390,7 @@ Countries.propTypes = {
         tests: number,
         testsPerOneMillion: number,
         population: number,
-        continent: number,
+        continent: string,
         oneCasePerPeople: number,
         oneDeathPerPeople: number,
         oneTestPerPeople: number,

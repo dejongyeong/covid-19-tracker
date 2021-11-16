@@ -25,9 +25,9 @@ export function getIcon(percent) {
   );
 }
 
-export function calPositivityRate(totalConfirm, totalTested) {
-  const pr = (totalConfirm / totalTested) * 100;
-  return pr;
+export function calculateRate(condition, cases) {
+  const rate = (condition / cases) * 100;
+  return rate;
 }
 
 export function numberWithCommas(num) {

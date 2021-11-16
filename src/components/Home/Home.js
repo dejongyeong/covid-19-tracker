@@ -10,7 +10,6 @@ import { Container, Wrapper } from "./HomeStyle";
 import { getCountriesCases, getWorldCases } from "../../api/ApiCalls";
 
 function Home() {
-  // eslint-disable-next-line no-unused-vars
   const [loading, setLoading] = React.useState(true);
   const [error, setError] = React.useState(false);
   const gatedSetLoading = useCallback(() => {

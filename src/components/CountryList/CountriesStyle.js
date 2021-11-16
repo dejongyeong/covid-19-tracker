@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+// eslint-disable-next-line import/prefer-default-export
 export const Wrapper = styled.div`
   width: 100%;
   padding: 4px;
@@ -16,7 +17,13 @@ export const Wrapper = styled.div`
       color: #ffffff;
       font-weight: normal;
       th {
-        padding: 0.85rem 1rem;
+        padding: 0.78rem 0.95rem;
+        position: relative;
+      }
+      .custom-tooltip {
+        font-size: 0.6rem !important;
+        background-color: #33596d;
+        border-radius: 1rem;
       }
     }
     tbody {
@@ -41,29 +48,35 @@ export const Wrapper = styled.div`
         }
       }
       td {
-        padding: 0.85rem 1rem;
+        padding: 0.65rem 0.95rem;
+        position: relative;
       }
     }
   }
 
   .search-bar {
-    margin: 0.3rem auto 0.6rem auto;
+    margin: 0.15rem auto 0.65rem auto;
     display: flex;
 
     input {
       width: 20rem;
       border: 2px solid #33596d !important;
-      padding-right: 1.5rem;
+      padding-right: 0.5rem;
       padding-left: 0.5rem;
-      border-radius: 4px;
       height: 2rem;
       font-family: ${(props) => props.theme.font.heading} !important;
       color: ${(props) => props.theme.colors.primaryColor};
       font-size: 0.85rem !important;
-      border-radius: 5px 0px 0px 5px;
+      border-radius: 0px 5px 5px 0px;
       outline: none;
-      border-right: none;
+      border-left: none;
       box-shadow: 0 3px 6px 0 rgba(0, 48, 73, 0.1);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      ::-webkit-search-cancel-button {
+        cursor: pointer;
+      }
     }
     .searchIcon {
       width: 35px;
@@ -72,11 +85,20 @@ export const Wrapper = styled.div`
       background: #33596d;
       text-align: center;
       color: #fff;
-      border-radius: 0 5px 5px 0;
+      border-radius: 5px 0px 0px 5px;
       display: flex;
       justify-content: center;
       align-items: center;
       box-shadow: 0 3px 6px 0 rgba(0, 48, 73, 0.1);
+    }
+  }
+
+  .country-info {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    p {
+      margin-left: 0.7rem;
     }
   }
 
@@ -107,6 +129,7 @@ export const Wrapper = styled.div`
       }
       :disabled {
         background-color: #3e3e3e;
+        cursor: not-allowed;
       }
     }
 
@@ -116,31 +139,5 @@ export const Wrapper = styled.div`
       color: ${(props) => props.theme.colors.primaryColor};
       margin: 0 3px 0 9px;
     }
-  }
-`;
-
-/** Remove below */
-export const Container = styled.div`
-  width: auto;
-  height: 100vh;
-  margin: 1rem auto 0 auto;
-  display: grid;
-  grid-template-columns: 1.5fr 2fr;
-  grid-gap: 0.5rem;
-
-  .country-list {
-    border: 1px solid rgba(234, 226, 183, 1);
-    box-shadow: 0 4px 8px 0 rgba(234, 226, 183, 0.2);
-    border-radius: 5px;
-  }
-
-  .graph-section {
-    border: 1px solid rgba(234, 226, 183, 1);
-    box-shadow: 0 4px 8px 0 rgba(234, 226, 183, 0.2);
-    border-radius: 5px;
-  }
-
-  @media only screen and (max-width: 1024px) {
-    grid-template-columns: 1fr;
   }
 `;
