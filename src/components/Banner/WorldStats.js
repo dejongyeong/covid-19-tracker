@@ -115,7 +115,9 @@ export function TotalRecovered({
 
   return (
     <Card className="banner-two">
-      <h5>Total Recovered</h5>
+      <h5>
+        Total Recovered <span>*</span>
+      </h5>
       <h2>
         <CountUp end={recovered} duration={3} separator="," useEasing />
       </h2>

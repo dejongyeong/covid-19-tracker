@@ -46,6 +46,13 @@ export const Card = styled.div`
     font-size: 0.8rem;
     font-family: ${(props) => props.theme.font.paragraph};
   }
+`;
+
+export const BannerWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+
   canvas {
     cursor: pointer;
     width: fit-content;
@@ -64,12 +71,6 @@ export const Card = styled.div`
     height: 58px;
     width: 55%;
   }
-`;
-
-export const BannerWrapper = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
 
   ${Card} {
     flex: 22% !important;
@@ -107,6 +108,10 @@ export const BannerWrapper = styled.div`
   }
 
   @media screen and (max-width: 620px) {
+    .line-chart-container {
+      width: 40% !important;
+    }
+
     ${Card} {
       padding: 3% 1% 2% 1%;
       flex: 100% !important;

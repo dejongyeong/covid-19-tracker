@@ -7,12 +7,16 @@ export const Wrapper = styled.div`
   padding: 15px 32px;
   margin: 10px auto 20px auto;
 
-  @media only screen and (min-width: 1920.02px) {
-    height: 100vh;
+  .info-tag {
+    color: ${(props) => props.theme.colors.primaryColor};
+    font-size: 0.7rem;
+    font-family: ${(props) => props.theme.font.heading};
+    margin-top: 1rem;
+    text-align: right;
   }
 
   @media only screen and (orientation: portrait) and (min-height: 1024.98px) {
-    height: 89.4vh;
+    height: 100%;
   }
 
   @media only screen and (orientation: portrait) and (max-height: 767.98px) {
@@ -32,7 +36,7 @@ export const Container = styled.div`
   grid-gap: 0.9rem;
 
   .country-list {
-    border: 1px solid rgba(234, 226, 183, 1);
+    border: 1px solid rgba(234, 226, 183, 0.4);
     box-shadow: 0 4px 8px 0 rgba(234, 226, 183, 0.2);
     overflow: auto;
   }

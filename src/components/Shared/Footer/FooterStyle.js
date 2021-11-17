@@ -11,6 +11,7 @@ export const Wrapper = styled.div`
   padding: 10px 15px 20px 15px;
   text-align: center;
   line-height: 17px;
+  margin-bottom: 5px;
   
   a {
     text-decoration: none;

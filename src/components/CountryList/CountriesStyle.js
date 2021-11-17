@@ -55,7 +55,7 @@ export const Wrapper = styled.div`
   }
 
   .search-bar {
-    margin: 0.15rem auto 0.65rem auto;
+    margin: 0.2rem auto 0.65rem auto;
     display: flex;
 
     input {

@@ -19,11 +19,13 @@ function App() {
         <Circle1 />
         <Circle2 />
         <Header />
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/info" component={Information} />
-          <Route path="*" component={Page404} />
-        </Switch>
+        <div>
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/info" component={Information} />
+            <Route path="*" component={Page404} />
+          </Switch>
+        </div>
         <Footer />
       </Wrapper>
     </Theme>

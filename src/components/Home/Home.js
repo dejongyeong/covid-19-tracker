@@ -50,6 +50,12 @@ function Home() {
           </div>
           <div className="graph-section">xxx</div>
         </Container>
+        <div className="info-tag">
+          <p>
+            * Global recovered cases in Open Disease Data API not available
+            since August 5, 2021.
+          </p>
+        </div>
       </>
     );
   }
