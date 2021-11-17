@@ -1,6 +1,8 @@
+/* eslint-disable func-names */
 import React from "react";
 import CountUp from "react-countup";
 import PropTypes from "prop-types";
+import { Doughnut } from "react-chartjs-2";
 import { Card } from "./BannerStyle";
 
 import { getIcon } from "../../helpers";
@@ -100,19 +102,62 @@ TotalDeaths.propTypes = {
  * @param {number} positivityRate
  * @returns {component} Card
  */
-export function TotalTested({ tested, positivityRate }) {
+// eslint-disable-next-line no-unused-vars
+export function ActiveCases({ active, critical }) {
+  // const legendMargin = {
+  //   id: "legendMargin",
+  //   // eslint-disable-next-line no-unused-vars
+  //   beforeInit(chart, legend, options) {
+  //     console.log(chart.legend.fit);
+  //   },
+  // };
+
+  const options = {
+    plugins: {
+      legend: {
+        display: true,
+        position: "bottom",
+        labels: {
+          usePointStyle: true,
+          padding: 10,
+        },
+      },
+    },
+    font: {
+      family: `Rubik, sans-serif`,
+    },
+  };
+
+  const roundOff = (number) => {
+    return Number(`${Math.round(`${number}e2`)}e-2`);
+  };
+  const criticalPercentage = roundOff((critical / active) * 100);
+  const mildPercentage = roundOff(((active - critical) / active) * 100);
+
+  const data = {
+    labels: ["Critical", "Mild"],
+    datasets: [
+      {
+        label: "# of Active Cases",
+        data: [criticalPercentage, mildPercentage],
+        backgroundColor: ["rgba(214, 40, 40, 0.75)", "rgba(247, 127, 0, 0.75)"],
+        borderColor: ["rgba(214, 40, 40, 1)", "rgba(247, 127, 0, 1)"],
+        borderWidth: 1,
+      },
+    ],
+  };
+
   return (
     <Card className="banner-four">
-      <h5>Total Tested</h5>
-      <h2>
-        <CountUp end={tested} duration={3} separator="," useEasing />
-      </h2>
-      <p>Positivity Rate: {positivityRate.toFixed(2)}%</p>
+      <h5>Active Cases</h5>
+      <div className="chart-container">
+        <Doughnut data={data} options={options} />
+      </div>
     </Card>
   );
 }
 
-TotalTested.propTypes = {
-  tested: PropTypes.number.isRequired,
-  positivityRate: PropTypes.number.isRequired,
+ActiveCases.propTypes = {
+  active: PropTypes.number.isRequired,
+  critical: PropTypes.number.isRequired,
 };

@@ -2,15 +2,15 @@
 
 exports[`Home renders correctly 1`] = `
 <div
-  className="sc-pGacB itmafm"
+  className="sc-fubCzh bgBSVB"
   id="covid-data"
 >
   <div
-    className="sc-gKseQn hbBvhh"
+    className="sc-jSgvzq cnIZNj"
     id="api-error"
   >
     <div
-      className="sc-iBPTik dDOim"
+      className="sc-gKseQn jDLxQS"
     >
       <svg
         className="spinner"
@@ -34,7 +34,7 @@ exports[`Home renders correctly 1`] = `
       </svg>
     </div>
     <div
-      className="sc-fubCzh gQswGf"
+      className="sc-iBPTik fTxEUW"
     >
       <h1>
         Fetching Data...

@@ -18,12 +18,13 @@ export const Wrapper = styled.div`
 `;
 
 export const Card = styled.div`
-  height: 155px;
+  height: 190px;
   text-align: center;
-  padding: 18px 1% 0.6% 1%;
+  padding: 12px 1% 0.6% 1%;
   box-shadow: 0 4px 8px 0 rgba(234, 226, 183, 0.2);
   border-radius: 5px;
   border: 1px solid rgba(234, 226, 183, 1);
+
   h5 {
     font-family: ${(props) => props.theme.font.heading};
     text-transform: uppercase;
@@ -40,6 +41,13 @@ export const Card = styled.div`
     color: ${(props) => props.theme.colors.primaryColor};
     font-size: 0.8rem;
     font-family: ${(props) => props.theme.font.paragraph};
+  }
+
+  .chart-container {
+    position: relative;
+    margin-top: 0.62rem;
+    height: 135px;
+    width: 135px;
   }
 `;
 
@@ -59,8 +67,11 @@ export const BannerWrapper = styled.div`
     :nth-child(3) > h2 {
       color: #3e3e3e;
     }
-    :nth-child(4) > h2 {
-      color: ${(props) => props.theme.colors.tertiaryColor};
+    :nth-child(4) {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
     }
   }
 

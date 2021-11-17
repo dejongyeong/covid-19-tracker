@@ -5,9 +5,9 @@ import {
   TotalConfirm,
   TotalDeaths,
   TotalRecovered,
-  TotalTested,
+  ActiveCases,
 } from "./WorldStats";
-import { calIncreasePercentage, calculateRate } from "../../helpers";
+import { calIncreasePercentage } from "../../helpers";
 
 function Banner({ worldCases }) {
   const date = new Date(worldCases.updated).toISOString().split("T")[0];
@@ -28,7 +28,6 @@ function Banner({ worldCases }) {
     worldCases.deaths,
     worldCases.todayDeaths
   );
-  const positivityRate = calculateRate(worldCases.cases, worldCases.tests);
 
   return (
     <Wrapper>
@@ -49,9 +48,9 @@ function Banner({ worldCases }) {
           todayDeaths={worldCases.todayDeaths}
           deathsPercentage={deathsPercentage}
         />
-        <TotalTested
-          tested={worldCases.tests}
-          positivityRate={positivityRate}
+        <ActiveCases
+          active={worldCases.active}
+          critical={worldCases.critical}
         />
       </BannerWrapper>
     </Wrapper>
