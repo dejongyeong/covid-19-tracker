@@ -7,7 +7,11 @@ import Loading from "../Shared/Loading";
 import { Container, Wrapper } from "./HomeStyle";
 
 // custom hooks
-import { getCountriesCases, getWorldCases } from "../../api/ApiCalls";
+import {
+  getCountriesCases,
+  getGlobalHistorical,
+  getWorldCases,
+} from "../../api/ApiCalls";
 
 function Home() {
   const [loading, setLoading] = React.useState(true);
@@ -22,6 +26,7 @@ function Home() {
   // get data
   const worldCases = getWorldCases(gatedSetLoading, gatedSetError);
   const countryCases = getCountriesCases(gatedSetError);
+  const globalHistory = getGlobalHistorical(gatedSetError);
 
   // const [selected, setSelected] = React.useState(0);
 
@@ -38,7 +43,7 @@ function Home() {
   } else if (!loading) {
     dom = (
       <>
-        <Banner worldCases={worldCases} />
+        <Banner worldCases={worldCases} globalHistory={globalHistory} />
         <Container>
           <div className="country-list">
             <Countries countryCases={countryCases} />
@@ -57,79 +62,3 @@ function Home() {
 }
 
 export default Home;
-
-// Tutorial: https://dev.to/spukas/moving-arguments-from-child-to-parent-component-in-react-25lp
-// function CountriesDropdown({ countriesDropdown, isError, onChildChange }) {
-//   function handleChanging(event) {
-//     onChildChange(event.target.selectedIndex);
-//   }
-
-//   return (
-//     <select
-//       onChange={handleChanging}
-//       style={{ width: "100%" }}
-//       disabled={!!isError}
-//     >
-//       {countriesDropdown.map(({ text }) => (
-//         <option key={text} value={text}>
-//           {text}
-//         </option>
-//       ))}
-//     </select>
-//   );
-// }
-
-/* eslint-disable react/forbid-prop-types */
-// CountriesDropdown.propTypes = {
-//   countriesDropdown: PropTypes.array.isRequired,
-//   isError: PropTypes.bool.isRequired,
-//   onChildChange: PropTypes.func.isRequired,
-// };
-
-// const Dashboard = ({ countries, country, error, setSelected, cases }) => {
-//   const handleChildChange = (select) => {
-//     setSelected(select);
-//   };
-
-//   return (
-//     <>
-//       <Banner />
-//       <HeaderWrapper>
-//         <h3 id="country-name">{country}</h3>
-//         <p id="last-updated">Last updated: {`${date} ${time}`}</p>
-//       </HeaderWrapper>
-//       <DataWrapper>
-//         <CountWrapper>
-//           <SearchBar>
-//             <CountriesDropdown
-//               countriesDropdown={countries}
-//               isError={error}
-//               onChildChange={handleChildChange}
-//             />
-//           </SearchBar>
-//           <CountBoxWrapper>
-//             {InfectedDom}
-//             {RecoveredDom}
-//             {DeathDom}
-//           </CountBoxWrapper>
-//           <MobileCountBoxWrapper>
-//             <HomeMobileTab
-//               infected={InfectedDom}
-//               recovered={RecoveredDom}
-//               death={DeathDom}
-//             />
-//           </MobileCountBoxWrapper>
-//         </CountWrapper>
-//         <GraphWrapper>Graph</GraphWrapper>
-//       </DataWrapper>
-//     </>
-//   );
-// };
-
-// Dashboard.propTypes = {
-//   countries: PropTypes.array.isRequired,
-//   country: PropTypes.string.isRequired,
-//   error: PropTypes.bool.isRequired,
-//   setSelected: PropTypes.func.isRequired,
-//   cases: PropTypes.object.isRequired,
-// };

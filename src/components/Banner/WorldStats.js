@@ -2,19 +2,63 @@
 import React from "react";
 import CountUp from "react-countup";
 import PropTypes from "prop-types";
-import { Doughnut } from "react-chartjs-2";
+import { Doughnut, Line } from "react-chartjs-2";
 import { Card } from "./BannerStyle";
 
 import { getIcon } from "../../helpers";
+
+const lineOptions = {
+  plugins: {
+    legend: {
+      display: false,
+    },
+  },
+  font: {
+    family: `Rubik, sans-serif`,
+  },
+  showLine: false,
+  scales: {
+    x: {
+      display: false,
+    },
+    y: {
+      display: false,
+    },
+  },
+  maintainAspectRatio: false,
+  responsive: true,
+};
 
 /**
  * Function that returns total confirmed cases information
  * @param {number} cases
  * @param {number} todayCases
  * @param {number} confirmPercentage
+ * @param {dict} globalHistoryCases
  * @returns {component} Card
  */
-export function TotalConfirm({ cases, todayCases, confirmPercentage }) {
+export function TotalConfirm({
+  cases,
+  todayCases,
+  confirmPercentage,
+  globalHistoryCases,
+}) {
+  const timeline = Object.keys(globalHistoryCases);
+  const dailyCases = Object.values(globalHistoryCases);
+
+  const data = {
+    labels: timeline,
+    datasets: [
+      {
+        data: dailyCases,
+        fill: false,
+        backgroundColor: "rgba(214, 40, 40, 0.3)",
+        borderWidth: 0,
+        tension: 0,
+      },
+    ],
+  };
+
   return (
     <Card className="banner-one">
       <h5>Total Confirmed</h5>
@@ -25,6 +69,9 @@ export function TotalConfirm({ cases, todayCases, confirmPercentage }) {
         {getIcon(confirmPercentage)} <CountUp end={todayCases} separator="," />{" "}
         / {confirmPercentage.toFixed(2)}%
       </p>
+      <div className="line-chart-container">
+        <Line data={data} options={lineOptions} />
+      </div>
     </Card>
   );
 }
@@ -33,6 +80,7 @@ TotalConfirm.propTypes = {
   cases: PropTypes.number.isRequired,
   todayCases: PropTypes.number.isRequired,
   confirmPercentage: PropTypes.number.isRequired,
+  globalHistoryCases: PropTypes.objectOf(PropTypes.number).isRequired,
 };
 
 /**
@@ -40,13 +88,31 @@ TotalConfirm.propTypes = {
  * @param {number} recovered
  * @param {number} todayRecovered
  * @param {number} recoveredPercentage
+ * @param {dict} globalHistoryRecovered
  * @returns {component} Card
  */
 export function TotalRecovered({
   recovered,
   todayRecovered,
   recoveredPercentage,
+  globalHistoryRecovered,
 }) {
+  const timeline = Object.keys(globalHistoryRecovered);
+  const dailyCases = Object.values(globalHistoryRecovered);
+
+  const data = {
+    labels: timeline,
+    datasets: [
+      {
+        data: dailyCases,
+        fill: false,
+        backgroundColor: "rgba(2, 106, 65, 0.3)",
+        borderWidth: 0,
+        tension: 0,
+      },
+    ],
+  };
+
   return (
     <Card className="banner-two">
       <h5>Total Recovered</h5>
@@ -58,6 +124,9 @@ export function TotalRecovered({
         <CountUp end={todayRecovered} separator="," /> /{" "}
         {recoveredPercentage.toFixed(2)}%
       </p>
+      <div className="line-chart-container">
+        <Line data={data} options={lineOptions} />
+      </div>
     </Card>
   );
 }
@@ -66,6 +135,7 @@ TotalRecovered.propTypes = {
   recovered: PropTypes.number.isRequired,
   todayRecovered: PropTypes.number.isRequired,
   recoveredPercentage: PropTypes.number.isRequired,
+  globalHistoryRecovered: PropTypes.objectOf(PropTypes.number).isRequired,
 };
 
 /**
@@ -73,9 +143,31 @@ TotalRecovered.propTypes = {
  * @param {number} deaths
  * @param {number} todayDeaths
  * @param {number} deathsPercentage
+ * @param {dict} globalHistoryDeaths
  * @returns {component} Card
  */
-export function TotalDeaths({ deaths, todayDeaths, deathsPercentage }) {
+export function TotalDeaths({
+  deaths,
+  todayDeaths,
+  deathsPercentage,
+  globalHistoryDeaths,
+}) {
+  const timeline = Object.keys(globalHistoryDeaths);
+  const dailyCases = Object.values(globalHistoryDeaths);
+
+  const data = {
+    labels: timeline,
+    datasets: [
+      {
+        data: dailyCases,
+        fill: false,
+        backgroundColor: "rgba(62, 62, 62, 0.3)",
+        borderWidth: 0,
+        tension: 0,
+      },
+    ],
+  };
+
   return (
     <Card className="banner-three">
       <h5>Total Deaths</h5>
@@ -86,6 +178,9 @@ export function TotalDeaths({ deaths, todayDeaths, deathsPercentage }) {
         {getIcon(deathsPercentage)} <CountUp end={todayDeaths} separator="," />{" "}
         / {deathsPercentage.toFixed(2)}%
       </p>
+      <div className="line-chart-container">
+        <Line data={data} options={lineOptions} />
+      </div>
     </Card>
   );
 }
@@ -94,6 +189,7 @@ TotalDeaths.propTypes = {
   deaths: PropTypes.number.isRequired,
   todayDeaths: PropTypes.number.isRequired,
   deathsPercentage: PropTypes.number.isRequired,
+  globalHistoryDeaths: PropTypes.objectOf(PropTypes.number).isRequired,
 };
 
 /**
@@ -104,14 +200,6 @@ TotalDeaths.propTypes = {
  */
 // eslint-disable-next-line no-unused-vars
 export function ActiveCases({ active, critical }) {
-  // const legendMargin = {
-  //   id: "legendMargin",
-  //   // eslint-disable-next-line no-unused-vars
-  //   beforeInit(chart, legend, options) {
-  //     console.log(chart.legend.fit);
-  //   },
-  // };
-
   const options = {
     plugins: {
       legend: {
@@ -142,7 +230,7 @@ export function ActiveCases({ active, critical }) {
         data: [criticalPercentage, mildPercentage],
         backgroundColor: ["rgba(214, 40, 40, 0.75)", "rgba(247, 127, 0, 0.75)"],
         borderColor: ["rgba(214, 40, 40, 1)", "rgba(247, 127, 0, 1)"],
-        borderWidth: 1,
+        borderWidth: 1.5,
       },
     ],
   };
@@ -150,7 +238,7 @@ export function ActiveCases({ active, critical }) {
   return (
     <Card className="banner-four">
       <h5>Active Cases</h5>
-      <div className="chart-container">
+      <div className="pie-chart-container">
         <Doughnut data={data} options={options} />
       </div>
     </Card>

@@ -2,7 +2,12 @@ import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import axios from "axios";
 
-import { COUNTRIES, COUNTRIES_CASES_API, WORLD_CASES_API } from "./ApiConstant";
+import {
+  COUNTRIES,
+  COUNTRIES_CASES_API,
+  GLOBAL_HISTORY_API,
+  WORLD_CASES_API,
+} from "./ApiConstant";
 
 /**
  * Function that returns worldwide covid cases
@@ -58,6 +63,26 @@ export const getCountriesCases = (errorCallback) => {
 getCountriesCases.PropTypes = {
   errorCallback: PropTypes.func.isRequired,
 };
+
+export const getGlobalHistorical = (errorCallback) => {
+  const [global, setGlobal] = React.useState(null);
+
+  useEffect(() => {
+    const fetchGlobalHistory = async () => {
+      try {
+        const result = await axios(`${GLOBAL_HISTORY_API}`);
+        setGlobal(result.data);
+      } catch (error) {
+        errorCallback(true);
+      }
+    };
+    fetchGlobalHistory();
+  }, []);
+
+  return global;
+};
+
+// ****************** remove below *************************
 
 /**
  * Function that returns a list of countries

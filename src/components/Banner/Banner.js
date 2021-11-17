@@ -9,7 +9,7 @@ import {
 } from "./WorldStats";
 import { calIncreasePercentage } from "../../helpers";
 
-function Banner({ worldCases }) {
+function Banner({ worldCases, globalHistory }) {
   const date = new Date(worldCases.updated).toISOString().split("T")[0];
   const time = new Date(worldCases.updated)
     .toISOString()
@@ -37,16 +37,19 @@ function Banner({ worldCases }) {
           cases={worldCases.cases}
           todayCases={worldCases.todayCases}
           confirmPercentage={confirmPercentage}
+          globalHistoryCases={globalHistory.cases}
         />
         <TotalRecovered
           recovered={worldCases.recovered}
           todayRecovered={worldCases.todayRecovered}
           recoveredPercentage={recoveredPercentage}
+          globalHistoryRecovered={globalHistory.recovered}
         />
         <TotalDeaths
           deaths={worldCases.deaths}
           todayDeaths={worldCases.todayDeaths}
           deathsPercentage={deathsPercentage}
+          globalHistoryDeaths={globalHistory.deaths}
         />
         <ActiveCases
           active={worldCases.active}
@@ -78,6 +81,11 @@ Banner.propTypes = {
     todayDeaths: number,
     todayRecovered: number,
     updated: number,
+  }).isRequired,
+  globalHistory: PropTypes.shape({
+    cases: PropTypes.objectOf(PropTypes.number),
+    deaths: PropTypes.objectOf(PropTypes.number),
+    recovered: PropTypes.objectOf(PropTypes.number),
   }).isRequired,
 };
 

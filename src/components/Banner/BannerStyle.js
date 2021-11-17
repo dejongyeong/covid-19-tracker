@@ -24,6 +24,10 @@ export const Card = styled.div`
   box-shadow: 0 4px 8px 0 rgba(234, 226, 183, 0.2);
   border-radius: 5px;
   border: 1px solid rgba(234, 226, 183, 1);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 
   h5 {
     font-family: ${(props) => props.theme.font.heading};
@@ -42,12 +46,23 @@ export const Card = styled.div`
     font-size: 0.8rem;
     font-family: ${(props) => props.theme.font.paragraph};
   }
+  canvas {
+    cursor: pointer;
+    width: fit-content;
+  }
 
-  .chart-container {
+  .pie-chart-container {
     position: relative;
     margin-top: 0.62rem;
     height: 135px;
     width: 135px;
+  }
+
+  .line-chart-container {
+    position: relative;
+    margin-top: 0.75rem;
+    height: 58px;
+    width: 55%;
   }
 `;
 
@@ -66,12 +81,6 @@ export const BannerWrapper = styled.div`
     }
     :nth-child(3) > h2 {
       color: #3e3e3e;
-    }
-    :nth-child(4) {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: center;
     }
   }
 
