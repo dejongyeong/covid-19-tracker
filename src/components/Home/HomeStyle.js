@@ -29,22 +29,16 @@ export const Wrapper = styled.div`
 export const Container = styled.div`
   width: auto;
   height: 100vh;
-  max-height: 100vh;
+  max-height: 100%;
   margin: 1rem auto 0 auto;
   display: grid;
   grid-template-columns: 1.5fr 1.8fr;
   grid-gap: 0.9rem;
 
   .country-list {
-    border: 1px solid rgba(234, 226, 183, 0.4);
+    border: 1px solid rgba(234, 226, 183, 0.3);
     box-shadow: 0 4px 8px 0 rgba(234, 226, 183, 0.2);
     overflow: auto;
-  }
-
-  .graph-section {
-    border: 1px solid rgba(234, 226, 183, 1);
-    box-shadow: 0 4px 8px 0 rgba(234, 226, 183, 0.2);
-    border-radius: 5px;
   }
 
   @media only screen and (max-width: 1024px) {

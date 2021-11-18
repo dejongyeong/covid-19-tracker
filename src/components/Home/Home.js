@@ -3,10 +3,9 @@ import Theme from "../../theme/Theme";
 import ApiError from "../Shared/ApiError";
 import Banner from "../Banner";
 import Countries from "../CountryList/Countries";
+import Graph from "../Graphs/Graph";
 import Loading from "../Shared/Loading";
 import { Container, Wrapper } from "./HomeStyle";
-
-// custom hooks
 import {
   getCountriesCases,
   getGlobalHistorical,
@@ -48,12 +47,14 @@ function Home() {
           <div className="country-list">
             <Countries countryCases={countryCases} />
           </div>
-          <div className="graph-section">xxx</div>
+          <div className="graph-section">
+            <Graph />
+          </div>
         </Container>
         <div className="info-tag">
           <p>
-            * Global recovered cases in Open Disease Data API not available
-            since August 5, 2021.
+            * Global recovered cases in Open Disease Data API not updated since
+            August 5, 2021.
           </p>
         </div>
       </>

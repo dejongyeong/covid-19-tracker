@@ -50,12 +50,13 @@ export const Wrapper = styled.div`
       td {
         padding: 0.65rem 0.95rem;
         position: relative;
+        /* cursor: pointer; */
       }
     }
   }
 
   .search-bar {
-    margin: 0.2rem auto 0.65rem auto;
+    margin: 0.1rem auto 0.55rem auto;
     display: flex;
 
     input {
@@ -70,7 +71,7 @@ export const Wrapper = styled.div`
       border-radius: 0px 5px 5px 0px;
       outline: none;
       border-left: none;
-      box-shadow: 0 3px 6px 0 rgba(0, 48, 73, 0.1);
+      /* box-shadow: 0 3px 6px 0 rgba(0, 48, 73, 0.1); */
       display: flex;
       justify-content: center;
       align-items: center;
@@ -89,7 +90,7 @@ export const Wrapper = styled.div`
       display: flex;
       justify-content: center;
       align-items: center;
-      box-shadow: 0 3px 6px 0 rgba(0, 48, 73, 0.1);
+      /* box-shadow: 0 3px 6px 0 rgba(0, 48, 73, 0.1); */
     }
   }
 
