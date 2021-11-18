@@ -13,23 +13,61 @@ export const Wrapper = styled.div`
       font-family: ${(props) => props.theme.font.heading};
       text-align: center;
       font-size: 0.75rem;
-      margin-top: 0.4rem;
-      margin-bottom: 0.15rem;
+      margin-bottom: 0.4rem;
       color: #33596d;
+      h3 {
+        margin-top: 0.7rem;
+      }
     }
 
     .map-chart {
       display: grid;
-      grid-template-columns: 4.5fr 1.5fr;
+      grid-template-columns: 9fr 1fr;
       grid-gap: 0.47rem;
 
       .map-info {
-        border: 1px solid pink;
+        width: 90%;
+        margin: 0 auto 0.8rem auto;
+
+        .box {
+          display: flex;
+          font-family: ${(props) => props.theme.font.heading};
+          font-size: 0.8rem;
+
+          .empty-display {
+            flex: 1;
+          }
+        }
+
+        .box-gradient {
+          background: linear-gradient(to right, #ff8c8c, #d62828);
+          height: 15px;
+          width: 100%;
+        }
       }
 
       @media only screen and (max-width: 1440px) {
         grid-template-columns: 1fr;
         grid-gap: 0.3rem;
+      }
+
+      @media only screen and (min-width: 1440px) {
+        .map-info {
+          margin: 1.5rem auto 0.8rem auto;
+
+          .box {
+            height: 99%;
+            flex-direction: column !important;
+            float: left;
+            margin-left: 22px;
+          }
+
+          .box-gradient {
+            height: 99%;
+            width: 15px;
+            background: linear-gradient(#ff8c8c, #d62828);
+          }
+        }
       }
     }
   }
