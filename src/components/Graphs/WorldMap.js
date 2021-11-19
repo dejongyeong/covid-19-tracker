@@ -1,13 +1,15 @@
 import React, { memo } from "react";
 import PropTypes from "prop-types";
-import { scaleLinear } from "d3-scale";
 import {
   ComposableMap,
   Geographies,
   Geography,
   ZoomableGroup,
 } from "react-simple-maps";
+import { scaleLinear } from "d3-scale";
 import { GEO_URL } from "../../api/ApiConstant";
+
+// resolve d3 jest issue: https://stackoverflow.com/questions/69075510/jest-tests-failing-on-d3-import
 
 function WorldMap({ setTooltip }) {
   const mapWidth = 800;
@@ -55,25 +57,6 @@ function WorldMap({ setTooltip }) {
                       onMouseLeave={() => {
                         setTooltip("");
                       }}
-                      // style={{
-                      //   default: {
-                      //     outline: "none",
-                      //   },
-                      // }}
-                      // style={{
-                      //   default: {
-                      //     fill: "#D6D6DA",
-                      //     outline: "none",
-                      //   },
-                      //   hover: {
-                      //     fill: "#F53",
-                      //     outline: "none",
-                      //   },
-                      //   pressed: {
-                      //     fill: "#E42",
-                      //     outline: "none",
-                      //   },
-                      // }}
                     />
                   );
                 })

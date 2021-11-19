@@ -27,7 +27,7 @@ export const Wrapper = styled.div`
 
       .map-info {
         width: 90%;
-        margin: 0 auto 0.8rem auto;
+        margin: -8px auto 0.9rem auto;
 
         .box {
           display: flex;
@@ -53,7 +53,7 @@ export const Wrapper = styled.div`
 
       @media only screen and (min-width: 1440px) {
         .map-info {
-          margin: 1.5rem auto 0.8rem auto;
+          margin: 1.5rem auto 0.9rem auto;
 
           .box {
             height: 99%;

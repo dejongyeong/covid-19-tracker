@@ -2,13 +2,13 @@
 
 exports[`Home renders correctly 1`] = `
 <div
-  className="sc-bdfBQB dTMZCS"
+  className="sc-bdvvtL bVewFv"
 >
   <div
-    className="sc-gsTEea hTdwKE"
+    className="sc-gsDKAQ jZUonc"
   />
   <div
-    className="sc-dlfnuX dyaMfP"
+    className="sc-dkPtRN iFhKdz"
   />
   <header
     className="MuiPaper-root MuiAppBar-root WithStyles(ForwardRef(AppBar))-root-3 MuiAppBar-positionStatic MuiAppBar-colorPrimary MuiPaper-elevation4"
@@ -17,7 +17,7 @@ exports[`Home renders correctly 1`] = `
       className="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters"
     >
       <div
-        className="sc-hKgJUU kwxznJ"
+        className="sc-hKwDye kJcUYp"
       >
         <img
           alt="Logo"
@@ -25,7 +25,7 @@ exports[`Home renders correctly 1`] = `
         />
       </div>
       <div
-        className="sc-eCstlR iBxqtt"
+        className="sc-eCImPb eTOskA"
       >
         <a
           aria-current="page"
@@ -47,14 +47,14 @@ exports[`Home renders correctly 1`] = `
           onClick={[Function]}
         >
           <button
-            className="sc-jSgvzq jFQHsr"
+            className="sc-jRQBWg dmdrSt"
           >
             Information
           </button>
         </a>
       </div>
       <div
-        className="sc-gKseQn cgYsYc"
+        className="sc-gKclnd eZKPIm"
       >
         <button
           aria-label="menu"
@@ -93,49 +93,51 @@ exports[`Home renders correctly 1`] = `
       </div>
     </div>
   </header>
-  <div
-    className="sc-hBEYId eBIooK"
-    id="covid-data"
-  >
+  <div>
     <div
-      className="sc-dQoVA kzORrh"
-      id="api-error"
+      className="sc-fotOHu cuCzjR"
+      id="covid-data"
     >
       <div
-        className="sc-bqyKOL weRfV"
+        className="sc-bqiRlB bYITck"
+        id="api-error"
       >
-        <svg
-          className="spinner"
-          fill="currentColor"
-          height="1em"
-          icon="spinner"
-          stroke="currentColor"
-          strokeWidth="0"
-          style={
-            Object {
-              "color": undefined,
-            }
-          }
-          viewBox="0 0 512 512"
-          width="1em"
-          xmlns="http://www.w3.org/2000/svg"
+        <div
+          className="sc-ksdxgE bbZRcn"
         >
-          <path
-            d="M304 48c0 26.51-21.49 48-48 48s-48-21.49-48-48 21.49-48 48-48 48 21.49 48 48zm-48 368c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zm208-208c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zM96 256c0-26.51-21.49-48-48-48S0 229.49 0 256s21.49 48 48 48 48-21.49 48-48zm12.922 99.078c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.491-48-48-48zm294.156 0c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.49-48-48-48zM108.922 60.922c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.491-48-48-48z"
-          />
-        </svg>
-      </div>
-      <div
-        className="sc-kstqJO eROkwL"
-      >
-        <h1>
-          Fetching Data...
-        </h1>
+          <svg
+            className="spinner"
+            fill="currentColor"
+            height="1em"
+            icon="spinner"
+            stroke="currentColor"
+            strokeWidth="0"
+            style={
+              Object {
+                "color": undefined,
+              }
+            }
+            viewBox="0 0 512 512"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M304 48c0 26.51-21.49 48-48 48s-48-21.49-48-48 21.49-48 48-48 48 21.49 48 48zm-48 368c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zm208-208c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zM96 256c0-26.51-21.49-48-48-48S0 229.49 0 256s21.49 48 48 48 48-21.49 48-48zm12.922 99.078c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.491-48-48-48zm294.156 0c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.49-48-48-48zM108.922 60.922c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.491-48-48-48z"
+            />
+          </svg>
+        </div>
+        <div
+          className="sc-hBUSln fSWgLL"
+        >
+          <h1>
+            Fetching Data...
+          </h1>
+        </div>
       </div>
     </div>
   </div>
   <div
-    className="sc-iJuVqt kXnape"
+    className="sc-giYglK jRMjyA"
     id="footer"
   >
     <p>
