@@ -3,11 +3,22 @@ import styled from "styled-components";
 // eslint-disable-next-line import/prefer-default-export
 export const Wrapper = styled.div`
   width: 100%;
-  color: black;
+  color: ${(props) => props.theme.colors.primaryColor};
 
   .world-map {
     border: 1px solid rgba(234, 226, 183, 0.3);
     box-shadow: 0 4px 8px 0 rgba(234, 226, 183, 0.2);
+
+    select {
+      height: 2rem !important;
+      width: 20rem;
+      font-family: ${(props) => props.theme.font.heading};
+      color: ${(props) => props.theme.colors.primaryColor};
+      font-size: 0.85rem !important;
+      border: 2px solid #33596d !important;
+      border-radius: 5px;
+      margin: 4px auto 6px 4px;
+    }
 
     .title {
       font-family: ${(props) => props.theme.font.heading};
@@ -24,6 +35,10 @@ export const Wrapper = styled.div`
       display: grid;
       grid-template-columns: 9fr 1fr;
       grid-gap: 0.47rem;
+
+      .maps > svg {
+        margin: 0 4px 0 4px;
+      }
 
       .map-info {
         width: 90%;
