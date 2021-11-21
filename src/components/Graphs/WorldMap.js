@@ -16,6 +16,17 @@ function WorldMap({ setTooltip, filteredData }) {
   const mapWidth = 800;
   const mapHeight = 410;
 
+  const casesPerMillion = filteredData.map(
+    ({ casesPerOneMillion }) => casesPerOneMillion
+  );
+
+  const minVal = Math.min(...casesPerMillion);
+  const maxVal = Math.max(...casesPerMillion);
+
+  const colorScale = scaleLinear()
+    .domain([minVal, maxVal])
+    .range(["#ff8c8c", "#d62828"]);
+
   return (
     <div className="map-chart">
       <div className="maps">
@@ -36,28 +47,30 @@ function WorldMap({ setTooltip, filteredData }) {
             <Geographies geography={GEO_URL}>
               {({ geographies }) =>
                 geographies.map((geo) => {
-                  const pop = geographies.map(
-                    ({ properties }) => properties.POP_EST
+                  const d = filteredData.find(
+                    (s) => s.countryInfo.iso3 === geo.properties.ISO_A3
                   );
-
-                  const colorScale = scaleLinear()
-                    .domain([Math.min(...pop), Math.max(...pop)])
-                    .range(["#ff8c8c", "#d62828"]);
-
-                  const { POP_EST } = geo.properties;
 
                   return (
                     <Geography
                       key={geo.rsmKey}
                       geography={geo}
-                      fill={POP_EST ? colorScale(POP_EST) : "#F5F4F6"}
+                      fill={d ? colorScale(d.casesPerOneMillion) : "#F5F4F6"}
                       onMouseEnter={() => {
                         const { NAME } = geo.properties;
-                        setTooltip(`${NAME}`);
+                        setTooltip(
+                          `${NAME}: ${
+                            d ? d.casesPerOneMillion.toLocaleString() : ""
+                          }`
+                        );
                       }}
                       onClick={() => {
                         const { NAME } = geo.properties;
-                        setTooltip(`${NAME}`);
+                        setTooltip(
+                          `${NAME}: ${
+                            d ? d.casesPerOneMillion.toLocaleString() : ""
+                          }`
+                        );
                       }}
                       onMouseLeave={() => {
                         setTooltip("");
@@ -77,9 +90,9 @@ function WorldMap({ setTooltip, filteredData }) {
       </div>
       <div className="map-info">
         <div className="box">
-          <span>0</span>
+          <span>{minVal}</span>
           <span className="empty-display" />
-          <span className="max-value">100</span>
+          <span className="max-value">{maxVal.toLocaleString()}</span>
         </div>
         <div className="box-gradient" />
       </div>
