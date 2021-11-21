@@ -27,15 +27,6 @@ function Home() {
   const countryCases = getCountriesCases(gatedSetError);
   const globalHistory = getGlobalHistorical(gatedSetError);
 
-  // const [selected, setSelected] = React.useState(0);
-
-  // const gatedSetSelected = useCallback((value) => {
-  //   setSelected(value);
-  // }, []);
-
-  // const country = countries[selected].text;
-  // const [cases, caseError] = getCases(country, gatedSetLoading);
-
   let dom;
   if (error) {
     dom = <ApiError />;
@@ -48,7 +39,7 @@ function Home() {
             <Countries countryCases={countryCases} />
           </div>
           <div className="graph-section">
-            <Graph />
+            <Graph countryCases={countryCases} />
           </div>
         </Container>
         <div className="info-tag">

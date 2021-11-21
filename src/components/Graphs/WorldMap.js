@@ -1,5 +1,5 @@
 import React, { memo } from "react";
-import PropTypes from "prop-types";
+import PropTypes, { number, string } from "prop-types";
 import {
   ComposableMap,
   Geographies,
@@ -11,7 +11,8 @@ import { GEO_URL } from "../../api/ApiConstant";
 
 // resolve d3 jest issue: https://stackoverflow.com/questions/69075510/jest-tests-failing-on-d3-import
 
-function WorldMap({ setTooltip }) {
+// eslint-disable-next-line no-unused-vars
+function WorldMap({ setTooltip, filteredData }) {
   const mapWidth = 800;
   const mapHeight = 410;
 
@@ -54,8 +55,17 @@ function WorldMap({ setTooltip }) {
                         const { NAME } = geo.properties;
                         setTooltip(`${NAME}`);
                       }}
+                      onClick={() => {
+                        const { NAME } = geo.properties;
+                        setTooltip(`${NAME}`);
+                      }}
                       onMouseLeave={() => {
                         setTooltip("");
+                      }}
+                      style={{
+                        default: { outline: "none" },
+                        hover: { outline: "none" },
+                        pressed: { outline: "none" },
                       }}
                     />
                   );
@@ -79,6 +89,27 @@ function WorldMap({ setTooltip }) {
 
 WorldMap.propTypes = {
   setTooltip: PropTypes.func.isRequired,
+  filteredData: PropTypes.arrayOf(
+    PropTypes.shape({
+      countryCases: PropTypes.shape({
+        country: string,
+        countryInfo: PropTypes.shape({
+          _id: number,
+          iso2: string,
+          iso3: string,
+          lat: number,
+          long: number,
+          flag: string,
+        }),
+        casesPerOneMillion: number,
+        deathsPerOneMillion: number,
+        testsPerOneMillion: number,
+        activePerOneMillion: number,
+        recoveredPerOneMillion: number,
+        criticalPerOneMillion: number,
+      }),
+    })
+  ).isRequired,
 };
 
 export default memo(WorldMap);
