@@ -79,7 +79,7 @@ export const Wrapper = styled.div`
         cursor: pointer;
       }
     }
-    .searchIcon {
+    .search-icon {
       width: 35px;
       height: 2rem;
       border: 2px solid #33596d !important;

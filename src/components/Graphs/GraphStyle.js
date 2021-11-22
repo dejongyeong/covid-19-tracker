@@ -9,15 +9,35 @@ export const Wrapper = styled.div`
     border: 1px solid rgba(234, 226, 183, 0.3);
     box-shadow: 0 4px 8px 0 rgba(234, 226, 183, 0.2);
 
-    select {
-      height: 2rem !important;
-      width: 20rem;
-      font-family: ${(props) => props.theme.font.heading};
-      color: ${(props) => props.theme.colors.primaryColor};
-      font-size: 0.85rem !important;
-      border: 2px solid #33596d !important;
-      border-radius: 5px;
+    .select-bar {
+      display: flex;
       margin: 4px auto 6px 4px;
+
+      .select-icon {
+        width: 35px;
+        height: 2rem;
+        border: 2px solid #33596d !important;
+        background: #33596d;
+        text-align: center;
+        color: #fff;
+        border-radius: 5px 0px 0px 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      select {
+        height: 2rem !important;
+        width: 19rem;
+        font-family: ${(props) => props.theme.font.heading};
+        color: ${(props) => props.theme.colors.primaryColor};
+        font-size: 0.85rem !important;
+        border: 2px solid #33596d !important;
+        border-radius: 0px 5px 5px 0px;
+        outline: none;
+        border-left: none;
+        padding-left: 0.5rem;
+      }
     }
 
     .title {

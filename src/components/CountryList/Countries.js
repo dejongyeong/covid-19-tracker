@@ -30,7 +30,7 @@ function CountrySearch({ globalFilter, setGlobalFilter }) {
 
   return (
     <div className="search-bar">
-      <div className="searchIcon">
+      <div className="search-icon">
         <FontAwesomeIcon icon={faSearch} size="sm" />
       </div>
       <input

@@ -1,7 +1,8 @@
 import React from "react";
 import PropTypes, { number, string } from "prop-types";
 import ReactToolTip from "react-tooltip";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHandPointer } from "@fortawesome/free-solid-svg-icons";
 import { Wrapper } from "./GraphStyle";
 import WorldMap from "./WorldMap";
 
@@ -43,12 +44,17 @@ function Graph({ countryCases }) {
   return (
     <Wrapper>
       <div className="world-map">
-        <select name="option" value={value} onChange={handleChange}>
-          <option value="confirm">Confirmed Cases Per One Million</option>
-          <option value="recover">Recovered Cases Per One Million</option>
-          <option value="death">Deceased Cases Per One Million</option>
-          <option value="tests">Covid-19 Tested Per One Million</option>
-        </select>
+        <div className="select-bar">
+          <div className="select-icon">
+            <FontAwesomeIcon icon={faHandPointer} size="sm" />
+          </div>
+          <select name="option" value={value} onChange={handleChange}>
+            <option value="confirm">Confirmed Cases Per One Million</option>
+            <option value="recover">Recovered Cases Per One Million</option>
+            <option value="death">Deceased Cases Per One Million</option>
+            <option value="tests">Covid-19 Tested Per One Million</option>
+          </select>
+        </div>
         {/* <div className="title">
           <h3>Confirmed Covid-19 Cases Per One Million</h3>
         </div> */}
