@@ -6,15 +6,16 @@ export const Wrapper = styled.div`
   color: ${(props) => props.theme.colors.primaryColor};
 
   .world-map {
-    border: 1px solid rgba(234, 226, 183, 0.3);
-    box-shadow: 0 4px 8px 0 rgba(234, 226, 183, 0.2);
+    border: 1px solid rgba(234, 226, 183, 0.5);
+    box-shadow: 0 4px 8px 0 rgba(234, 226, 183, 0.5);
+    border-radius: 5px;
 
     .select-bar {
       display: flex;
       margin: 4px auto 6px 4px;
 
       .select-icon {
-        width: 35px;
+        width: 34px;
         height: 2rem;
         border: 2px solid #33596d !important;
         background: #33596d;
@@ -28,7 +29,7 @@ export const Wrapper = styled.div`
 
       select {
         height: 2rem !important;
-        width: 19rem;
+        width: 20rem;
         font-family: ${(props) => props.theme.font.heading};
         color: ${(props) => props.theme.colors.primaryColor};
         font-size: 0.85rem !important;
@@ -40,20 +41,9 @@ export const Wrapper = styled.div`
       }
     }
 
-    .title {
-      font-family: ${(props) => props.theme.font.heading};
-      text-align: center;
-      font-size: 0.75rem;
-      margin-bottom: 0.4rem;
-      color: #33596d;
-      h3 {
-        margin-top: 0.7rem;
-      }
-    }
-
     .map-chart {
       display: grid;
-      grid-template-columns: 9fr 1fr;
+      grid-template-columns: 8.8fr 1.2fr;
       grid-gap: 0.47rem;
 
       .maps > svg {
@@ -74,10 +64,25 @@ export const Wrapper = styled.div`
           }
         }
 
-        .box-gradient {
-          background: linear-gradient(to right, #ff8c8c, #d62828);
+        .box-gradient-cases {
           height: 15px;
           width: 100%;
+          background: linear-gradient(to right, #ff8c8c, #d62828);
+        }
+        .box-gradient-recover {
+          height: 15px;
+          width: 100%;
+          background: linear-gradient(to right, #7dc9ab, #026a41);
+        }
+        .box-gradient-deaths {
+          height: 15px;
+          width: 100%;
+          background: linear-gradient(to right, #b0b0b0, #303030);
+        }
+        .box-gradient-tests {
+          height: 15px;
+          width: 100%;
+          background: linear-gradient(to right, #ccb399, #9c5000);
         }
       }
 
@@ -97,10 +102,25 @@ export const Wrapper = styled.div`
             margin-left: 22px;
           }
 
-          .box-gradient {
-            height: 99%;
-            width: 15px;
+          .box-gradient-cases {
+            height: 15px;
+            width: 100%;
             background: linear-gradient(#ff8c8c, #d62828);
+          }
+          .box-gradient-recover {
+            height: 15px;
+            width: 100%;
+            background: linear-gradient(#7dc9ab, #026a41);
+          }
+          .box-gradient-deaths {
+            height: 15px;
+            width: 100%;
+            background: linear-gradient(#b0b0b0, #303030);
+          }
+          .box-gradient-tests {
+            height: 15px;
+            width: 100%;
+            background: linear-gradient(#ccb399, #9c5000);
           }
         }
       }

@@ -30,7 +30,6 @@ const filterData = (data) => {
     criticalPerOneMillion,
   };
 };
-
 function Graph({ countryCases }) {
   const [content, setContent] = React.useState("");
   const filteredData = countryCases.map(filterData); // select only the specific data
@@ -51,14 +50,17 @@ function Graph({ countryCases }) {
           <select name="option" value={value} onChange={handleChange}>
             <option value="confirm">Confirmed Cases Per One Million</option>
             <option value="recover">Recovered Cases Per One Million</option>
-            <option value="death">Deceased Cases Per One Million</option>
-            <option value="tests">Covid-19 Tested Per One Million</option>
+            <option value="deaths">Deceased Cases Per One Million</option>
+            <option value="tests">
+              Covid-19 Test Conducted Per One Million
+            </option>
           </select>
         </div>
-        {/* <div className="title">
-          <h3>Confirmed Covid-19 Cases Per One Million</h3>
-        </div> */}
-        <WorldMap setTooltip={setContent} filteredData={filteredData} />
+        <WorldMap
+          setTooltip={setContent}
+          filteredData={filteredData}
+          choices={value}
+        />
         <ReactToolTip className="custom-tooltip">{content}</ReactToolTip>
       </div>
     </Wrapper>

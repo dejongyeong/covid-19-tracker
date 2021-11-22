@@ -9,23 +9,88 @@ import {
 import { scaleLinear } from "d3-scale";
 import { GEO_URL } from "../../api/ApiConstant";
 
-// resolve d3 jest issue: https://stackoverflow.com/questions/69075510/jest-tests-failing-on-d3-import
+// functional methods to filter only the specific element/key
+const options = (choices, filteredData) => {
+  switch (choices) {
+    case "recover":
+      return [
+        filteredData.map(
+          ({ recoveredPerOneMillion }) => recoveredPerOneMillion
+        ),
+        ["#7dc9ab", "#026a41"],
+      ];
+    case "deaths":
+      return [
+        filteredData.map(({ deathsPerOneMillion }) => deathsPerOneMillion),
+        ["#b0b0b0", "#303030"],
+      ];
+    case "tests":
+      return [
+        filteredData.map(({ testsPerOneMillion }) => testsPerOneMillion),
+        ["#ccb399", "#9c5000"],
+      ];
+    default:
+      return [
+        filteredData.map(({ casesPerOneMillion }) => casesPerOneMillion),
+        ["#ff8c8c", "#d62828"],
+      ];
+  }
+};
 
-// eslint-disable-next-line no-unused-vars
-function WorldMap({ setTooltip, filteredData }) {
+// functional methods to calculate the color range
+const selectedColor = (minVal, maxVal, colors, selectedOption, data) => {
+  const colorScale = scaleLinear().domain([minVal, maxVal]).range(colors);
+
+  switch (selectedOption) {
+    case "recover":
+      return colorScale(data.recoveredPerOneMillion);
+    case "deaths":
+      return colorScale(data.deathsPerOneMillion);
+    case "tests":
+      return colorScale(data.testsPerOneMillion);
+    default:
+      return colorScale(data.casesPerOneMillion);
+  }
+};
+
+// functional methods to retrieve the ... per one million value
+const casesValue = (selectedOption, data) => {
+  switch (selectedOption) {
+    case "recover":
+      return data.recoveredPerOneMillion;
+    case "deaths":
+      return data.deathsPerOneMillion;
+    case "tests":
+      return data.testsPerOneMillion;
+    default:
+      return data.casesPerOneMillion;
+  }
+};
+
+// functional methods to style the legend
+const legendStyle = (selectedOption) => {
+  switch (selectedOption) {
+    case "recover":
+      return `box-gradient-recover`;
+    case "deaths":
+      return `box-gradient-deaths`;
+    case "tests":
+      return `box-gradient-tests`;
+    default:
+      return `box-gradient-cases`;
+  }
+};
+
+// const colorScaleStyle = (color) => {};
+
+// resolve d3 jest issue: https://stackoverflow.com/questions/69075510/jest-tests-failing-on-d3-import
+function WorldMap({ setTooltip, filteredData, choices }) {
   const mapWidth = 800;
   const mapHeight = 410;
 
-  const casesPerMillion = filteredData.map(
-    ({ casesPerOneMillion }) => casesPerOneMillion
-  );
-
-  const minVal = Math.min(...casesPerMillion);
-  const maxVal = Math.max(...casesPerMillion);
-
-  const colorScale = scaleLinear()
-    .domain([minVal, maxVal])
-    .range(["#ff8c8c", "#d62828"]);
+  const selectedValues = options(choices, filteredData);
+  const minVal = Math.min(...selectedValues[0]);
+  const maxVal = Math.max(...selectedValues[0]);
 
   return (
     <div className="map-chart">
@@ -55,12 +120,22 @@ function WorldMap({ setTooltip, filteredData }) {
                     <Geography
                       key={geo.rsmKey}
                       geography={geo}
-                      fill={d ? colorScale(d.casesPerOneMillion) : "#F5F4F6"}
+                      fill={
+                        d
+                          ? selectedColor(
+                              minVal,
+                              maxVal,
+                              selectedValues[1],
+                              choices,
+                              d
+                            )
+                          : "#F5F4F6"
+                      }
                       onMouseEnter={() => {
                         const { NAME } = geo.properties;
                         setTooltip(
                           `${NAME}: ${
-                            d ? d.casesPerOneMillion.toLocaleString() : ""
+                            d ? casesValue(choices, d).toLocaleString() : ""
                           }`
                         );
                       }}
@@ -68,7 +143,7 @@ function WorldMap({ setTooltip, filteredData }) {
                         const { NAME } = geo.properties;
                         setTooltip(
                           `${NAME}: ${
-                            d ? d.casesPerOneMillion.toLocaleString() : ""
+                            d ? casesValue(choices, d).toLocaleString() : ""
                           }`
                         );
                       }}
@@ -90,11 +165,13 @@ function WorldMap({ setTooltip, filteredData }) {
       </div>
       <div className="map-info">
         <div className="box">
-          <span>{minVal}</span>
+          <span>{Math.ceil(minVal).toLocaleString()}</span>
           <span className="empty-display" />
-          <span className="max-value">{maxVal.toLocaleString()}</span>
+          <span className="max-value">
+            {Math.ceil(maxVal).toLocaleString()}
+          </span>
         </div>
-        <div className="box-gradient" />
+        <div className={legendStyle(choices)} />
       </div>
     </div>
   );
@@ -123,6 +200,7 @@ WorldMap.propTypes = {
       }),
     })
   ).isRequired,
+  choices: string.isRequired,
 };
 
 export default memo(WorldMap);

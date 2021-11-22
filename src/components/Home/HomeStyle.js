@@ -36,8 +36,9 @@ export const Container = styled.div`
   grid-gap: 0.9rem;
 
   .country-list {
-    border: 1px solid rgba(234, 226, 183, 0.3);
-    box-shadow: 0 4px 8px 0 rgba(234, 226, 183, 0.2);
+    border: 1px solid rgba(234, 226, 183, 0.5);
+    box-shadow: 0 4px 8px 0 rgba(234, 226, 183, 0.5);
+    border-radius: 5px;
     overflow: auto;
   }
 
