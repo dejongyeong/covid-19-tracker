@@ -144,7 +144,6 @@ export const LineGraphContainer = styled.div`
 
   .select-bar {
     display: flex;
-    margin-bottom: 52px;
 
     .select-icon {
       width: 34px;
@@ -162,14 +161,29 @@ export const LineGraphContainer = styled.div`
     select {
       height: 2rem !important;
       width: 17.5rem;
-      font-family: ${(props) => props.theme.font.heading};
-      color: ${(props) => props.theme.colors.primaryColor};
-      font-size: 0.85rem !important;
       border: 2px solid #33596d !important;
       border-radius: 0px 5px 5px 0px;
       outline: none;
       border-left: none;
       padding-left: 0.5rem;
+      font-family: ${(props) => props.theme.font.heading};
+      color: ${(props) => props.theme.colors.primaryColor};
+      font-size: 0.85rem !important;
+    }
+  }
+
+  .radio-section {
+    margin-top: 9px;
+    margin-bottom: 33px;
+    display: flex;
+    align-items: center;
+    font-family: ${(props) => props.theme.font.heading};
+    color: ${(props) => props.theme.colors.primaryColor};
+    font-size: 0.9rem !important;
+
+    input[type="radio"] {
+      margin-left: 10px;
+      margin-right: 5px;
     }
   }
 
@@ -177,10 +191,6 @@ export const LineGraphContainer = styled.div`
     width: 864px;
     height: 450px;
     text-align: center;
-    /* display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center; */
     padding-top: 70px;
     font-family: ${(props) => props.theme.font.heading};
     color: ${(props) => props.theme.colors.primaryColor};

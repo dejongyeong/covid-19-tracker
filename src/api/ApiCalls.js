@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import axios from "axios";
 
 import {
-  COUNTRIES,
   COUNTRIES_CASES_API,
   COUNTRY_HISTORICAL_API,
   GLOBAL_HISTORY_API,
@@ -83,7 +82,7 @@ export const getGlobalHistorical = (errorCallback) => {
   return global;
 };
 
-export const getSpecificHistorical = (country) => {
+export const getSpecificHistorical = (country, historyOption) => {
   const [history, setHistory] = React.useState(null);
   React.useMemo(() => {
     let unmounted = false;
@@ -91,7 +90,7 @@ export const getSpecificHistorical = (country) => {
       try {
         if (!unmounted) {
           const result = await axios(
-            `${COUNTRY_HISTORICAL_API}/${country}?lastdays=all`
+            `${COUNTRY_HISTORICAL_API}/${country}?lastdays=${historyOption}`
           );
           setHistory(result.data);
         }
@@ -103,77 +102,7 @@ export const getSpecificHistorical = (country) => {
     return () => {
       unmounted = true;
     };
-  }, [country]);
+  }, [country, historyOption]);
 
   return history;
-};
-
-// ****************** remove below *************************
-
-/**
- * Function that returns a list of countries
- * Tutorial: https://www.robinwieruch.de/react-hooks-fetch-data and https://reactjs.org/docs/hooks-custom.html
- * @returns {array} countries
- */
-export const getCountries = () => {
-  const [countries, setCountries] = React.useState([]);
-  // eslint-disable-next-line no-unused-vars
-  const [isError, setIsError] = React.useState(false);
-
-  useEffect(() => {
-    const fetchCountries = async () => {
-      try {
-        const result = await axios(`${COUNTRIES}`);
-        setCountries(result);
-        console.log(result);
-      } catch (error) {
-        setIsError(true);
-      }
-    };
-    fetchCountries();
-  }, []);
-
-  return countries;
-};
-
-/**
- * Function that returns covid cases of a specific country
- * @param {string} countryName
- * @param {function} loadingCallback
- * @returns {json} covidCases
- */
-export const getCases = (countryName, loadingCallback) => {
-  const [covidCases, setCovidCases] = React.useState(null);
-  // eslint-disable-next-line no-unused-vars
-  const [isError, setIsError] = React.useState(false);
-
-  let url = `${URL}/all`;
-  if (countryName.trim().toLowerCase() !== "worldwide") {
-    const country = countryName.replaceAll(" ", "%20").trim();
-    url = `${URL}/countries/${country}`;
-  }
-
-  useEffect(() => {
-    const fetchCases = async () => {
-      axios({
-        method: "GET",
-        url,
-      })
-        .then((response) => {
-          setCovidCases(response.data);
-          loadingCallback(false);
-        })
-        .catch(() => {
-          setIsError(true);
-        });
-    };
-    fetchCases();
-  }, []);
-
-  return covidCases;
-};
-
-getCases.propTypes = {
-  countryName: PropTypes.number.isRequired,
-  loadingCallback: PropTypes.func.isRequired,
 };

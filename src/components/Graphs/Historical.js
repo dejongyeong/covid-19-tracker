@@ -4,8 +4,8 @@ import { Line } from "react-chartjs-2";
 import { getSpecificHistorical } from "../../api/ApiCalls";
 import NoDataLogo from "../../assets/icons/no-data.svg";
 
-function Historical({ selectedCountry }) {
-  const history = getSpecificHistorical(selectedCountry);
+function Historical({ selectedCountry, historyOption }) {
+  const history = getSpecificHistorical(selectedCountry, historyOption);
 
   if (history === null) {
     return (
@@ -46,15 +46,37 @@ function Historical({ selectedCountry }) {
     ],
   };
 
+  const options = {
+    elements: {
+      point: {
+        radius: 2,
+      },
+    },
+    plugins: {
+      legend: {
+        display: true,
+        position: "bottom",
+        labels: {
+          color: "#003049",
+          font: {
+            family: `Rubik, sans-serif`,
+            size: 13,
+          },
+        },
+      },
+    },
+  };
+
   return (
     <div>
-      <Line data={data} />
+      <Line data={data} options={options} />
     </div>
   );
 }
 
 Historical.propTypes = {
   selectedCountry: string.isRequired,
+  historyOption: string.isRequired,
 };
 
 export default Historical;

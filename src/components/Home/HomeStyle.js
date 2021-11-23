@@ -32,7 +32,7 @@ export const Container = styled.div`
   max-height: 100%;
   margin: 1rem auto 0 auto;
   display: grid;
-  grid-template-columns: 2fr 2fr;
+  grid-template-columns: 1.5fr 1.5fr;
   grid-gap: 0.9rem;
 
   .country-list {
@@ -40,7 +40,6 @@ export const Container = styled.div`
     box-shadow: 0 4px 8px 0 rgba(234, 226, 183, 0.5);
     border-radius: 5px;
     overflow: auto;
-    width: 100%;
   }
 
   @media only screen and (max-width: 1024px) {

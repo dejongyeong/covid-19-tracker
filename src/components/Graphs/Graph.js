@@ -44,6 +44,14 @@ function Graph({ countryCases }) {
   const countries = filteredData.map(({ country }) => country);
   const [selectedCountry, setSelectedCountry] = useState(countries[0]);
 
+  const [historyOption, setHistoryOption] = useState("all");
+  const historyOptionHandleChange = (event) => {
+    const { target } = event;
+    if (target.checked) {
+      setHistoryOption(target.value);
+    }
+  };
+
   return (
     <Wrapper>
       <div className="world-map">
@@ -84,7 +92,37 @@ function Graph({ countryCases }) {
             ))}
           </select>
         </div>
-        <Historical selectedCountry={selectedCountry} />
+        <div className="radio-section">
+          <span>Historical Data:</span>
+          <input
+            type="radio"
+            value="15"
+            name="history"
+            checked={historyOption === "15"}
+            onChange={historyOptionHandleChange}
+          />{" "}
+          <p>Last 15 Days</p>
+          <input
+            type="radio"
+            value="30"
+            name="history"
+            checked={historyOption === "30"}
+            onChange={historyOptionHandleChange}
+          />{" "}
+          <p>Last 30 Days</p>
+          <input
+            type="radio"
+            value="all"
+            name="history"
+            checked={historyOption === "all"}
+            onChange={historyOptionHandleChange}
+          />{" "}
+          <p>Since Outbreak</p>
+        </div>
+        <Historical
+          selectedCountry={selectedCountry}
+          historyOption={historyOption}
+        />
       </LineGraphContainer>
     </Wrapper>
   );

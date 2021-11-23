@@ -44,8 +44,8 @@ function Home() {
         </Container>
         <div className="info-tag">
           <p>
-            * Global recovered cases in Open Disease Data API not updated since
-            August 5, 2021.
+            * Global and country specific recovered cases in Open Disease Data
+            API not updated since August 5, 2021.
           </p>
         </div>
       </>

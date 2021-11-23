@@ -10,6 +10,7 @@ export const Wrapper = styled.div`
     text-align: left;
     border-collapse: collapse;
     white-space: nowrap;
+
     thead {
       font-family: ${(props) => props.theme.font.heading};
       font-size: 0.8rem;

@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
   width: 100%;
-  color: black;
+  color: #000000;
   .time {
     font-family: ${(props) => props.theme.font.paragraph};
     color: #3c3c3c;
