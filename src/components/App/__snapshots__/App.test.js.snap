@@ -95,15 +95,15 @@ exports[`Home renders correctly 1`] = `
   </header>
   <div>
     <div
-      className="sc-fotOHu cuCzjR"
+      className="sc-fFeiMQ gkIkuG"
       id="covid-data"
     >
       <div
-        className="sc-bqiRlB bYITck"
+        className="sc-ksdxgE huhsRM"
         id="api-error"
       >
         <div
-          className="sc-ksdxgE bbZRcn"
+          className="sc-hBUSln dvpzzP"
         >
           <svg
             className="spinner"
@@ -127,7 +127,7 @@ exports[`Home renders correctly 1`] = `
           </svg>
         </div>
         <div
-          className="sc-hBUSln fSWgLL"
+          className="sc-fotOHu dKcATe"
         >
           <h1>
             Fetching Data...
@@ -137,7 +137,7 @@ exports[`Home renders correctly 1`] = `
     </div>
   </div>
   <div
-    className="sc-giYglK jRMjyA"
+    className="sc-ezbkAF diIXNq"
     id="footer"
   >
     <p>

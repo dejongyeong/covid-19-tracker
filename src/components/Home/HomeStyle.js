@@ -28,11 +28,11 @@ export const Wrapper = styled.div`
 
 export const Container = styled.div`
   width: auto;
-  height: 100vh;
+  height: 100%;
   max-height: 100%;
   margin: 1rem auto 0 auto;
   display: grid;
-  grid-template-columns: 1.5fr 1.8fr;
+  grid-template-columns: 2fr 2fr;
   grid-gap: 0.9rem;
 
   .country-list {
@@ -40,6 +40,7 @@ export const Container = styled.div`
     box-shadow: 0 4px 8px 0 rgba(234, 226, 183, 0.5);
     border-radius: 5px;
     overflow: auto;
+    width: 100%;
   }
 
   @media only screen and (max-width: 1024px) {

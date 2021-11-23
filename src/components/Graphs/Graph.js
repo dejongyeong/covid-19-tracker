@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import PropTypes, { func, number, string } from "prop-types";
+import PropTypes, { number, string } from "prop-types";
 import ReactToolTip from "react-tooltip";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGlobe, faHandPointer } from "@fortawesome/free-solid-svg-icons";
@@ -32,7 +32,7 @@ const filterData = (data) => {
   };
 };
 
-function Graph({ countryCases, gatedSetError }) {
+function Graph({ countryCases }) {
   const [content, setContent] = useState("");
   const filteredData = countryCases.map(filterData); // select only the specific data
 
@@ -84,10 +84,7 @@ function Graph({ countryCases, gatedSetError }) {
             ))}
           </select>
         </div>
-        <Historical
-          selectedCountry={selectedCountry}
-          gatedSetError={gatedSetError}
-        />
+        <Historical selectedCountry={selectedCountry} />
       </LineGraphContainer>
     </Wrapper>
   );
@@ -130,7 +127,6 @@ Graph.propTypes = {
       }),
     })
   ).isRequired,
-  gatedSetError: func.isRequired,
 };
 
 export default Graph;

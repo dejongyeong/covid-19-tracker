@@ -78,7 +78,7 @@ function Table({ columns, data }) {
     {
       columns,
       data,
-      initialState: { pageIndex: 0, pageSize: 25 },
+      initialState: { pageIndex: 0, pageSize: 20 },
     },
     useGlobalFilter,
     usePagination,

@@ -83,18 +83,20 @@ export const getGlobalHistorical = (errorCallback) => {
   return global;
 };
 
-export const getSpecificHistorical = (country, errorCallback) => {
+export const getSpecificHistorical = (country) => {
   const [history, setHistory] = React.useState(null);
   React.useMemo(() => {
     let unmounted = false;
     const fetchHistoricalData = async () => {
       try {
         if (!unmounted) {
-          const result = await axios(`${COUNTRY_HISTORICAL_API}/${country}`);
+          const result = await axios(
+            `${COUNTRY_HISTORICAL_API}/${country}?lastdays=all`
+          );
           setHistory(result.data);
         }
       } catch (error) {
-        errorCallback(true);
+        setHistory(null);
       }
     };
     fetchHistoricalData();

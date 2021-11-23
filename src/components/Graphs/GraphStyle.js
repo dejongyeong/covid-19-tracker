@@ -43,7 +43,7 @@ export const Wrapper = styled.div`
 
     .map-chart {
       display: grid;
-      grid-template-columns: 8.8fr 1.2fr;
+      grid-template-columns: 8.9fr 1.1fr;
       grid-gap: 0.47rem;
 
       .maps > svg {
@@ -139,10 +139,12 @@ export const LineGraphContainer = styled.div`
   border: 1px solid rgba(234, 226, 183, 0.5);
   box-shadow: 0 4px 8px 0 rgba(234, 226, 183, 0.5);
   border-radius: 5px;
+  height: 100%;
+  padding: 4px 9px 4px 4px;
 
   .select-bar {
     display: flex;
-    margin: 4px auto 6px 4px;
+    margin-bottom: 52px;
 
     .select-icon {
       width: 34px;
@@ -168,6 +170,26 @@ export const LineGraphContainer = styled.div`
       outline: none;
       border-left: none;
       padding-left: 0.5rem;
+    }
+  }
+
+  .no-data-container {
+    width: 864px;
+    height: 450px;
+    text-align: center;
+    /* display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; */
+    padding-top: 70px;
+    font-family: ${(props) => props.theme.font.heading};
+    color: ${(props) => props.theme.colors.primaryColor};
+
+    img {
+      height: auto;
+      width: 100%;
+      max-width: 200px;
+      margin-bottom: 20px;
     }
   }
 `;

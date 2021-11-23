@@ -1,36 +1,60 @@
 import React from "react";
-import { func, string } from "prop-types";
+import { string } from "prop-types";
+import { Line } from "react-chartjs-2";
 import { getSpecificHistorical } from "../../api/ApiCalls";
+import NoDataLogo from "../../assets/icons/no-data.svg";
 
-// eslint-disable-next-line no-unused-vars
-function Historical({ selectedCountry, gatedSetError }) {
-  const history = getSpecificHistorical(selectedCountry, gatedSetError);
+function Historical({ selectedCountry }) {
+  const history = getSpecificHistorical(selectedCountry);
+
   if (history === null) {
-    return null;
+    return (
+      <div className="no-data-container">
+        <img src={NoDataLogo} alt="no data" />
+        <h3>
+          {selectedCountry} has no historical data from Open Disease Data API.
+        </h3>
+      </div>
+    );
   }
+
+  const casesTimeline = history.timeline.cases;
+  const deathsTimeline = history.timeline.deaths;
+  const recoverTimeline = history.timeline.recovered;
+
+  const data = {
+    labels: Array.from(Object.keys(casesTimeline)),
+    datasets: [
+      {
+        label: "Confirm Cases",
+        data: Array.from(Object.values(casesTimeline)),
+        fill: false,
+        borderColor: "#d62828",
+      },
+      {
+        label: "Recovered Cases *",
+        data: Array.from(Object.values(recoverTimeline)),
+        fill: false,
+        borderColor: "#026a41",
+      },
+      {
+        label: "Death Cases",
+        data: Array.from(Object.values(deathsTimeline)),
+        fill: false,
+        borderColor: "#303030",
+      },
+    ],
+  };
+
   return (
     <div>
-      <h2>Graph</h2>
+      <Line data={data} />
     </div>
   );
 }
 
 Historical.propTypes = {
   selectedCountry: string.isRequired,
-  gatedSetError: func.isRequired,
 };
-
-// Historical.propTypes = {
-//   countryHistory: PropTypes.shape({
-//     country: string,
-//     province: PropTypes.arrayOf(string),
-//     timeline: PropTypes.shape({
-//       cases: PropTypes.objectOf(number),
-//       deaths: PropTypes.objectOf(number),
-//       recovered: PropTypes.objectOf(number),
-//     }).isRequired,
-//   }).isRequired,
-
-// };
 
 export default Historical;
