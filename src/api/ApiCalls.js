@@ -5,6 +5,7 @@ import axios from "axios";
 import {
   COUNTRIES,
   COUNTRIES_CASES_API,
+  COUNTRY_HISTORICAL_API,
   GLOBAL_HISTORY_API,
   WORLD_CASES_API,
 } from "./ApiConstant";
@@ -80,6 +81,29 @@ export const getGlobalHistorical = (errorCallback) => {
   }, []);
 
   return global;
+};
+
+export const getSpecificHistorical = (country, errorCallback) => {
+  const [history, setHistory] = React.useState(null);
+  React.useMemo(() => {
+    let unmounted = false;
+    const fetchHistoricalData = async () => {
+      try {
+        if (!unmounted) {
+          const result = await axios(`${COUNTRY_HISTORICAL_API}/${country}`);
+          setHistory(result.data);
+        }
+      } catch (error) {
+        errorCallback(true);
+      }
+    };
+    fetchHistoricalData();
+    return () => {
+      unmounted = true;
+    };
+  }, [country]);
+
+  return history;
 };
 
 // ****************** remove below *************************

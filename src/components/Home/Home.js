@@ -39,7 +39,7 @@ function Home() {
             <Countries countryCases={countryCases} />
           </div>
           <div className="graph-section">
-            <Graph countryCases={countryCases} />
+            <Graph countryCases={countryCases} gatedSetError={gatedSetError} />
           </div>
         </Container>
         <div className="info-tag">

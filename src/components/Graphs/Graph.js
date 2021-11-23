@@ -1,10 +1,11 @@
-import React from "react";
-import PropTypes, { number, string } from "prop-types";
+import React, { useState } from "react";
+import PropTypes, { func, number, string } from "prop-types";
 import ReactToolTip from "react-tooltip";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHandPointer } from "@fortawesome/free-solid-svg-icons";
-import { Wrapper } from "./GraphStyle";
+import { faGlobe, faHandPointer } from "@fortawesome/free-solid-svg-icons";
+import { LineGraphContainer, Wrapper } from "./GraphStyle";
 import WorldMap from "./WorldMap";
+import Historical from "./Historical";
 
 // reference: https://levelup.gitconnected.com/how-to-select-specific-properties-from-an-array-of-objects-bd9f6c15dbd0
 const filterData = (data) => {
@@ -30,15 +31,18 @@ const filterData = (data) => {
     criticalPerOneMillion,
   };
 };
-function Graph({ countryCases }) {
-  const [content, setContent] = React.useState("");
+
+function Graph({ countryCases, gatedSetError }) {
+  const [content, setContent] = useState("");
   const filteredData = countryCases.map(filterData); // select only the specific data
 
-  const [value, setValue] = React.useState("confirm");
+  const [choices, setChoices] = useState("confirm");
   const handleChange = (event) => {
-    event.preventDefault();
-    setValue(event.target.value);
+    setChoices(event.target.value);
   };
+
+  const countries = filteredData.map(({ country }) => country);
+  const [selectedCountry, setSelectedCountry] = useState(countries[0]);
 
   return (
     <Wrapper>
@@ -47,7 +51,7 @@ function Graph({ countryCases }) {
           <div className="select-icon">
             <FontAwesomeIcon icon={faHandPointer} size="sm" />
           </div>
-          <select name="option" value={value} onChange={handleChange}>
+          <select name="option" value={choices} onChange={handleChange}>
             <option value="confirm">Confirmed Cases Per One Million</option>
             <option value="recover">Recovered Cases Per One Million</option>
             <option value="deaths">Deceased Cases Per One Million</option>
@@ -59,10 +63,32 @@ function Graph({ countryCases }) {
         <WorldMap
           setTooltip={setContent}
           filteredData={filteredData}
-          choices={value}
+          choices={choices}
         />
         <ReactToolTip className="custom-tooltip">{content}</ReactToolTip>
       </div>
+      <LineGraphContainer>
+        <div className="select-bar">
+          <div className="select-icon">
+            <FontAwesomeIcon icon={faGlobe} size="sm" />
+          </div>
+          <select
+            name="option"
+            value={selectedCountry}
+            onChange={(e) => setSelectedCountry(e.target.value)}
+          >
+            {countries.map((country, index) => (
+              <option key={`${country + index}`} value={country}>
+                {country}
+              </option>
+            ))}
+          </select>
+        </div>
+        <Historical
+          selectedCountry={selectedCountry}
+          gatedSetError={gatedSetError}
+        />
+      </LineGraphContainer>
     </Wrapper>
   );
 }
@@ -104,6 +130,7 @@ Graph.propTypes = {
       }),
     })
   ).isRequired,
+  gatedSetError: func.isRequired,
 };
 
 export default Graph;

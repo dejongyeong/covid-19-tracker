@@ -103,23 +103,23 @@ export const Wrapper = styled.div`
           }
 
           .box-gradient-cases {
-            height: 15px;
-            width: 100%;
+            height: 99%;
+            width: 15px;
             background: linear-gradient(#ff8c8c, #d62828);
           }
           .box-gradient-recover {
-            height: 15px;
-            width: 100%;
+            height: 99%;
+            width: 15px;
             background: linear-gradient(#7dc9ab, #026a41);
           }
           .box-gradient-deaths {
-            height: 15px;
-            width: 100%;
+            height: 99%;
+            width: 15px;
             background: linear-gradient(#b0b0b0, #303030);
           }
           .box-gradient-tests {
-            height: 15px;
-            width: 100%;
+            height: 99%;
+            width: 15px;
             background: linear-gradient(#ccb399, #9c5000);
           }
         }
@@ -131,5 +131,43 @@ export const Wrapper = styled.div`
     border-radius: 1rem;
     font-size: 0.75rem !important;
     font-family: ${(props) => props.theme.font.heading};
+  }
+`;
+
+export const LineGraphContainer = styled.div`
+  margin-top: 0.8rem;
+  border: 1px solid rgba(234, 226, 183, 0.5);
+  box-shadow: 0 4px 8px 0 rgba(234, 226, 183, 0.5);
+  border-radius: 5px;
+
+  .select-bar {
+    display: flex;
+    margin: 4px auto 6px 4px;
+
+    .select-icon {
+      width: 34px;
+      height: 2rem;
+      border: 2px solid #33596d !important;
+      background: #33596d;
+      text-align: center;
+      color: #fff;
+      border-radius: 5px 0px 0px 5px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    select {
+      height: 2rem !important;
+      width: 17.5rem;
+      font-family: ${(props) => props.theme.font.heading};
+      color: ${(props) => props.theme.colors.primaryColor};
+      font-size: 0.85rem !important;
+      border: 2px solid #33596d !important;
+      border-radius: 0px 5px 5px 0px;
+      outline: none;
+      border-left: none;
+      padding-left: 0.5rem;
+    }
   }
 `;
