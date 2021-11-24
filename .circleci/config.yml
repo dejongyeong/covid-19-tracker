@@ -44,9 +44,8 @@ workflows:
     jobs:
       - build
       - heroku/deploy-via-git:
-          requires: 
-            -build
-
+          requires:
+            - build
           filters:
             branches:
               only: main
