@@ -118,7 +118,9 @@ function Header() {
       <CustomAppBar position="static">
         <Toolbar>
           <Image>
-            <img src={Logo} alt="Logo" />
+            <NavLink exact to="/">
+              <img src={Logo} alt="Logo" />
+            </NavLink>
           </Image>
           <DesktopNav>
             <NavLink

@@ -6,7 +6,7 @@ Covid-19 Tracker Application with React.js and Graphs.
 
 **Features** of the Covid 19 Tracker includes:
 
-- Responsive UI design with Styled-Components.
+- Responsive UI design with Material UI and Styled-Components.
 - Line Chart and Choropleth Map for data visualization using [Chart.js](https://www.chartjs.org/) and [React Simple Maps](https://www.react-simple-maps.io/).
 - Animations.
 - Information about the novel coronavirus, including transmission, symptoms, preventions.
