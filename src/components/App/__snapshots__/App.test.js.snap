@@ -19,10 +19,18 @@ exports[`Home renders correctly 1`] = `
       <div
         className="sc-hKwDye kJcUYp"
       >
-        <img
-          alt="Logo"
-          src="logo.svg"
-        />
+        <a
+          aria-current="page"
+          className="active"
+          href="/"
+          onClick={[Function]}
+          style={Object {}}
+        >
+          <img
+            alt="Logo"
+            src="logo.svg"
+          />
+        </a>
       </div>
       <div
         className="sc-eCImPb eTOskA"
@@ -95,15 +103,15 @@ exports[`Home renders correctly 1`] = `
   </header>
   <div>
     <div
-      className="sc-fFeiMQ gkIkuG"
+      className="sc-bkkeKt eQjasW"
       id="covid-data"
     >
       <div
-        className="sc-ksdxgE huhsRM"
+        className="sc-hBUSln iLUidA"
         id="api-error"
       >
         <div
-          className="sc-hBUSln dvpzzP"
+          className="sc-fotOHu cMAMha"
         >
           <svg
             className="spinner"
@@ -127,7 +135,7 @@ exports[`Home renders correctly 1`] = `
           </svg>
         </div>
         <div
-          className="sc-fotOHu dKcATe"
+          className="sc-fFeiMQ chGJUV"
         >
           <h1>
             Fetching Data...
@@ -137,7 +145,7 @@ exports[`Home renders correctly 1`] = `
     </div>
   </div>
   <div
-    className="sc-ezbkAF diIXNq"
+    className="sc-bYoBSM hIWaMD"
     id="footer"
   >
     <p>
