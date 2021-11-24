@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 /* eslint-disable */
 export const Wrapper = styled.div`
-  height: 82.1vh;
+  height: 81vh;
   display: flex;
   justify-content: center;
   align-items: center;
