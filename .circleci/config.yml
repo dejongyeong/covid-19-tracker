@@ -2,6 +2,9 @@
 
 version: 2.1
 
+orbs:
+  heroku: circleci/heroku@1.2.6
+
 jobs:
   build:
     docker:
@@ -35,9 +38,6 @@ jobs:
 
       # run build
       - run: yarn run build
-
-orbs:
-  heroku: circleci/heroku@1.2.6
 
 workflows:
   heroku_deploy:
