@@ -58,7 +58,10 @@ const RetrieveData = ({ casesTimeline, deathsTimeline, recoverTimeline }) => {
           color: "#003049",
           font(context) {
             const { width } = context.chart;
-            const size = Math.round(width / 32);
+            let size = 13;
+            if (window.matchMedia("(max-width: 424.98px)").matches) {
+              size = Math.round(width / 32);
+            }
             return {
               size,
               family: `Rubik, sans-serif`,

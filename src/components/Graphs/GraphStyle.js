@@ -197,9 +197,17 @@ export const LineGraphContainer = styled.div`
     color: ${(props) => props.theme.colors.primaryColor};
     font-size: 0.9rem !important;
 
-    input[type="radio"] {
-      margin-left: 10px;
-      margin-right: 5px;
+    .history-15,
+    .history-30,
+    .history-all {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      input[type="radio"] {
+        margin-left: 10px;
+        margin-right: 5px;
+      }
     }
 
     @media only screen and (max-width: 424.98px) {
