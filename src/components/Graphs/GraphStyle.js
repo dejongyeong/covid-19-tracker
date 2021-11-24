@@ -43,7 +43,7 @@ export const Wrapper = styled.div`
 
     .map-chart {
       display: grid;
-      grid-template-columns: 8.9fr 1.1fr;
+      grid-template-columns: 8fr 1fr;
       grid-gap: 0.47rem;
 
       .maps > svg {
@@ -86,7 +86,7 @@ export const Wrapper = styled.div`
         }
       }
 
-      @media only screen and (max-width: 1440px) {
+      @media only screen and (max-width: 1439.98px) {
         grid-template-columns: 1fr;
         grid-gap: 0.3rem;
       }
