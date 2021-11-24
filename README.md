@@ -2,7 +2,7 @@
 
 Covid-19 Tracker Application with React.js and Graphs.
 
-**Aim** to acquire a knowledge of consuming an external Representational State Transfer (REST) API and presentation of data with graphs in React.js, the configuration of CI/CD with CircleCI and Netlify. The author has also planned to gain an understanding of ESLint (AirBnB Style Guide), snapshot testing in React.js, animations, and responsiveness.
+**Aim** to acquire a knowledge of consuming an external Representational State Transfer (REST) API and presentation of data with graphs in React.js, the configuration of CI/CD with CircleCI and Heroku. The author has also planned to gain an understanding of ESLint (AirBnB Style Guide), snapshot testing in React.js, animations, and responsiveness.
 
 **Features** of the Covid 19 Tracker includes:
 
