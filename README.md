@@ -2,18 +2,14 @@
 
 Covid-19 Tracker Application with React.js and Graphs.
 
-**Aims** to acquire a knowledge of consuming an external Representational State Transfer (REST) API and presentation of data with graphs in React.js, the configuration of CI/CD with CircleCI, and continuous deployment with Netlify. The author also planned to gain an understanding of ESLint (AirBnB Style Guide), unit testing in React.js, animations, and responsiveness.
+**Aim** to acquire a knowledge of consuming an external Representational State Transfer (REST) API and presentation of data with graphs in React.js, the configuration of CI/CD with CircleCI and Netlify. The author has also planned to gain an understanding of ESLint (AirBnB Style Guide), snapshot testing in React.js, animations, and responsiveness.
 
 **Features** of the Covid 19 Tracker includes:
 
-- Responsive UI design with Material UI and Styled-Components
-- Graphs representation of data
+- Responsive UI design with Styled-Components.
+- Line Chart and Choropleth Map for data visualization using [Chart.js](https://www.chartjs.org/) and [React Simple Maps](https://www.react-simple-maps.io/).
 - Animations.
 - Information about the novel coronavirus, including transmission, symptoms, preventions.
-
-**Changes** made from initial design:
-
-- Initial design for responsive Info Cards uses _Carousel_ feature, but have implemented to show all cards in column-direction. Thinking is it necessary? Would it be better just to show all cards in column format instead of carousel? **Will have to revise in future!!**
 
 ## References
 
