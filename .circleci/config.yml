@@ -31,14 +31,10 @@ jobs:
       - run: yarn lint
 
       # run test
-      - run:
-          name: Test
-          command: yarn test -u
+      - run: yarn test -u
 
       # run build
-      - run:
-          name: Build
-          command: yarn run build
+      - run: yarn run build
 
 orbs:
   heroku: circleci/heroku@1.2.6
@@ -48,7 +44,9 @@ workflows:
     jobs:
       - build
       - heroku/deploy-via-git:
-          requires: -build
+          requires: 
+            -build
+
           filters:
             branches:
               only: main
