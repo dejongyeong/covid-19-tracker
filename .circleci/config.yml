@@ -31,14 +31,14 @@ jobs:
       - run: yarn lint
 
       # run test
-      - run: 
+      - run:
           name: Test
           command: yarn test -u
 
       # run build
-      run:
-        name: Build
-        command: yarn run build
+      - run:
+          name: Build
+          command: yarn run build
 
 orbs:
   heroku: circleci/heroku@1.2.6
