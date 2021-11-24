@@ -9,6 +9,7 @@ export const Wrapper = styled.div`
     border: 1px solid rgba(234, 226, 183, 0.5);
     box-shadow: 0 4px 8px 0 rgba(234, 226, 183, 0.5);
     border-radius: 5px;
+    padding: 4px;
 
     .select-bar {
       display: flex;
@@ -38,6 +39,10 @@ export const Wrapper = styled.div`
         outline: none;
         border-left: none;
         padding-left: 0.5rem;
+
+        @media only screen and (max-width: 424.98px) {
+          width: 100%;
+        }
       }
     }
 
@@ -140,7 +145,7 @@ export const LineGraphContainer = styled.div`
   box-shadow: 0 4px 8px 0 rgba(234, 226, 183, 0.5);
   border-radius: 5px;
   height: 100%;
-  padding: 4px 9px 4px 4px;
+  padding: 4px;
 
   .select-bar {
     display: flex;
@@ -160,7 +165,7 @@ export const LineGraphContainer = styled.div`
 
     select {
       height: 2rem !important;
-      width: 17.5rem;
+      width: 20rem;
       border: 2px solid #33596d !important;
       border-radius: 0px 5px 5px 0px;
       outline: none;
@@ -169,11 +174,22 @@ export const LineGraphContainer = styled.div`
       font-family: ${(props) => props.theme.font.heading};
       color: ${(props) => props.theme.colors.primaryColor};
       font-size: 0.85rem !important;
+
+      @media only screen and (max-width: 424.98px) {
+        width: 100%;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 424.98px) {
+    canvas {
+      width: 100% !important;
+      height: auto !important;
     }
   }
 
   .radio-section {
-    margin-top: 9px;
+    margin-top: 14px;
     margin-bottom: 33px;
     display: flex;
     align-items: center;
@@ -184,6 +200,30 @@ export const LineGraphContainer = styled.div`
     input[type="radio"] {
       margin-left: 10px;
       margin-right: 5px;
+    }
+
+    @media only screen and (max-width: 424.98px) {
+      display: block;
+
+      .history-15,
+      .history-30,
+      .history-all {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        input[type="radio"] {
+          margin-left: 0;
+        }
+      }
+
+      .history-15 {
+        margin: 10px auto 5px auto;
+      }
+
+      .history-30 {
+        margin-bottom: 5px;
+      }
     }
   }
 

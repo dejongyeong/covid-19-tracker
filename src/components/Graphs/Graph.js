@@ -94,30 +94,36 @@ function Graph({ countryCases }) {
         </div>
         <div className="radio-section">
           <span>Historical Data:</span>
-          <input
-            type="radio"
-            value="15"
-            name="history"
-            checked={historyOption === "15"}
-            onChange={historyOptionHandleChange}
-          />{" "}
-          <p>Last 15 Days</p>
-          <input
-            type="radio"
-            value="30"
-            name="history"
-            checked={historyOption === "30"}
-            onChange={historyOptionHandleChange}
-          />{" "}
-          <p>Last 30 Days</p>
-          <input
-            type="radio"
-            value="all"
-            name="history"
-            checked={historyOption === "all"}
-            onChange={historyOptionHandleChange}
-          />{" "}
-          <p>Since Outbreak</p>
+          <div className="history-15">
+            <input
+              type="radio"
+              value="15"
+              name="history"
+              checked={historyOption === "15"}
+              onChange={historyOptionHandleChange}
+            />{" "}
+            <p>Last 15 Days</p>
+          </div>
+          <div className="history-30">
+            <input
+              type="radio"
+              value="30"
+              name="history"
+              checked={historyOption === "30"}
+              onChange={historyOptionHandleChange}
+            />{" "}
+            <p>Last 30 Days</p>
+          </div>
+          <div className="history-all">
+            <input
+              type="radio"
+              value="all"
+              name="history"
+              checked={historyOption === "all"}
+              onChange={historyOptionHandleChange}
+            />{" "}
+            <p>Since Outbreak</p>
+          </div>
         </div>
         <Historical
           selectedCountry={selectedCountry}

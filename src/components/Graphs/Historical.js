@@ -43,6 +43,7 @@ const RetrieveData = ({ casesTimeline, deathsTimeline, recoverTimeline }) => {
     ],
   };
 
+  // responsive legends: https://stackoverflow.com/questions/50475563/making-the-labels-responsive-in-chart-js
   const options = {
     elements: {
       point: {
@@ -55,9 +56,13 @@ const RetrieveData = ({ casesTimeline, deathsTimeline, recoverTimeline }) => {
         position: "bottom",
         labels: {
           color: "#003049",
-          font: {
-            family: `Rubik, sans-serif`,
-            size: 13,
+          font(context) {
+            const { width } = context.chart;
+            const size = Math.round(width / 32);
+            return {
+              size,
+              family: `Rubik, sans-serif`,
+            };
           },
         },
       },

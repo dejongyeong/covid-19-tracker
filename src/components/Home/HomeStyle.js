@@ -7,7 +7,6 @@ export const Wrapper = styled.div`
   height: 100%;
   padding: 15px 32px;
   margin: 10px auto 20px auto;
-  border: 1px solid blue;
 
   .info-tag {
     color: ${(props) => props.theme.colors.primaryColor};
