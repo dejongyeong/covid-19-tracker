@@ -201,5 +201,9 @@ export const LineGraphContainer = styled.div`
       max-width: 200px;
       margin-bottom: 20px;
     }
+
+    @media only screen and (max-width: 1440px) {
+      width: 100%;
+    }
   }
 `;

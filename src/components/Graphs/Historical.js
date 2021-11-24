@@ -1,27 +1,24 @@
 import React from "react";
-import { string } from "prop-types";
+import PropTypes, { string } from "prop-types";
 import { Line } from "react-chartjs-2";
 import { getSpecificHistorical } from "../../api/ApiCalls";
 import NoDataLogo from "../../assets/icons/no-data.svg";
 
-function Historical({ selectedCountry, historyOption }) {
-  const history = getSpecificHistorical(selectedCountry, historyOption);
+const NoData = ({ selectedCountry }) => {
+  return (
+    <div className="no-data-container">
+      <img src={NoDataLogo} alt="no data" />
+      <h3>
+        {selectedCountry} has no historical data from Open Disease Data API.
+      </h3>
+    </div>
+  );
+};
+NoData.propTypes = {
+  selectedCountry: string.isRequired,
+};
 
-  if (history === null) {
-    return (
-      <div className="no-data-container">
-        <img src={NoDataLogo} alt="no data" />
-        <h3>
-          {selectedCountry} has no historical data from Open Disease Data API.
-        </h3>
-      </div>
-    );
-  }
-
-  const casesTimeline = history.timeline.cases;
-  const deathsTimeline = history.timeline.deaths;
-  const recoverTimeline = history.timeline.recovered;
-
+const RetrieveData = ({ casesTimeline, deathsTimeline, recoverTimeline }) => {
   const data = {
     labels: Array.from(Object.keys(casesTimeline)),
     datasets: [
@@ -71,6 +68,30 @@ function Historical({ selectedCountry, historyOption }) {
     <div>
       <Line data={data} options={options} />
     </div>
+  );
+};
+RetrieveData.propTypes = {
+  casesTimeline: PropTypes.objectOf(PropTypes.number).isRequired,
+  deathsTimeline: PropTypes.objectOf(PropTypes.number).isRequired,
+  recoverTimeline: PropTypes.objectOf(PropTypes.number).isRequired,
+};
+
+function Historical({ selectedCountry, historyOption }) {
+  const history = getSpecificHistorical(selectedCountry, historyOption);
+
+  if (history === null) {
+    return <NoData selectedCountry={selectedCountry} />;
+  }
+
+  const casesTimeline = history.timeline.cases;
+  const deathsTimeline = history.timeline.deaths;
+  const recoverTimeline = history.timeline.recovered;
+  return (
+    <RetrieveData
+      casesTimeline={casesTimeline}
+      deathsTimeline={deathsTimeline}
+      recoverTimeline={recoverTimeline}
+    />
   );
 }
 
