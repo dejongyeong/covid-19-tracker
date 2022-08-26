@@ -31,13 +31,13 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       # run linting
-      - run: yarn lint
+      - run: npm run lint
 
       # run test
-      - run: yarn test -u
+      - run: npm test -u
 
       # run build
-      - run: yarn run build
+      - run: npm run build
 
 workflows:
   heroku_deploy:
