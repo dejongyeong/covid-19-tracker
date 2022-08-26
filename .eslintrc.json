@@ -4,7 +4,7 @@
     "es2021": true,
     "jest/globals": true
   },
-  "parser": "babel-eslint",
+  // "parser": "eslint-parser",
   "extends": [
     "plugin:react/recommended",
     "airbnb",
