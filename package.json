@@ -64,5 +64,5 @@
     "transformIgnorePatterns": [
       "/node_modules/(?!d3|d3-array|d3-scale|internmap|delaunator|robust-predicates)"
     ]
-  },
+  }
 }
