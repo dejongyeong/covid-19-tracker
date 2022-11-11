@@ -28,21 +28,19 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       # run linting
-      - run: yarn lint
+      - run: npm lint
 
       # run test
-      - run: yarn test -u
+      - run: npm test -u
 
       # run build
-      - run: yarn run build
+      - run: npm run build
 
       - run:
           name: deploy to netlify
           command: ./node_modules/.bin/netlify deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_ACCESS_TOKEN --prod --dir=build
-
 workflows:
-  version: 2
-  deploy:
+  build-deploy:
     jobs:
       - build:
           filters:
