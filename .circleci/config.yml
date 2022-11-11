@@ -6,39 +6,31 @@ jobs:
   build:
     docker:
       - image: cimg/node:16.16.0-browsers
-
     working_directory: ~/repo
-
     steps:
       - checkout
-
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "package.json" }}
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
-
       - run: yarn install
-
       - save_cache:
           paths:
             - node_modules
             - ~/.npm
             - ~/.cache
           key: v1-dependencies-{{ checksum "package.json" }}
-
       # run linting
-      - run: npm lint
-
+      - run: yarn lint
       # run test
-      - run: npm test -u
-
+      - run: yarn test -u
       # run build
-      - run: npm run build
-
+      - run: yarn run build
       - run:
           name: deploy to netlify
-          command: ./node_modules/.bin/netlify deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_ACCESS_TOKEN --prod --dir=build
+          command: curl -X POST -d {} $NETLIFY_DEPLOY_WEBHOOK
+
 workflows:
   build-deploy:
     jobs:
