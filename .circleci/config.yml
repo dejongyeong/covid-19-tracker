@@ -2,9 +2,6 @@
 
 version: 2.1
 
-orbs:
-  heroku: circleci/heroku@1.2.6
-
 jobs:
   build:
     docker:
@@ -39,13 +36,15 @@ jobs:
       # run build
       - run: yarn run build
 
+      - run:
+          name: deploy to netlify
+          command: ./node_modules/.bin/netlify deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_ACCESS_TOKEN --prod --dir=build
+
 workflows:
-  heroku_deploy:
+  version: 2
+  deploy:
     jobs:
       - build
-      - heroku/deploy-via-git:
-          requires:
-            - build
           filters:
             branches:
               only: main
