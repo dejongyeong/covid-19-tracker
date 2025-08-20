@@ -2,13 +2,13 @@
 
 exports[`Home renders correctly 1`] = `
 <div
-  className="sc-bdvvtL bVewFv"
+  className="sc-aXZVg cIJRhI"
 >
   <div
-    className="sc-gsDKAQ jZUonc"
+    className="sc-gEvEer hGBIDu"
   />
   <div
-    className="sc-dkPtRN iFhKdz"
+    className="sc-eqUAAy dipGQb"
   />
   <header
     className="MuiPaper-root MuiAppBar-root WithStyles(ForwardRef(AppBar))-root-3 MuiAppBar-positionStatic MuiAppBar-colorPrimary MuiPaper-elevation4"
@@ -17,7 +17,7 @@ exports[`Home renders correctly 1`] = `
       className="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters"
     >
       <div
-        className="sc-hKwDye kJcUYp"
+        className="sc-fqkvVR cpKQxA"
       >
         <a
           aria-current="page"
@@ -33,7 +33,7 @@ exports[`Home renders correctly 1`] = `
         </a>
       </div>
       <div
-        className="sc-eCImPb eTOskA"
+        className="sc-dcJsrY jzoLJi"
       >
         <a
           aria-current="page"
@@ -55,14 +55,14 @@ exports[`Home renders correctly 1`] = `
           onClick={[Function]}
         >
           <button
-            className="sc-jRQBWg dmdrSt"
+            className="sc-iGgWBj kmvXJb"
           >
             Information
           </button>
         </a>
       </div>
       <div
-        className="sc-gKclnd eZKPIm"
+        className="sc-gsFSXq loqbgU"
       >
         <button
           aria-label="menu"
@@ -103,15 +103,15 @@ exports[`Home renders correctly 1`] = `
   </header>
   <div>
     <div
-      className="sc-bkkeKt eQjasW"
+      className="sc-fPXMVe gknIrK"
       id="covid-data"
     >
       <div
-        className="sc-hBUSln iLUidA"
+        className="sc-dLMFU lchkbP"
         id="api-error"
       >
         <div
-          className="sc-fotOHu cMAMha"
+          className="sc-eDPEul dNItsL"
         >
           <svg
             className="spinner"
@@ -135,7 +135,7 @@ exports[`Home renders correctly 1`] = `
           </svg>
         </div>
         <div
-          className="sc-fFeiMQ chGJUV"
+          className="sc-eldPxv eANGiN"
         >
           <h1>
             Fetching Data...
@@ -145,12 +145,12 @@ exports[`Home renders correctly 1`] = `
     </div>
   </div>
   <div
-    className="sc-bYoBSM hIWaMD"
+    className="sc-iHGNWf dXSULG"
     id="footer"
   >
     <p>
       Design and Built by De Jong Yeong © 
-      2021
+      2025
        | Data Source: 
       <a
         href="https://disease.sh/"
